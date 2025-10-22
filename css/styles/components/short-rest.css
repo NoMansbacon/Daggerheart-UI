@@ -1,0 +1,182 @@
+
+/* Trigger button (the one in the note) */
+.dh-rest-trigger {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--background-modifier-border);
+  background: linear-gradient(
+    180deg,
+    var(--background-secondary) 0%,
+    color-mix(in oklab, var(--background-secondary), #000 10%) 100%
+  );
+  color: var(--text-normal);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-s);
+  transition: transform 100ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+.dh-rest-trigger:hover {
+  border-color: color-mix(in oklab, var(--background-modifier-border), #fff 18%);
+  box-shadow: 0 6px 14px rgba(0,0,0,.22);
+}
+.dh-rest-trigger:active { transform: translateY(1px) scale(0.99); }
+
+/* Modal layout */
+.dh-rest-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+.dh-rest-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(2px);
+}
+
+/* Panel */
+.dh-rest-chooser {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: min(620px, calc(100vw - 24px));
+  margin: 0 auto;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--background-modifier-border);
+  background: linear-gradient(
+    180deg,
+    var(--background-secondary) 0%,
+    color-mix(in oklab, var(--background-secondary), #000 12%) 100%
+  );
+  box-shadow: var(--shadow-l, 0 12px 28px rgba(0,0,0,.3));
+}
+
+/* Header bar */
+.dh-rest-headerbar {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.dh-rest-titlewrap { display: flex; flex-direction: column; gap: 2px; }
+.dh-rest-title { font-weight: 800; font-size: 13px; color: var(--text-normal); }
+.dh-rest-sub   { font-size: 11px; color: var(--text-faint); }
+
+.dh-rest-party {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-normal);
+  white-space: nowrap;
+}
+.dh-rest-pill {
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--background-modifier-border);
+  background: linear-gradient(
+    180deg,
+    var(--background-secondary) 0%,
+    color-mix(in oklab, var(--background-secondary), #000 10%) 100%
+  );
+  box-shadow: var(--shadow-s);
+}
+
+.dh-rest-picks {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Close (×) button */
+.dh-rest-close {
+  align-self: start;
+  justify-self: end;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  padding: 0;
+  border-radius: 8px;
+  border: 1px solid var(--background-modifier-border);
+  background: linear-gradient(
+    180deg,
+    var(--background-secondary) 0%,
+    color-mix(in oklab, var(--background-secondary), #000 10%) 100%
+  );
+  color: var(--text-muted);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-s);
+}
+.dh-rest-close:hover {
+  color: var(--text-normal);
+  border-color: color-mix(in oklab, var(--background-modifier-border), #fff 18%);
+}
+
+/* Action buttons */
+.dh-rest-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.dh-rest-btn {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--background-modifier-border);
+  background: linear-gradient(
+    180deg,
+    var(--background-secondary) 0%,
+    color-mix(in oklab, var(--background-secondary), #000 10%) 100%
+  );
+  color: var(--text-normal);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-s);
+}
+.dh-rest-btn.on {
+  border-color: color-mix(in oklab, var(--background-modifier-border), #fff 22%);
+  box-shadow: 0 6px 14px rgba(0,0,0,.22);
+}
+
+/* Apply row + math readout */
+.dh-rest-apply { margin-top: 6px; }
+.dh-event-btn {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--background-modifier-border);
+  background: linear-gradient(
+    180deg,
+    var(--background-secondary) 0%,
+    color-mix(in oklab, var(--background-secondary), #000 10%) 100%
+  );
+  color: var(--text-normal);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-s);
+  transition: transform 100ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+.dh-event-btn:hover {
+  border-color: color-mix(in oklab, var(--background-modifier-border), #fff 18%);
+  box-shadow: 0 6px 14px rgba(0,0,0,.22);
+}
+.dh-event-btn:active { transform: translateY(1px) scale(0.99); }
+
+.dh-rest-math {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  transition: opacity .4s ease;
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .dh-rest-chooser {
+    width: calc(100vw - 20px);
+    padding: 10px;
+  }
+}

@@ -1,24 +1,21 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "inlineSourceMap": true,
-    "inlineSources": true,
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM"],
     "module": "ESNext",
-    "target": "ES6",
-    "allowJs": true,
-    "noImplicitAny": true,
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "isolatedModules": true,
-    "strictNullChecks": true,
-    "lib": [
-      "DOM",
-      "ES5",
-      "ES6",
-      "ES7"
-    ]
+    "moduleResolution": "Node",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": ["node", "obsidian", "react", "react-dom"],
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./*"]
+    }
   },
-  "include": [
-    "**/*.ts"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "scripts/*.mjs"],
+  "exclude": ["node_modules", ".obsidian", "dist"]
 }

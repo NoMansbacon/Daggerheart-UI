@@ -1,0 +1,20 @@
+/* Inline damage row */
+.dh-damage-inline { margin: 8px 0 10px; }
+.dh-dmg-row {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.dh-dmg-group { display: inline-flex; flex-direction: column; gap: 4px; }
+.dh-dmg-label { font-size: 11px; color: var(--text-faint); }
+.dh-dmg-input {
+  width: 100px;
+  padding: 4px 6px;
+  border-radius: 8px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  box-shadow: var(--shadow-s) inset;
+}

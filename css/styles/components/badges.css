@@ -1,0 +1,20 @@
+.dh-badges{
+  display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 6px;
+}
+.dh-badge{
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: linear-gradient(
+    180deg,
+    var(--background-secondary) 0%,
+    color-mix(in oklab, var(--background-secondary), #000 12%) 100%
+  );
+  border: 1px solid var(--background-modifier-border);
+  box-shadow: var(--shadow-s);
+}
+.dh-badge .dh-badge-label{
+  font-size:12px; letter-spacing:.8px; text-transform:uppercase; color:var(--dh-text-muted);
+}
+.dh-badge .dh-badge-value{ font-size:12px; }

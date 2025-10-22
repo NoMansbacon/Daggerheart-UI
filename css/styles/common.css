@@ -1,0 +1,43 @@
+:root{
+  --dh-radius-card: 12px;
+  --dh-gap-s: 6px;
+  --dh-gap-m: 10px;
+
+  --dh-card-border: var(--background-modifier-border);
+  --dh-card-shadow: var(--shadow-s);
+  --dh-bg-top:  color-mix(in oklab, var(--background-secondary), #fff 4%);
+  --dh-bg-bot:  color-mix(in oklab, var(--background-secondary), #000 12%);
+
+  --dh-text:        var(--text-normal);
+  --dh-text-muted:  var(--text-muted);
+  --dh-text-faint:  var(--text-faint);
+  --dh-text-accent: var(--text-accent);
+  --dh-text-error:  var(--text-error);
+}
+
+/* Floating card surface */
+.dh-surface{
+  border-radius: var(--dh-radius-card);
+  border: 1px solid var(--dh-card-border);
+  background: linear-gradient(180deg, var(--dh-bg-top) 0%, var(--dh-bg-bot) 100%);
+  box-shadow: var(--dh-card-shadow);
+}
+
+/* Gold toggle */
+.dh-toggle{
+  --size: 18px;
+  width: calc(var(--size) * 1.8);
+  height: var(--size);
+  border-radius: 999px;
+  border: 1px solid var(--dh-card-border);
+  background: linear-gradient(180deg, var(--background-secondary) 0%, color-mix(in oklab, var(--background-secondary), #000 10%) 100%);
+  position: relative; cursor: pointer; display: inline-flex; align-items: center; padding: 0 2px;
+  box-shadow: var(--dh-card-shadow);
+}
+.dh-toggle .dot{
+  width: calc(var(--size) - 4px); height: calc(var(--size) - 4px); border-radius: 999px;
+  background: color-mix(in oklab, #d4af37, #000 8%);
+  transform: translateX(0); transition: transform 120ms ease;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.25), 0 2px 6px rgba(0,0,0,.25), 0 0 10px rgba(212,175,55,.35);
+}
+.dh-toggle.on .dot{ transform: translateX(100%); }
