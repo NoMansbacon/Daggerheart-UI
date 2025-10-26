@@ -69,11 +69,6 @@
     border-color 120ms ease,
     background 160ms ease;
 }
-
-.dh-consume-box:hover {
-  transform: translateY(-1px);
-}
-
 /* Filled = "gold toggle" look to match traits */
 .dh-consume-box.on {
   background: linear-gradient(180deg, #e2b64c, #b88418);
