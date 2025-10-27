@@ -6,7 +6,8 @@
   gap: 1em;
   width: 100%;
   max-width: 100%;
-  grid-template-areas:
+grid-template-areas:
+    "art"
     "badges"
     "traits"
     "vitals";
@@ -19,16 +20,35 @@
   .dh-dashboard {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-areas:
-      "badges badges"
-      "traits traits"
-      "vitals vitals";
+      "badges art"
+      "traits art"
+      "vitals art";
   }
 }
 
+.dh-dash-art     { grid-area: art; }
 .dh-dash-badges  { grid-area: badges; }
 .dh-dash-traits  { grid-area: traits; }
 .dh-dash-vitals  { grid-area: vitals; }
 .dh-dash-actions { display: none !important; }
+
+/* Art area sizing (minimal defaults; settings/YAML can override via CSS vars) */
+.dh-dashboard .dh-dash-art {
+  display: grid;
+  justify-items: stretch;
+  align-items: stretch;
+  min-width: 0; min-height: 0;
+}
+.dh-dashboard .dh-dash-art .dh-art-img {
+  display: block;
+  width: var(--dh-art-w, 100%);
+  height: auto;
+  max-width: 100%;
+  max-height: var(--dh-art-maxh, 100%);
+  object-fit: var(--dh-art-fit, contain);
+  object-position: center;
+  border-radius: var(--dh-art-radius, 12px);
+}
 
 /* Removes other CSS from standalone version */
 .dh-dashboard .dh-badges,

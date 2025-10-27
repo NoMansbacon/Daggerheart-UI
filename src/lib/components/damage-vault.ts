@@ -7,6 +7,7 @@ import { DamageInlineView } from "./damage-inline";
 import { parseYamlSafe } from "../utils/yaml";
 import * as store from "../services/stateStore";
 import { registerLiveCodeBlock } from "../liveBlock";
+import { createTemplateContext, processTemplate } from "../utils/template";
 const roots = new WeakMap<HTMLElement, Root>();
 
 function asNum(v: unknown, def = 0): number {
@@ -77,32 +78,49 @@ export function registerDamage(plugin: DaggerheartPlugin) {
       const hpKey = String(conf.hp_key ?? "din_health");
 
       const resolveThresholds = () => {
+        const tctx = createTemplateContext(el, plugin.app, ctx);
         const fm = plugin.app.metadataCache.getFileCache(file as TFile)?.frontmatter ?? {};
-        const fmMajor = readFmNumber(fm, ["majorthreshold","major_threshold","majorThreshold","major","armor_major_threshold"]);
-        const fmSevere = readFmNumber(fm, ["severethreshold","severe_threshold","severeThreshold","severe","armor_severe_threshold"]);
-        const yamlFinalMajor = conf.major_threshold;
-        const yamlFinalSevere = conf.severe_threshold;
+
+        const processMajor = conf.major_threshold ? processTemplate(String(conf.major_threshold), tctx) : undefined;
+        const processSevere = conf.severe_threshold ? processTemplate(String(conf.severe_threshold), tctx) : undefined;
+
+        // Prefer a non-empty processed template value, then frontmatter aliases, then base_*.
+        const parsedMajorFromTemplate = (typeof processMajor === 'string' && processMajor.trim() !== '') ? Number(processMajor) : NaN;
+        const parsedSevereFromTemplate = (typeof processSevere === 'string' && processSevere.trim() !== '') ? Number(processSevere) : NaN;
+
+        const fmMajor = Number.isFinite(parsedMajorFromTemplate)
+          ? parsedMajorFromTemplate
+          : readFmNumber(fm, ["majorthreshold","major_threshold","majorThreshold","major","armor_major_threshold"]);
+
+        const fmSevere = Number.isFinite(parsedSevereFromTemplate)
+          ? parsedSevereFromTemplate
+          : readFmNumber(fm, ["severethreshold","severe_threshold","severeThreshold","severe","armor_severe_threshold"]);
+
+        // Per rules: threshold numbers get your level added. Determine level first.
         const level = asNum(conf.level ?? fm.level ?? fm.tier ?? 0, 0);
-        let finalMajor: number; let finalSevere: number; let subtitle: string;
-        if (yamlFinalMajor != null || yamlFinalSevere != null || Number.isFinite(fmMajor) || Number.isFinite(fmSevere)) {
-          finalMajor = asNum(yamlFinalMajor ?? fmMajor ?? 0, 0);
-          finalSevere = asNum(yamlFinalSevere ?? fmSevere ?? 0, 0);
-          subtitle = `Final thresholds — Major: ${finalMajor} • Severe: ${finalSevere}`;
-        } else {
-          const baseMajor = asNum(conf.base_major ?? 0, 0);
-          const baseSevere = asNum(conf.base_severe ?? 0, 0);
-          finalMajor = baseMajor + level;
-          finalSevere = baseSevere + level;
-          subtitle = `Thresholds — Major: ${finalMajor} • Severe: ${finalSevere} (base ${baseMajor}/${baseSevere} + level ${level})`;
-        }
-        return { finalMajor, finalSevere, subtitle };
+
+        // Choose source threshold: prefer explicit YAML/template/frontmatter; otherwise use base_*.
+        const baseMajor = asNum(conf.base_major ?? 0, 0);
+        const baseSevere = asNum(conf.base_severe ?? 0, 0);
+
+        const sourceMajor = Number.isFinite(fmMajor) ? fmMajor : baseMajor;
+        const sourceSevere = Number.isFinite(fmSevere) ? fmSevere : baseSevere;
+
+        const finalMajor = asNum(sourceMajor, 0) + level;
+        const finalSevere = asNum(sourceSevere, 0) + level;
+
+        return { finalMajor, finalSevere };
       };
 
       const render = () => {
         const r = resolveThresholds();
         let root = roots.get(el);
         if (!root) { root = createRoot(el); roots.set(el, root); }
-        root.render(React.createElement(DamageInlineView, { title: String(conf.title ?? "Damage"), subtitle: r.subtitle, onApply: async (rawAmtInput: number, tierReduceInput: number) => {
+        root.render(React.createElement(DamageInlineView, { 
+          title: String(conf.title ?? "Damage"), 
+          majorThreshold: r.finalMajor,
+          severeThreshold: r.finalSevere,
+          onApply: async (rawAmtInput: number, tierReduceInput: number) => {
           const { finalMajor, finalSevere } = resolveThresholds();
           if (!Number.isFinite(finalMajor) || !Number.isFinite(finalSevere)) { new Notice("Damage: thresholds not found. Add majorthreshold/severethreshold to frontmatter, or base_major/base_severe in the block.", 6000); return; }
           const rawAmt = asNum(rawAmtInput, 0); const tierReduce = Math.max(0, Math.floor(asNum(tierReduceInput, 0)));

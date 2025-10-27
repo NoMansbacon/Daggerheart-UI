@@ -21,10 +21,23 @@ import { registerVitals } from "./lib/components/vitals";
 export default class DaggerheartPlugin extends Plugin {
   settings: DaggerheartSettings;
 
+  applyGlobalArtCssVars() {
+    try {
+      const r = document.documentElement as HTMLElement;
+      const set = (k: string, v?: string) => { if (v && String(v).trim()) r.style.setProperty(k, String(v).trim()); else r.style.removeProperty(k); };
+      set('--dh-art-w', this.settings.artWidth);
+      set('--dh-art-maxh', this.settings.artMaxHeight);
+      set('--dh-art-fit', this.settings.artFit as any);
+      set('--dh-art-radius', this.settings.artRadius);
+      set('--dh-art-align', this.settings.artAlign as any);
+    } catch {}
+  }
+
   async onload() {
     // Load settings and initialize state store
     await this.loadSettings();
     await this.initializeStore();
+    this.applyGlobalArtCssVars();
     this.addSettingTab(new DaggerheartSettingTab(this.app as App, this));
     console.log('[DH-UI] loaded');
 

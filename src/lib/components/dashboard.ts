@@ -17,6 +17,37 @@ import * as store from "../services/stateStore";
 import { registerLiveCodeBlock } from "../liveBlock";
 const roots = new WeakMap<HTMLElement, Root>();
 
+// --- helpers for resolving frontmatter art/image to a vault resource ---
+const IMAGE_EXTS = ["png", "jpg", "jpeg", "webp", "gif", "svg"] as const;
+
+function normalizeLinkText(v: unknown): string | null {
+  if (v == null) return null;
+  let s = String(v).trim();
+  if (!s) return null;
+  // strip wikilink wrappers and aliases
+  if (s.startsWith("![[") && s.endsWith("]]")) s = s.slice(3, -2);
+  if (s.startsWith("[[") && s.endsWith("]]")) s = s.slice(2, -2);
+  const bar = s.indexOf("|");
+  if (bar !== -1) s = s.slice(0, bar);
+  return s.trim();
+}
+
+function resolveImageFile(app: App, fromFile: TFile, nameOrPath: string): TFile | null {
+  const tryOne = (candidate: string): TFile | null => {
+    const f = app.metadataCache.getFirstLinkpathDest(candidate, fromFile.path) as TFile | null;
+    if (f && IMAGE_EXTS.includes(String(f.extension).toLowerCase() as any)) return f;
+    return null;
+  };
+  if (/\.[a-zA-Z0-9]+$/.test(nameOrPath)) {
+    return tryOne(nameOrPath);
+  }
+  for (const ext of IMAGE_EXTS) {
+    const f = tryOne(`${nameOrPath}.${ext}`);
+    if (f) return f;
+  }
+  return null;
+}
+
 type BadgeItem = { label?: string; value?: string | number | boolean | null };
 
 type TrackersConf = {
@@ -43,6 +74,7 @@ type DashboardYaml = {
   damage?: DamageConf | boolean;
   traits?: string | Record<string, any> | boolean;
   vitals?: boolean | Record<string, any>;
+  art?: boolean | string | Record<string, any>;
   class?: string;
 };
 
@@ -135,9 +167,12 @@ export function registerDashboard(plugin: DaggerheartPlugin) {
       const level = asNum(dconf.level ?? fm.level ?? fm.tier ?? 0, 0);
       let finalMajor: number; let finalSevere: number; let subtitle: string;
       if ((dconf as any).major_threshold != null || (dconf as any).severe_threshold != null || Number.isFinite(fmMajor) || Number.isFinite(fmSevere)){
-        finalMajor = asNum((dconf as any).major_threshold ?? fmMajor ?? 0, 0);
-        finalSevere = asNum((dconf as any).severe_threshold ?? fmSevere ?? 0, 0);
-        subtitle = `Final thresholds — Major: ${finalMajor} • Severe: ${finalSevere}`;
+        // Use explicit thresholds (from dashboard YAML, templates or frontmatter) and add the level per rules
+        const srcMajor = asNum((dconf as any).major_threshold ?? fmMajor ?? 0, 0);
+        const srcSevere = asNum((dconf as any).severe_threshold ?? fmSevere ?? 0, 0);
+        finalMajor = srcMajor + level;
+        finalSevere = srcSevere + level;
+        subtitle = `Final thresholds — Major: ${srcMajor} + level ${level} = ${finalMajor} • Severe: ${srcSevere} + level ${level} = ${finalSevere}`;
       } else {
         const baseMajor = asNum((dconf as any).base_major ?? 0, 0);
         const baseSevere = asNum((dconf as any).base_severe ?? 0, 0);
@@ -152,7 +187,50 @@ export function registerDashboard(plugin: DaggerheartPlugin) {
       const badgeRows = toBadgeRows(el, app as any, ctx, doc.badges?.items);
       const kinds = computeKinds();
       const vitalsKinds = computeVitalsKinds();
-      const { subtitle, hpKey } = resolveDamageThresholds();
+      const { finalMajor, finalSevere, subtitle, hpKey } = resolveDamageThresholds();
+
+      // Resolve optional art/image when enabled via YAML: `art: true` or `art: <path|wikilink|url>`
+      const fm = app.metadataCache.getFileCache(file as TFile)?.frontmatter ?? {};
+      const artEnable = (doc as any).art;
+      let artNode: any = null;
+      try {
+        if (artEnable) {
+          let candidate: string | null = null;
+          if (artEnable === true) {
+            candidate = normalizeLinkText((fm as any)?.art ?? (fm as any)?.image);
+          } else if (typeof artEnable === 'string') {
+            candidate = normalizeLinkText(artEnable);
+          } else if (artEnable && typeof artEnable === 'object') {
+            candidate = normalizeLinkText((artEnable as any).src ?? (fm as any)?.art ?? (fm as any)?.image);
+          }
+          if (candidate) {
+            const a = (artEnable && typeof artEnable === 'object') ? (artEnable as any) : {};
+            const imgStyle: React.CSSProperties = {
+              width: a.width as any,
+              maxHeight: a.maxHeight as any,
+              objectFit: a.fit as any,
+              borderRadius: a.radius as any,
+            };
+            const wrapStyle: React.CSSProperties = {
+              textAlign: (a.align === 'right' ? 'right' : a.align === 'center' ? 'center' : a.align === 'left' ? 'left' : undefined)
+            };
+
+            if (/^https?:\/\//i.test(candidate)) {
+              artNode = React.createElement('div', { className: 'dh-dash-art', style: wrapStyle },
+                React.createElement('img', { src: candidate, alt: 'art', className: 'dh-art-img', style: imgStyle })
+              );
+            } else {
+              const imgFile = resolveImageFile(app as any, file as TFile, candidate);
+              if (imgFile) {
+                const url = (app as any).vault.getResourcePath(imgFile);
+                artNode = React.createElement('div', { className: 'dh-dash-art', style: wrapStyle },
+                  React.createElement('img', { src: url, alt: imgFile.basename, className: 'dh-art-img', style: imgStyle })
+                );
+              }
+            }
+          }
+        }
+      } catch {}
 
       const onShort = () => plugin && (require('./short-rest') as any).openShortRestUI
         ? (require('./short-rest') as any).openShortRestUI(plugin, el, ctx, {
@@ -232,7 +310,8 @@ export function registerDashboard(plugin: DaggerheartPlugin) {
                 React.createElement(RestRowView as any, { shortLabel, longLabel, onShort: onShort as any, onLong: onLong as any }),
                 React.createElement(DamageInlineView as any, {
                   title: String((doc.damage && (doc.damage as any).title) || 'Damage'),
-                  subtitle,
+                  majorThreshold: finalMajor,
+                  severeThreshold: finalSevere,
                   onApply: async (rawAmtInput: number, tierReduceInput: number) => {
                     const { finalMajor, finalSevere } = resolveDamageThresholds();
                     if (!Number.isFinite(finalMajor) || !Number.isFinite(finalSevere)) { new Notice('Damage: thresholds not found.', 6000); return; }
@@ -265,6 +344,7 @@ export function registerDashboard(plugin: DaggerheartPlugin) {
       } catch {}
       const dash = React.createElement(
         'div', dashAttrs,
+        artNode,
         badgeRows.length ? React.createElement('div', { className: 'dh-dash-badges' }, React.createElement(BadgesView, { items: badgeRows })) : null,
         traitsNode,
         vitalsNode,
@@ -273,7 +353,8 @@ export function registerDashboard(plugin: DaggerheartPlugin) {
           React.createElement(RestRowView, { shortLabel, longLabel, onShort: onShort as any, onLong: onLong as any }),
           React.createElement(DamageInlineView, {
             title: String((doc.damage && (doc.damage as any).title) || 'Damage'),
-            subtitle,
+            majorThreshold: finalMajor,
+            severeThreshold: finalSevere,
             onApply: async (rawAmtInput: number, tierReduceInput: number) => {
               const { finalMajor, finalSevere } = resolveDamageThresholds();
               if (!Number.isFinite(finalMajor) || !Number.isFinite(finalSevere)) { new Notice('Damage: thresholds not found.', 6000); return; }
