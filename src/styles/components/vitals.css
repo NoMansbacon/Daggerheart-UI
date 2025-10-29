@@ -1,0 +1,54 @@
+/* ===== Combined Vitals (HP / Stress / Armor / Hope) ===== */
+
+/* Standalone Vitals container: dashed frame + colored left accent */
+.dh-vitals {
+  position: relative;
+  border: 1px dashed var(--background-modifier-border);
+  border-left: 6px solid #607d8b; /* vitals accent */
+  border-radius: 8px;
+  padding: 10px 12px 12px 16px;
+  background: transparent;
+  max-width: fit-content;
+}
+
+.dh-vitals-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px 12px;
+}
+
+@container dhdash (min-width: 560px) {
+  .dh-vitals-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 560px) {
+  .dh-vitals-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Tidy the inner tracker rows (no dashed frame inside the combined card) */
+.dh-vitals .dh-tracker {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.dh-vitals .dh-tracker::before { content: none; }
+
+
+/* Actions row container (used outside vitals as .dh-dash-actions; keep old class for compatibility) */
+.dh-vitals-actions,
+.dh-dash-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: var(--dh-dashboard-gap, clamp(10px, 1.5vw, 16px));
+  margin-top: 10px;
+}
+
+@container dhdash (min-width: 760px) {
+  .dh-vitals-actions,
+  .dh-dash-actions { grid-template-columns: 1fr 1fr; }
+}
+
+.dh-dash-rest { justify-self: start; }
+.dh-dash-damage { justify-self: start; }
+.dh-dash-ops { grid-column: 1 / -1; display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-start; }

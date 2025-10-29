@@ -1,4 +1,12 @@
 // src/settings.ts
+/**
+ * Plugin settings configuration
+ * 
+ * Defines all user-configurable settings for the Daggerheart plugin including:
+ * - Art/image display settings (width, height, fit, alignment)
+ * - State file path for persistent tracker data
+ */
+
 export interface DaggerheartSettings {
   stateFilePath: string;
   // Dashboard art defaults (can be overridden per-dashboard via YAML art: {...})

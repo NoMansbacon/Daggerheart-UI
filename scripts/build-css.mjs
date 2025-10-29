@@ -8,7 +8,7 @@ const ROOT = process.cwd();
 const OUTFILE = path.join(ROOT, "styles.css"); // Obsidian reads THIS file
 
 // Your editable CSS lives here:
-const BASE = "css/styles";
+const BASE = "src/styles";
 
 // Build order: put a common file first if you have it, then components, then everything else
 const PATTERNS_ORDERED = [

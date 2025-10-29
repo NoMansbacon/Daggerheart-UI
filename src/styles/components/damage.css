@@ -1,0 +1,123 @@
+/* Damage block */
+.dh-damage-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 6px 0;
+  position: relative;
+  border: 1px solid var(--background-modifier-border);
+  border-left: 6px solid var(--background-modifier-border);
+  border-radius: 8px;
+  padding: 10px 12px 10px 16px;          /* room for icon */
+  max-width: fit-content;
+}
+.dh-damage-inline::before {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 6px 0;
+  position: relative;
+  border: 1px dashed var(--background-modifier-border);
+  border-left: 6px solid var(--background-modifier-border);
+  border-radius: 8px;
+  padding: 10px 12px 10px 16px;
+}
+
+/* Tiers ribbon: step segments with chevron connectors */
+.dh-dmg-steps {
+  display: flex;
+  gap: 6px;              /* space between segments */
+  align-items: stretch;
+}
+.dh-dmg-steps .step {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 90px;
+  max-width: 90px;
+  padding: 6px 10px 4px;
+  text-align: center;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  background: linear-gradient(
+    180deg,
+    var(--background-secondary) 0%,
+    color-mix(in oklab, var(--background-secondary), #000 12%) 100%
+  );
+  border: 1px solid var(--background-modifier-border);
+  box-shadow: var(--shadow-s);
+}
+.dh-dmg-steps .step .label {
+  font-weight: 800;
+  letter-spacing: .3px;
+  font-size: 10px;
+  color: var(--text-accent);
+}
+.dh-dmg-steps .step .meta {
+  margin-top: 3px;
+  font-size: 10px;
+  color: var(--text-faint);
+}
+/* Remove arrow connectors */
+.dh-dmg-steps .step::before,
+.dh-dmg-steps .step::after { content: none !important; display: none !important; }
+
+/* Simple connector with just the number */
+.dh-dmg-steps .conn {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 0 6px;
+  height: auto;
+  align-self: center;
+  display: flex; align-items: center; justify-content: center;
+  
+}
+.dh-dmg-steps .conn .value {
+  font-weight: 800;
+  font-size: 20px;
+  color: #d4af37;;
+}
+/* Add thin lines above and below the connector value to frame it */
+.dh-dmg-steps .conn::before,
+.dh-dmg-steps .conn::after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  right: -6px; /* stretches the line across the full width */
+  height: 0;
+  background: linear-gradient(
+    180deg,
+    var(--background-secondary) 0%,
+    color-mix(in oklab, var(--background-secondary), #000 12%) 100%
+  );
+  border: 1px solid var(--background-modifier-border);
+  box-shadow: var(--shadow-s);
+}
+
+.dh-dmg-steps .conn::before {
+  top: -6px;
+}
+
+.dh-dmg-steps .conn::after {
+  bottom: -6px;
+}
+
+
+/* Inputs */
+.dh-dmg-row {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+.dh-dmg-group { display: inline-flex; flex-direction: column; gap: 4px; }
+.dh-dmg-label { font-size: 11px; color: var(--text-faint); }
+.dh-dmg-input {
+  width: 100px;
+  padding: 4px 6px;
+  border-radius: 8px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  box-shadow: var(--shadow-s) inset;
+  
+}

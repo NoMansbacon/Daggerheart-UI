@@ -1,0 +1,83 @@
+/* Inline Level Up grid */
+.dh-levelup-header{ display:flex; gap:8px; margin:6px 0; }
+.dh-levelup-body{ display:block; }
+.dh-levelup-body.hidden{ display:none; }
+.dh-levelup-body summary{ cursor:pointer; user-select:none; margin:6px 0; }
+.dh-levelup-grid{ 
+    display:grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    gap:16px; 
+    margin:8px 0; 
+}
+.dh-levelup-col{ 
+    border:1px dashed var(--background-modifier-border); 
+    border-left:6px solid #78909c; 
+    border-radius:8px; 
+    padding:10px 12px 10px 16px;
+    width:fit-content;
+}
+.dh-levelup-title{ 
+    font-weight:800; 
+    margin-bottom:6px;
+    color:var(--text-accent); 
+}
+.dh-levelup-note{ 
+    color:var(--text-faint); 
+    font-size:12px; 
+    margin-bottom:8px; 
+}
+.dh-levelup-list{ 
+    display:flex; 
+    flex-direction:column; 
+    gap:8px; 
+}
+.dh-levelup-row{ 
+    display:flex; 
+    align-items:flex-start; 
+    gap:1px;
+}
+.dh-levelup-row.disabled{ 
+    text-decoration: line-through; 
+    opacity: .6; 
+}
+.dh-levelup-row .label.disabled{ text-decoration: line-through; opacity: .6; }
+.dh-levelup-row input[type=checkbox]{ 
+    transform:translateY(2px); 
+}
+.dh-levelup-subpanel{ 
+    margin:6px 0 0 24px; 
+    display:flex; 
+    flex-wrap:wrap; 
+    gap:8px 12px; 
+}
+.dh-levelup-subpanel label{ 
+    display:inline-flex; 
+    align-items:center; 
+    gap:6px; 
+    font-size:12px; 
+    color:var(--text-white); 
+}
+.dh-levelup-subpanel label.marked{ 
+    text-decoration: line-through; 
+    opacity: .6; 
+}
+.dh-levelup-subpanel input[type=checkbox]{ 
+    transform:none; 
+}
+.dh-levelup-subnote{ 
+    margin-left:24px; 
+    font-size:11px; 
+    color:var(--text-faint); 
+}
+.dh-levelup-actions{ 
+    align-self:start; 
+    display:flex; 
+    flex-direction:column; 
+    gap:8px; }
+.dh-levelup-msg{ 
+    font-size:12px; 
+    color:var(--text-faint); 
+}
+.dh-levelup-actions button{ 
+    width: fit-content;
+}

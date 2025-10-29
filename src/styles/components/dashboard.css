@@ -1,0 +1,113 @@
+/* Dashboard wrapper: keep comfortable width even when Readable line length is disabled */
+.dh-dashboard-block {
+  --dh-max-width: clamp(780px, 90vw, 1340px);
+  max-width: var(--dh-max-width);
+  margin-inline: auto;
+}
+
+/* Dashboard grid layout (mobile/RLL-first) */
+.dh-dashboard {
+  --dh-dashboard-gap: var(--dh-dashboard-gap, 16px);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "art"
+    "badges"
+    "traits"
+    "vitals"
+    "actions"
+    "levelup";
+  row-gap: var(--dh-dashboard-rowgap, 8px);
+  column-gap: var(--dh-dashboard-gap, 20px);
+  margin: 8px 0;
+}
+
+/* Wide layout modifier: apply class: wide in the dashboard YAML (class: wide) */
+.dh-dashboard.wide {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "art traits"
+    "art badges"
+    "art vitals"
+    "art actions"
+    "levelup levelup";
+  row-gap: var(--dh-dashboard-rowgap, 8px);
+  column-gap: var(--dh-dashboard-gap, 16px);
+  margin: 8px 0;
+}
+
+.dh-dash-art     { grid-area: art; }
+.dh-dash-badges  { grid-area: badges; }
+.dh-dash-traits  { grid-area: traits; }
+.dh-dash-vitals  { grid-area: vitals; }
+.dh-dash-actions { grid-area: actions; }
+.dh-dash-levelup { grid-area: levelup; }
+
+/* Art area sizing (minimal defaults; settings/YAML can override via CSS vars) */
+.dh-dashboard .dh-dash-art {
+  display: grid;
+  justify-items: stretch;
+  min-width: 0; min-height: 0;
+  justify-content: center;
+}
+.dh-dashboard .dh-dash-art .dh-art-img {
+  display: block;
+  width: var(--dh-art-w, 100%);
+  height: auto;
+  max-width: 100%;
+  max-height: var(--dh-art-maxh, 100%);
+  object-fit: var(--dh-art-fit, contain);
+  object-position: center;
+  border-radius: var(--dh-art-radius, 12px);
+}
+
+/* Make vitals a split layout (trackers | actions) on wide screens */
+.dh-dashboard .dh-vitals {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--dh-dashboard-gap);
+}
+@container dhdash (min-width: 960px) {
+  .dh-dashboard .dh-vitals { grid-template-columns: 1.3fr .9fr; align-items: start; }
+}
+
+/* Optional surfaces */
+.dh-dashboard[data-surface="card"] .dh-dash-badges,
+.dh-dashboard[data-surface="card"] .dh-vitals,
+.dh-dashboard[data-surface="card"] .dh-dash-traits,
+.dh-dashboard[data-surface="card"] .dh-dash-art {
+  background: linear-gradient(
+    180deg,
+    var(--background-secondary) 0%,
+    color-mix(in oklab, var(--background-secondary), #000 10%) 100%
+  );
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: var(--shadow-s);
+}
+
+.dh-dash-levelup {
+  /* Level-up block gets its own surface styling */
+  margin-left: 80px !important;
+}
+
+/* Removes other CSS from standalone version inside dashboard */
+.dh-dashboard .dh-badges,
+.dh-dashboard .dh-vitals,
+.dh-dashboard .dh-ability-cards,
+.dh-dashboard .dh-tracker,
+.dh-dashboard .dh-rest-row,
+.dh-dashboard .dh-damage-inline {
+  border: none !important;
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+.dh-dashboard .dh-badges::before,
+.dh-dashboard .dh-ability-cards::before,
+.dh-dashboard .dh-tracker::before,
+.dh-dashboard .dh-rest-row::before,
+.dh-dashboard .dh-damage-inline::before {
+  content: none !important;
+}

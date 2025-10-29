@@ -1,22 +1,31 @@
-// src/main.ts
+/**
+ * Main plugin entry point
+ * 
+ * Responsibilities:
+ * - Initialize plugin on load
+ * - Register all code block processors (badges, consumables, trackers, rest, damage, etc.)
+ * - Load and save plugin settings
+ * - Initialize state store for tracker persistence
+ */
 import { Plugin, Notice, App, MarkdownPostProcessorContext } from "obsidian";
 import { DEFAULT_SETTINGS, DaggerheartSettings } from "./settings";
 import { initializeStateStore } from "./lib/services/stateStore";
 import { DaggerheartSettingTab } from "./ui/settings-tab";
 
 // React ability/traits renderer
-import { AbilityScoreView } from "./lib/views/abilityscoreview";
+import { AbilityScoreView } from "./components/abilityscoreview";
 
-// Other blocks
-import { registerBadgesBlock } from "./lib/components/badges-block";
-import { registerConsumablesBlock } from "./lib/components/consumables-block";
-import { registerTrackersBlocks } from "./lib/components/trackers-block";
-import { registerShortRest } from "./lib/components/short-rest";
-import { registerLongRest } from "./lib/components/long-rest";
-import { registerDamage } from "./lib/components/damage-vault";
-import { registerRest } from "./lib/components/rest";
-import { registerDashboard } from "./lib/components/dashboard";
-import { registerVitals } from "./lib/components/vitals";
+// Block registrations
+import { registerBadgesBlock } from "./blocks/badges";
+import { registerConsumablesBlock } from "./blocks/consumables-block";
+import { registerTrackersBlocks } from "./blocks/trackers-block";
+import { registerShortRest } from "./blocks/short-rest";
+import { registerLongRest } from "./blocks/long-rest";
+import { registerDamage } from "./blocks/damage-vault";
+import { registerRest } from "./blocks/rest";
+import { registerDashboard } from "./blocks/dashboard";
+import { registerVitals } from "./blocks/vitals";
+import { registerLevelUp } from "./blocks/level-up";
 
 export default class DaggerheartPlugin extends Plugin {
   settings: DaggerheartSettings;
@@ -68,6 +77,7 @@ export default class DaggerheartPlugin extends Plugin {
     try { registerRest(this); }         catch (e) { console.error('[DH-UI] rest load error', e); }
     try { registerDashboard(this); }    catch (e) { console.error('[DH-UI] dashboard load error', e); }
     try { registerVitals(this); }       catch (e) { console.error('[DH-UI] vitals load error', e); }
+    try { registerLevelUp(this); }      catch (e) { console.error('[DH-UI] level-up load error', e); }
 
     // Grid/layout customization via settings removed; layout controlled by CSS only
 

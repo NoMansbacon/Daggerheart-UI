@@ -9,10 +9,9 @@ export class KeyValueStore {
   private async ensure(): Promise<Record<string, any>>{
     if (this.cache === null){
       const data = await this.store.loadData();
-      this.cache = data?.state || {};
+      this.cache = (data && typeof data === 'object' && data.state && typeof data.state === 'object') ? (data.state as Record<string, any>) : {};
     }
-    // @ts-expect-error
-    return this.cache;
+    return this.cache as Record<string, any>;
   }
   private async persist(){ if (this.cache !== null) await this.store.saveData({ state: this.cache }); }
   async get<T>(k: string){ const c = await this.ensure(); return c[k] as T | undefined; }

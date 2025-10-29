@@ -1,9 +1,29 @@
 {
   "state": {
-    "tracker:din_hope": 0,
+    "tracker:char1_health": 2,
     "tracker:din_armor": 0,
-    "tracker:din_stress": 0,
     "tracker:din_health": 0,
-    "tracker:char1_health": 3
+    "tracker:Thalia_health": 0,
+    "tracker:Thalia_armor": 0,
+    "tracker:Thalia_stress": 0,
+    "tracker:Thalia_hope": 0,
+    "tracker:din_stress": 3,
+    "tracker:din_hope": 3,
+    "tracker:ch1_armor": 0,
+    "tracker:ch1_health": 0,
+    "tracker:cha1_stress": 0,
+    "tracker:cha1_hope": 0,
+    "tracker:Dashboard.md::ch1_health": 0,
+    "tracker:Dashboard.md::ch1_armor": 0,
+    "tracker:Dashboard.md::cha1_stress": 0,
+    "tracker:Dashboard.md::cha1_hope": 0,
+    "tracker:Thalia.md::din_health": 0,
+    "tracker:Thalia.md::din_armor": 0,
+    "tracker:Thalia.md::din_stress": 0,
+    "tracker:Thalia.md::din_hope": 0,
+    "tracker:Thalia.md::ch1_health": 0,
+    "tracker:Thalia.md::cha1_stress": 0,
+    "tracker:Thalia.md::ch1_armor": 0,
+    "tracker:Thalia.md::cha1_hope": 0
   }
 }

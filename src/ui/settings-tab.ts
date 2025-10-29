@@ -117,7 +117,27 @@ export class DaggerheartSettingTab extends PluginSettingTab {
         })
       );
 
+    // Template preview
+    containerEl.createEl("h3", { text: "Template Preview" });
+    const previewWrap = containerEl.createDiv({ cls: 'dh-template-preview' });
+    const input = new (Setting as any)(previewWrap).settingEl.createEl('textarea', { cls: 'dh-template-input', attr: { rows: '3', placeholder: "Enter a template, e.g. {{ frontmatter.level }}" } }) as HTMLTextAreaElement;
+    const out = previewWrap.createDiv({ cls: 'dh-template-output' });
+    const render = () => {
+      try {
+        const app = this.app;
+        const file = app.workspace.getActiveFile();
+        const fm = file ? (app.metadataCache.getFileCache(file)?.frontmatter ?? {}) : {};
+        // create a minimal mdctx so createTemplateContext can build a context
+        const mdctx: any = { sourcePath: file?.path || '', getSectionInfo: (_: any)=> undefined };
+        const ctx = (require('../utils/template') as any).createTemplateContext(document.body, app, mdctx, fm);
+        const text = String(input.value || '');
+        const outStr = (require('../utils/template') as any).processTemplate(text, ctx);
+        out.setText(outStr);
+      } catch (e) { out.setText(''); }
+    };
+    input.addEventListener('input', render);
+    render();
+
     // Grid/layout customization removed by request; CSS drives layout via container queries
   }
 }
-
