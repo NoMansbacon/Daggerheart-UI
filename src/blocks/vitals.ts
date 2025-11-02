@@ -30,6 +30,9 @@ type VitalsYaml = {
   hp?: number | string; stress?: number | string; armor?: number | string; hope?: number | string;
   // state keys
   hp_key?: string; stress_key?: string; armor_key?: string; hope_key?: string;
+  // optional Hope feature footer (rows under trackers). Alias: `footer` for backwards-compat.
+  hope_feature?: any;
+  footer?: any;
 };
 
 function parseYaml(src: string): VitalsYaml {
@@ -105,6 +108,30 @@ export function registerVitals(plugin: DaggerheartPlugin) {
         readState(hopeKey, hopeCount),
       ]);
 
+      // Optional Hope feature rows under the trackers
+      const tctx = createTemplateContext(el, app, ctx);
+      const rawHF: any = (y as any).hope_feature ?? (y as any).footer;
+      const hopeFeatures: Array<{ label: string; value: string }> = [];
+      const normOne = (item: any) => {
+        if (item == null) return;
+        if (typeof item === 'string') {
+          const v = processTemplate(String(item), tctx).trim();
+          if (v) hopeFeatures.push({ label: '', value: v });
+          return;
+        }
+        if (typeof item === 'object') {
+          const lbl = (item.label ?? item.lable ?? '').toString();
+          const val = (item.value ?? '').toString();
+          const nLbl = lbl ? processTemplate(lbl, tctx).trim() : '';
+          const nVal = val ? processTemplate(val, tctx).trim() : '';
+          if (nLbl || nVal) hopeFeatures.push({ label: nLbl, value: nVal });
+        }
+      };
+      try {
+        if (Array.isArray(rawHF)) rawHF.forEach(normOne);
+        else if (rawHF != null) normOne(rawHF);
+      } catch {}
+
       let root = roots.get(el) || null;
       if (!root) { root = createRoot(el); roots.set(el, root); }
 
@@ -156,7 +183,21 @@ export function registerVitals(plugin: DaggerheartPlugin) {
               onChange: onFilled(hopeKey),
               stateKey: hopeKey,
             })
-          )
+          ),
+          hopeFeatures.length
+            ? React.createElement(
+                'div',
+                { className: 'dh-vitals-hope' },
+                ...hopeFeatures.map((f) =>
+                  React.createElement(
+                    'div',
+                    { className: 'dh-vitals-hope-row' },
+                    f.label ? React.createElement('div', { className: 'label' }, f.label) : null,
+                    React.createElement('div', { className: 'value' }, f.value)
+                  )
+                )
+              )
+            : null
         )
       );
     });

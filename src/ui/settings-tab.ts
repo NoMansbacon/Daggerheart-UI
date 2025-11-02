@@ -1,5 +1,5 @@
 // src/ui/settings-tab.ts
-import { App, PluginSettingTab, Setting, Notice } from "obsidian";
+import { App, PluginSettingTab, Setting } from "obsidian";
 import type DaggerheartPlugin from "../main";
 // No grid/layout settings UI; simplified settings tab
 
@@ -38,84 +38,58 @@ export class DaggerheartSettingTab extends PluginSettingTab {
           });
       });
 
-    // Dashboard art defaults
-    containerEl.createEl("h3", { text: "Dashboard Art Defaults" });
-
     new Setting(containerEl)
-      .setName("Art width")
-      .setDesc("Any CSS size (e.g., 320px, 50%, 20rem)")
-      .addText((t) =>
-        t
-          .setPlaceholder("320px")
-          .setValue(this.plugin.settings.artWidth || "")
-          .onChange(async (v) => {
-            this.plugin.settings.artWidth = v.trim() || undefined;
+      .setName("Domain cards folder")
+      .setDesc(
+        "Vault folder where domain cards are stored (leave empty to search entire vault by domain field)."
+      )
+      .addText((text) => {
+        text
+          .setPlaceholder("Cards/Domains")
+          .setValue(this.plugin.settings.domainCardsFolder || "")
+          .onChange(async (value) => {
+            this.plugin.settings.domainCardsFolder = value.trim();
             await this.plugin.saveSettings();
-          })
-      );
+          });
+      });
 
     new Setting(containerEl)
-      .setName("Art max height")
-      .setDesc("Constrain image height (e.g., 220px)")
-      .addText((t) =>
-        t
-          .setPlaceholder("220px")
-          .setValue(this.plugin.settings.artMaxHeight || "")
-          .onChange(async (v) => {
-            this.plugin.settings.artMaxHeight = v.trim() || undefined;
-            await this.plugin.saveSettings();
-          })
-      );
-
-    new Setting(containerEl)
-      .setName("Art fit")
-      .setDesc("CSS object-fit")
-      .addDropdown((d) => {
-        const opts = { contain: "contain", cover: "cover", fill: "fill", none: "none", "scale-down": "scale-down" } as const;
-        Object.keys(opts).forEach((k) => d.addOption(k, opts[k as keyof typeof opts]));
-        d.setValue((this.plugin.settings.artFit || 'contain') as string);
-        d.onChange(async (v) => {
-          this.plugin.settings.artFit = (v as any);
+      .setName("Domain picker view")
+      .setDesc("Choose between card grid or table view (no art) for the Add Domain Cards modal.")
+      .addDropdown((dd) => {
+        dd.addOption('card', 'Card grid');
+        dd.addOption('table', 'Table (no art)');
+        dd.setValue(this.plugin.settings.domainPickerView || 'card');
+        dd.onChange(async (v: 'card' | 'table') => {
+          this.plugin.settings.domainPickerView = v;
           await this.plugin.saveSettings();
         });
       });
 
-    new Setting(containerEl)
-      .setName("Art border radius")
-      .setDesc("e.g., 8px")
-      .addText((t) =>
-        t
-          .setPlaceholder("8px")
-          .setValue(this.plugin.settings.artRadius || "")
-          .onChange(async (v) => {
-            this.plugin.settings.artRadius = v.trim() || undefined;
-            await this.plugin.saveSettings();
-          })
-      );
-
-    new Setting(containerEl)
-      .setName("Art alignment")
-      .setDesc("Image horizontal alignment")
-      .addDropdown((d) => {
-        const opts = { left: "left", center: "center", right: "right" } as const;
-        Object.keys(opts).forEach((k) => d.addOption(k, opts[k as keyof typeof opts]));
-        d.setValue((this.plugin.settings.artAlign || 'center') as string);
-        d.onChange(async (v) => {
-          this.plugin.settings.artAlign = (v as any);
-          await this.plugin.saveSettings();
+    containerEl.createEl("h3", { text: "Domain Picker Table Columns" });
+    const columns: (keyof typeof this.plugin.settings.domainPickerColumns)[] = [
+      "name",
+      "type",
+      "domain",
+      "level",
+      "stress",
+      "feature",
+      "tokens",
+    ];
+    columns.forEach((col) => {
+      new Setting(containerEl)
+        .setName(`Show ${col.charAt(0).toUpperCase() + col.slice(1)} column`)
+        .addToggle((toggle) => {
+          toggle
+            .setValue(this.plugin.settings.domainPickerColumns[col])
+            .onChange(async (value) => {
+              this.plugin.settings.domainPickerColumns[col] = value;
+              await this.plugin.saveSettings();
+            });
         });
-      });
+    });
 
-    // Save and apply (updates CSS variables so dashboards update instantly)
-    new Setting(containerEl)
-      .addButton((b) => b.setButtonText("Save and apply")
-        .setCta()
-        .onClick(async () => {
-          await this.plugin.saveSettings();
-          try { this.plugin.applyGlobalArtCssVars(); } catch {}
-          try { new Notice('Dashboard art settings applied'); } catch {}
-        })
-      );
+
 
     // Template preview
     containerEl.createEl("h3", { text: "Template Preview" });

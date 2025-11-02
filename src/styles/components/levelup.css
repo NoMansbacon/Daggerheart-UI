@@ -6,7 +6,7 @@
 .dh-levelup-grid{ 
     display:grid; 
     grid-template-columns: 1fr 1fr 1fr; 
-    gap:16px; 
+    gap:12px; 
     margin:8px 0; 
 }
 .dh-levelup-col{ 
@@ -78,6 +78,64 @@
     font-size:12px; 
     color:var(--text-faint); 
 }
-.dh-levelup-actions button{ 
+.dh-levelup-actions button{
     width: fit-content;
+}
+
+/* Level Up Modal (scoped to avoid rest modal interference) */
+.dh-levelup-chooser {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: min(1040px, calc(100vw - 24px)) !important;
+  max-height: 68vh; 
+  overflow: auto;
+  margin: 0 auto;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--background-modifier-border);
+  background: linear-gradient(180deg, var(--background-secondary) 0%, color-mix(in oklab, var(--background-secondary), #000 12%) 100%);
+  box-shadow: var(--shadow-l, 0 12px 28px rgba(0,0,0,.3));
+}
+
+.dh-levelup-headerbar {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.dh-levelup-titlewrap { display: flex; flex-direction: column; gap: 2px; }
+.dh-levelup-title { font-weight: 800; font-size: 13px; color: var(--text-accent); }
+.dh-levelup-sub   { font-size: 11px; color: var(--text-faint); }
+.dh-levelup-picks { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
+
+.dh-levelup-close {
+  align-self: start;
+  justify-self: end;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  padding: 0;
+  border-radius: 8px;
+  border: 1px solid var(--background-modifier-border);
+  background: linear-gradient(180deg, var(--background-secondary) 0%, color-mix(in oklab, var(--background-secondary), #000 10%) 100%);
+  color: var(--text-muted);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-s);
+}
+.dh-levelup-close:hover { color: var(--text-normal); border-color: color-mix(in oklab, var(--background-modifier-border), #fff 18%); }
+
+/* When rendered inside Obsidian's core modal */
+.modal .dh-levelup-chooser { position: static; left: auto; top: auto; transform: none; margin: 0 auto; width: min(820px, calc(100vw - 24px)); }
+.modal.dh-levelup-modal-root { overflow: visible !important; max-height: none; background: transparent !important; border: 0 !important; box-shadow: none !important; padding: 0 !important; width: auto !important; max-width: none !important; min-height: 0 !important; }
+.modal.dh-levelup-modal-root .modal-close-button { display: none !important; }
+.modal.dh-levelup-modal-root .modal-content,
+.modal.dh-levelup-modal-root .modal-scroll { overflow: visible !important; }
+
+@media (max-width: 560px) {
+  .dh-levelup-chooser { width: calc(100vw - 20px); padding: 10px; }
 }

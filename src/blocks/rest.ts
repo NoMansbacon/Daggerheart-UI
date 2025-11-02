@@ -17,20 +17,35 @@ import { openShortRestUI } from "./short-rest";
 import { openLongRestUI } from "./long-rest";
 import React from "react";
 import { createRoot, Root } from "react-dom/client";
-import { RestRowView } from "../components/rest-row";
+import { ControlsRowView } from "../components/controls-row";
 import { registerLiveCodeBlock } from "../utils/liveBlock";
 import * as store from "../lib/services/stateStore";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 import { KVProvider } from "../components/state/kv-context";
+import { LevelUpModal } from "../ui/levelup-modal";
 const roots = new WeakMap<HTMLElement, Root>();
 
 type RestYaml = {
+  // Labels
   short_label?: string;
   long_label?: string;
+  levelup_label?: string;
+  full_heal_label?: string;
+  reset_all_label?: string;
+
+  // Keys (used for Short/Long rest; Full Heal/Reset All auto-scan the current note)
   hp_key?: string;
   stress_key?: string;
   armor_key?: string;
   hope_key?: string;
+
+  // Visibility flags
+  show_short?: boolean;
+  show_long?: boolean;
+  show_levelup?: boolean;
+  show_full_heal?: boolean;
+  show_reset_all?: boolean;
+
   class?: string;
 };
 
@@ -73,16 +88,64 @@ export function registerRest(plugin: DaggerheartPlugin) {
       const render = () => {
         const shortLabel = String(conf.short_label ?? "Short Rest");
         const longLabel = String(conf.long_label ?? "Long Rest");
+        const levelupLabel = String(conf.levelup_label ?? "Level Up");
+        const fullHealLabel = String(conf.full_heal_label ?? "Full Heal");
+        const resetAllLabel = String(conf.reset_all_label ?? "Reset All");
+
+        const showShort = conf.show_short !== false; // default true
+        const showLong = conf.show_long !== false;   // default true
+        const showLevelUp = conf.show_levelup === true;
+        const showFullHeal = conf.show_full_heal === true;
+        const showResetAll = conf.show_reset_all === true;
+
         let r = roots.get(el);
         if (!r) { r = createRoot(el); roots.set(el, r); }
         r.render(
-          React.createElement(ErrorBoundary, { name: 'Rest' },
+          React.createElement(ErrorBoundary, { name: 'Controls' },
             React.createElement(KVProvider, null,
-              React.createElement(RestRowView, {
-                shortLabel,
-                longLabel,
+              React.createElement(ControlsRowView, {
+                showShort, showLong, showLevelUp, showFullHeal, showResetAll,
+                shortLabel, longLabel, levelupLabel, fullHealLabel, resetAllLabel,
                 onShort: () => openShortRestUI(plugin, el, ctx, { hp: hpKey, stress: stressKey, armor: armorKey, hope: hopeKey }),
                 onLong: () => openLongRestUI(plugin, el, ctx, { hp: hpKey, stress: stressKey, armor: armorKey, hope: hopeKey }),
+                onLevelUp: () => {
+                  const f = plugin.app.vault.getFileByPath(ctx.sourcePath) || plugin.app.workspace.getActiveFile();
+                  if (f && f instanceof TFile) new LevelUpModal(plugin.app as any, plugin, f).open();
+                  else new Notice('Level Up: could not resolve file for modal');
+                },
+                onFullHeal: async () => {
+                  // Scope to current note preview; affect only HP trackers present here
+                  const scope = (el.closest('.markdown-preview-view') as HTMLElement) ?? document.body;
+                  const keys = new Set<string>();
+                  scope.querySelectorAll('.dh-tracker .dh-track-hp').forEach((n)=>{
+                    const k = (n.closest('.dh-tracker') as HTMLElement | null)?.getAttribute('data-dh-key') || '';
+                    if (k) keys.add(k);
+                  });
+                  for (const k of keys){ await store.set<number>('tracker:' + k, 0); try { window.dispatchEvent(new CustomEvent('dh:tracker:changed', { detail: { key: k, filled: 0 } })); } catch {} }
+                  new Notice(keys.size ? 'HP fully restored for this note.' : 'No HP tracker found in this note.');
+                },
+                onResetAll: async () => {
+                  // Scope to current note preview; affect only trackers present here
+                  const scope = (el.closest('.markdown-preview-view') as HTMLElement) ?? document.body;
+                  const kinds = ['hp','stress','armor','hope'] as const;
+                  const classFor: Record<typeof kinds[number], string> = { hp: 'dh-track-hp', stress: 'dh-track-stress', armor: 'dh-track-armor', hope: 'dh-track-hope' } as any;
+                  const keysByKind: Record<string, Set<string>> = { hp: new Set(), stress: new Set(), armor: new Set(), hope: new Set() } as any;
+                  kinds.forEach(kind => {
+                    scope.querySelectorAll('.dh-tracker .' + classFor[kind]).forEach((n)=>{
+                      const k = (n.closest('.dh-tracker') as HTMLElement | null)?.getAttribute('data-dh-key') || '';
+                      if (k) (keysByKind[kind] as Set<string>).add(k);
+                    });
+                  });
+                  let changed = 0;
+                  for (const kind of kinds){
+                    for (const k of keysByKind[kind]){
+                      await store.set<number>('tracker:' + k, 0);
+                      changed++;
+                      try { window.dispatchEvent(new CustomEvent('dh:tracker:changed', { detail: { key: k, filled: 0 } })); } catch {}
+                    }
+                  }
+                  new Notice(changed ? 'All trackers in this note reset.' : 'No trackers found in this note.');
+                },
               })
             )
           )

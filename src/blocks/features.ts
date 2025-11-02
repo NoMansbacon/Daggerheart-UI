@@ -1,0 +1,144 @@
+// src/blocks/features.ts
+import type DaggerheartPlugin from "../main";
+import type { MarkdownPostProcessorContext, TFile, App } from "obsidian";
+import { parseYamlSafe } from "../utils/yaml";
+import { processTemplate, createTemplateContext } from "../utils/template";
+import { registerLiveCodeBlock } from "../utils/liveBlock";
+
+type FeatureItem = { label?: string; value?: string | number | boolean | null };
+type FeatureDoc = {
+  ancestry?: FeatureItem[];
+  class?: FeatureItem[];
+  subclass?: FeatureItem[];
+  community?: FeatureItem[];
+};
+
+function getFM(app: App, ctx: MarkdownPostProcessorContext): Record<string, any> {
+  try {
+    const file = app.vault.getFileByPath(ctx.sourcePath) as TFile | null;
+    return (file ? (app.metadataCache.getFileCache(file)?.frontmatter ?? {}) : {}) as Record<string, any>;
+  } catch {
+    return {} as Record<string, any>;
+  }
+}
+
+function parseDoc(src: string): FeatureDoc {
+  try {
+    const parsed = parseYamlSafe<FeatureDoc>(src);
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch (e) {
+    console.error("[DH-UI] features YAML error:", e);
+    return {};
+  }
+}
+
+function renderFeaturesList(
+  plugin: DaggerheartPlugin,
+  el: HTMLElement,
+  src: string,
+  ctx: MarkdownPostProcessorContext
+) {
+  const app = plugin.app;
+  const fm = getFM(app, ctx);
+  const doc = parseDoc(src);
+
+  const sections = [
+    { key: "ancestry" as const, title: "Ancestry", color: "#4caf50" },
+    { key: "class" as const, title: "Class", color: "#2196f3" },
+    { key: "subclass" as const, title: "Subclass", color: "#ff9800" },
+    { key: "community" as const, title: "Community", color: "#9c27b0" }
+  ];
+
+  const hasAnyItems = sections.some(s => doc[s.key] && Array.isArray(doc[s.key]) && doc[s.key]!.length > 0);
+
+  if (!hasAnyItems) {
+    el.createEl("pre", {
+      text: "No items found in ```features block.\nExample:\nancestry:\n  - label: Dread Visage\n    value: You have advantage on rolls to intimidate hostile creatures\nclass:\n  - label: Action Surge\n    value: Take an additional action on your turn",
+    });
+    return;
+  }
+
+  const root = el;
+  root.empty();
+  root.addClass("dh-features-list");
+  root.setAttr(
+    "style",
+    [
+      "display:flex",
+      "flex-direction:column",
+      "gap:16px",
+      "max-width:min(760px, 100%)"
+    ].join("; ")
+  );
+
+  const tctx = createTemplateContext(el, app, ctx);
+  const renderValue = (raw: FeatureItem["value"]): string => {
+    if (raw === null || raw === undefined) return "";
+    if (typeof raw === "number" || typeof raw === "boolean") return String(raw);
+    if (typeof raw === "string") {
+      try { return processTemplate(raw, tctx); } catch { return raw; }
+    }
+    return "";
+  };
+
+  for (const section of sections) {
+    const items = doc[section.key];
+    if (!items || !Array.isArray(items) || items.length === 0) continue;
+
+    const sectionEl = root.createDiv({ cls: `dh-features-section dh-features-${section.key}` });
+    sectionEl.setAttr(
+      "style",
+      [
+        "display:flex",
+        "flex-direction:column",
+        "gap:8px"
+      ].join("; ")
+    );
+
+    const heading = sectionEl.createDiv({ cls: "dh-features-heading", text: section.title });
+    heading.setAttr(
+      "style",
+      [
+        "font-weight:800",
+        "font-size:14px",
+        `color:${section.color}`,
+        "margin-bottom:4px",
+        "text-transform:uppercase",
+        "letter-spacing:0.5px"
+      ].join("; ")
+    );
+
+    for (const item of items) {
+      const label = String(item?.label ?? "");
+      const value = renderValue(item?.value);
+
+      const card = sectionEl.createDiv({ cls: "dh-feature-item" });
+      card.setAttr(
+        "style",
+        [
+          "border:1px solid var(--background-modifier-border)",
+          `border-left:4px solid ${section.color}`,
+          "border-radius:6px",
+          "padding:8px 12px",
+          "background:transparent"
+        ].join("; ")
+      );
+
+      if (label) {
+        const labelEl = card.createDiv({ cls: "dh-feature-label", text: label });
+        labelEl.setAttr("style", "font-weight:700; font-size:13px; color:var(--text-normal); margin-bottom:4px");
+      }
+
+      if (value) {
+        const valueEl = card.createDiv({ cls: "dh-feature-value", text: value });
+        valueEl.setAttr("style", "font-size:12px; color:var(--text-muted); white-space:pre-wrap");
+      }
+    }
+  }
+}
+
+export function registerFeaturesBlock(plugin: DaggerheartPlugin) {
+  registerLiveCodeBlock(plugin, "features", (el, src, ctx) => {
+    renderFeaturesList(plugin, el, src, ctx);
+  });
+}

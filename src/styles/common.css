@@ -28,8 +28,6 @@
 .dh-template-input { width: 100%; font-family: var(--font-monospace); font-size: .9em; }
 .dh-template-output { padding: 6px 8px; border: 1px solid var(--dh-card-border); border-radius: 6px; font-family: var(--font-monospace); background: var(--background-secondary); }
 
-/* Vitals ops row */
-.dh-dash-ops { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
 
 /* Gold toggle */
 .dh-toggle{

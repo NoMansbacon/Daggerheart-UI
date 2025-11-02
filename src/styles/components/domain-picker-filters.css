@@ -1,0 +1,22 @@
+/* Domain Picker filter controls */
+
+/* Add a little horizontal breathing room for labels/controls */
+.dvjs-modal .dvjs-filters { 
+  display: flex; 
+  align-items: center; 
+  padding: 10px; 
+  gap: 8px; 
+}
+/* Hide scrollbar for WebKit */
+.dvjs-modal .dvjs-filters::-webkit-scrollbar { display: none; }
+
+.dvjs-modal .dvjs-filters .filter label { 
+  padding: 0 6px;
+  white-space: nowrap; }
+
+/* Scope to our modal so we don't affect other plugin UI */
+/* Ensure header/list radii match and clip inner backgrounds */
+.dvjs-modal { border-radius: 12px; overflow: hidden; }
+.dvjs-modal-header { border-top-left-radius: 12px; border-top-right-radius: 12px; }
+.dvjs-modal-list { border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; }
+

@@ -38,13 +38,13 @@
 .dh-vitals-actions,
 .dh-dash-actions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr; /* stack on small screens */
   align-items: start;
   gap: var(--dh-dashboard-gap, clamp(10px, 1.5vw, 16px));
   margin-top: 10px;
 }
 
-@container dhdash (min-width: 760px) {
+@media (min-width: 760px) {
   .dh-vitals-actions,
   .dh-dash-actions { grid-template-columns: 1fr 1fr; }
 }
@@ -52,3 +52,21 @@
 .dh-dash-rest { justify-self: start; }
 .dh-dash-damage { justify-self: start; }
 .dh-dash-ops { grid-column: 1 / -1; display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-start; }
+
+/* Optional footer text under the vitals grid */
+.dh-vitals-footer {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+/* Hope features footer (grid of label/value rows) */
+.dh-vitals-hope { margin-top: 10px; display: grid; gap: 6px; justify-items: center; }
+.dh-vitals-hope-row {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: 2px 10px;
+  align-items: start;
+}
+.dh-vitals-hope-row .label { font-size: 13px; color: var(--text-accent); font-weight: 600; }
+.dh-vitals-hope-row .value { font-size: 13px; color: var(--text-normal); }

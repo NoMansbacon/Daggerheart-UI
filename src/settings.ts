@@ -9,19 +9,31 @@
 
 export interface DaggerheartSettings {
   stateFilePath: string;
-  // Dashboard art defaults (can be overridden per-dashboard via YAML art: {...})
-  artWidth?: string;       // e.g., "320px", "50%", "20rem"
-  artMaxHeight?: string;   // e.g., "220px"
-  artFit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
-  artRadius?: string;      // e.g., "8px"
-  artAlign?: 'left' | 'center' | 'right';
+  domainCardsFolder: string;
+  // 'card' = modal card grid, 'table' = tabular rows (no art)
+  domainPickerView: 'card' | 'table';
+  domainPickerColumns: {
+    name: boolean;
+    type: boolean;
+    domain: boolean;
+    level: boolean;
+    stress: boolean;
+    feature: boolean;
+    tokens: boolean;
+  };
 }
 
 export const DEFAULT_SETTINGS: DaggerheartSettings = {
   stateFilePath: ".obsidian/plugins/dh_state.json",
-  artWidth: "320px",
-  artMaxHeight: "220px",
-  artFit: 'contain',
-  artRadius: '8px',
-  artAlign: 'right',
+  domainCardsFolder: "",
+  domainPickerView: 'card',
+  domainPickerColumns: {
+    name: true,
+    type: true,
+    domain: true,
+    level: true,
+    stress: true,
+    feature: true,
+    tokens: true,
+  },
 };
