@@ -1,6 +1,18 @@
 # Code Block Reference
 
-This page lists all DH-UI fenced code blocks and the important options each one supports, with copy‑pasteable examples.
+This section of the docs describes every fenced code block provided by DH-UI.
+
+For full details on each block, use the sidebar links or jump directly:
+
+- [Traits & Abilities](/blocks/traits-abilities)
+- [Vitals & Trackers](/blocks/vitals-trackers)
+- [Rest & Level Up](/blocks/rest-levelup)
+- [Damage](/blocks/damage)
+- [Consumables](/blocks/consumables)
+- [Badges & Features](/blocks/badges-features)
+- [Experiences](/blocks/experiences)
+- [Domain & Equipment Pickers](/blocks/pickers)
+- [Templates & Events](/blocks/templates-events)
 
 You use these blocks in Markdown like:
 
@@ -10,53 +22,7 @@ You use these blocks in Markdown like:
 ```
 ```
 
----
-
-## Traits / Abilities (`traits`, `ability`, `dh-ability`, `dh-traits`)
-
-The traits/abilities block renders the six Daggerheart abilities as cards, optionally with per‑ability bonuses and notes.
-
-### Basic traits block
-
-```markdown
-```traits
-# usually no YAML needed – reads from frontmatter + your traits config
-```
-```
-
-By default, traits are built from your character frontmatter and internal helpers.
-
-### Traits with explicit bonuses and notes
-
-```markdown
-```traits
-bonuses:
-  Agility: 1
-  Strength: 2
-
-notes:
-  Agility: "From Emberborn ancestry"
-  Strength: "From Warrior class"
-
-show_markers: true   # default true; gold checkmarks on each card
-layout: row          # or "grid" in some themes
-class: my-traits     # optional custom CSS class
-```
-```
-
-**Key options:**
-
-- `bonuses.<Ability>` – numeric bonus applied to that ability.
-- `notes.<Ability>` – small note text under that ability.
-- `show_markers` – show/hide the gold marker toggles.
-- `layout` – layout hint (implementation may vary by theme).
-- `class` – first CSS class added to the outer container.
-
-Aliases `ability` / `dh-ability` / `dh-traits` can be used if `traits` is taken by another plugin.
-
----
-
-## Vitals Grid (`vitals` / `vital-trackers`)
+Each block page includes copy‑pasteable examples and a list of supported options.
 
 The `vitals` block shows HP, Stress, Armor, and Hope in a 2×2 tracker grid with persistent state.
 
