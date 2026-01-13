@@ -8,10 +8,19 @@ For a high‑level overview and installation instructions, see the root `README.
 
 ## Quick start
 
-1. Install and enable the plugin in Obsidian.
-2. Add frontmatter to your character note (at the top of the file between `---` lines).
-3. Insert fenced code blocks (```traits, ```vitals, ```rest, etc.) in the body of the note.
-4. Switch to Preview mode to see the interactive UI.
+### Install via BRAT
+
+1. In Obsidian, install and enable the **BRAT** plugin.
+2. In BRAT settings, add this repository as a beta plugin:
+   `https://github.com/NoMansbacon/DH-UI`
+3. Let BRAT install/update the plugin.
+4. Enable **Daggerheart Tooltips (DH-UI)** in *Settings → Community plugins*.
+
+### First character note
+
+1. Add frontmatter to your character note (at the top of the file between `---` lines).
+2. Insert fenced code blocks (```traits, ```vitals, ```rest, etc.) in the body of the note.
+3. Switch to Preview mode to see the interactive UI.
 
 Minimal working example in a character note:
 

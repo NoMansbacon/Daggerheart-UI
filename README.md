@@ -8,6 +8,18 @@ It renders traits, vitals, trackers, rest controls, damage calculators, badges, 
 
 ## Installation
 
+### Recommended: via BRAT (Beta Reviewers Auto-update Tester)
+
+This plugin is distributed as a beta plugin via the BRAT helper plugin.
+
+1. In Obsidian, install and enable **BRAT** (Beta Reviewers Auto-update Tester).
+2. Open BRAT settings and add this repository URL as a beta plugin:
+   `https://github.com/NoMansbacon/DH-UI`
+3. Let BRAT install/update the plugin.
+4. In Obsidian, enable **Daggerheart Tooltips (DH-UI)** in *Settings → Community plugins*.
+
+### Manual install (developers / advanced users)
+
 1. Copy this folder into your vault under `.obsidian/plugins/daggerheart-tooltips` (or use your preferred Obsidian plugin workflow).
 2. Run `npm install` in the plugin folder.
 3. Run `npm run dev` to build `main.js` from the TypeScript sources.
