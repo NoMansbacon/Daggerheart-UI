@@ -31,4 +31,4 @@ import{_ as a,c as s,o as n,ag as p}from"./chunks/framework.BpVvFBTM.js";const d
 <span class="line"><span></span></span>
 <span class="line"><span>### Example – Inline Level Up button</span></span>
 <span class="line"><span></span></span>
-<span class="line"><span>\`\`\`level\`\`\`levelup</span></span></code></pre></div>`,15)])])}const v=a(l,[["render",t]]);export{d as __pageData,v as default};
+<span class="line"><span>\`\`\`levelup</span></span></code></pre></div>`,15)])])}const v=a(l,[["render",t]]);export{d as __pageData,v as default};

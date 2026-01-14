@@ -9,11 +9,11 @@
     <link rel="preload stylesheet" href="/DH-UI/assets/style.Bmz08iQ4.css" as="style">
     <link rel="preload stylesheet" href="/DH-UI/vp-icons.css" as="style">
     
-    <script type="module" src="/DH-UI/assets/app.B8ZmTOGl.js"></script>
+    <script type="module" src="/DH-UI/assets/app.u9lPL61B.js"></script>
     <link rel="preload" href="/DH-UI/assets/inter-roman-latin.Di8DUHzh.woff2" as="font" type="font/woff2" crossorigin="">
-    <link rel="modulepreload" href="/DH-UI/assets/chunks/theme.CAXhZ5XQ.js">
+    <link rel="modulepreload" href="/DH-UI/assets/chunks/theme.Bdn6zqAM.js">
     <link rel="modulepreload" href="/DH-UI/assets/chunks/framework.BpVvFBTM.js">
-    <link rel="modulepreload" href="/DH-UI/assets/USAGE.md.BRhoqBpW.lean.js">
+    <link rel="modulepreload" href="/DH-UI/assets/USAGE.md.CynPpok3.lean.js">
     <script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"auto",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
     <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
   </head>
@@ -29,36 +29,37 @@
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;">---</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```traits</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"># no YAML needed – reads from frontmatter and your abilities config</span></span></code></pre></div><div class="language-vitals vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">vitals</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>hp: &quot;{{ frontmatter.hp }}&quot;</span></span>
-<span class="line"><span>stress: &quot;{{ frontmatter.stress }}&quot;</span></span>
-<span class="line"><span>armor: &quot;{{ frontmatter.armor }}&quot;</span></span>
-<span class="line"><span>hope: 6</span></span></code></pre></div><div class="language-rest vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">rest</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>show_levelup: true</span></span>
-<span class="line"><span>show_full_heal: true</span></span>
-<span class="line"><span>show_reset_all: true</span></span></code></pre></div><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span></span></span>
-<span class="line"><span>---</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>## Character frontmatter</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>Most blocks read data from your note frontmatter using the template engine. A simple single‑class frontmatter might look like this:</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>```yaml</span></span>
-<span class="line"><span>---</span></span>
-<span class="line"><span>name: Thalia</span></span>
-<span class="line"><span>level: 3</span></span>
-<span class="line"><span>tier: 2</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>hp: 8</span></span>
-<span class="line"><span>stress: 6</span></span>
-<span class="line"><span>armor: 2</span></span>
-<span class="line"><span>hope: 6</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>ancestry: Emberborn</span></span>
-<span class="line"><span>class: Warrior</span></span>
-<span class="line"><span>subclass: Sentinel</span></span>
-<span class="line"><span>community: Free City Guard</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>domains: &quot;valor | shadow&quot;</span></span>
-<span class="line"><span>---</span></span></code></pre></div><p>A multiclass character can be represented by adding more information to the same fields, for example:</p><div class="language-yaml vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">---</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"># no YAML needed – reads from frontmatter and your abilities config</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```vitals</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">hp: &quot;{{ frontmatter.hp }}&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">stress: &quot;{{ frontmatter.stress }}&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">armor: &quot;{{ frontmatter.armor }}&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">hope: 6</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```rest</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">show_levelup: true</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">show_full_heal: true</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">show_reset_all: true</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```</span></span></code></pre></div><hr><h2 id="character-frontmatter" tabindex="-1">Character frontmatter <a class="header-anchor" href="#character-frontmatter" aria-label="Permalink to &quot;Character frontmatter&quot;">​</a></h2><p>Most blocks read data from your note frontmatter using the template engine. A simple single‑class frontmatter might look like this:</p><div class="language-yaml vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">---</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">name</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">Thalia</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">level</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">3</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">tier</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">2</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">hp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">8</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">stress</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">6</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">armor</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">2</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">hope</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">6</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">ancestry</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">Emberborn</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">class</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">Warrior</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">subclass</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">Sentinel</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">community</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">Free City Guard</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">domains</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;valor | shadow&quot;</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">---</span></span></code></pre></div><p>A multiclass character can be represented by adding more information to the same fields, for example:</p><div class="language-yaml vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">---</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">name</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">Azureus</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">level</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">5</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">tier</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">3</span></span>
@@ -75,129 +76,96 @@
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">domains</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;valor | light | shadow&quot;</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">---</span></span></code></pre></div><p>The plugin does not try to enforce whether this is a legal build; it just uses these values for display and filtering.</p><hr><h2 id="core-blocks-with-examples" tabindex="-1">Core blocks with examples <a class="header-anchor" href="#core-blocks-with-examples" aria-label="Permalink to &quot;Core blocks with examples&quot;">​</a></h2><p>This section gives short examples for the most common blocks. See the README for more detailed field lists.</p><h3 id="traits-abilities" tabindex="-1">Traits / Abilities <a class="header-anchor" href="#traits-abilities" aria-label="Permalink to &quot;Traits / Abilities&quot;">​</a></h3><div class="language-markdown vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">markdown</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```traits</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"># usually no YAML needed – reads from frontmatter + your traits config</span></span></code></pre></div><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span></span></span>
-<span class="line"><span>### Vitals grid</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>```markdown</span></span>
-<span class="line"><span>```vitals</span></span>
-<span class="line"><span>styleClass: dh-vitals--sheet</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>hp: &quot;{{ frontmatter.hp }}&quot;</span></span>
-<span class="line"><span>stress: &quot;{{ frontmatter.stress }}&quot;</span></span>
-<span class="line"><span>armor: &quot;{{ frontmatter.armor }}&quot;</span></span>
-<span class="line"><span>hope: 6</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>hp_key: din_health</span></span>
-<span class="line"><span>stress_key: din_stress::{{ file.path }}</span></span>
-<span class="line"><span>armor_key: din_armor::{{ file.path }}</span></span>
-<span class="line"><span>hope_key: din_hope::{{ file.path }}</span></span></code></pre></div><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span></span></span>
-<span class="line"><span>### Individual trackers</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>```markdown</span></span>
-<span class="line"><span>```hp</span></span>
-<span class="line"><span>styleClass: dh-tracker--hp</span></span>
-<span class="line"><span>label: HP</span></span>
-<span class="line"><span>state_key: din_health</span></span>
-<span class="line"><span>uses: &quot;{{ frontmatter.hp }}&quot;</span></span></code></pre></div><div class="language-stress vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">stress</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>styleClass: dh-tracker--stress</span></span>
-<span class="line"><span>label: Stress</span></span>
-<span class="line"><span>state_key: din_stress::{{ file.path }}</span></span>
-<span class="line"><span>uses: &quot;{{ frontmatter.stress }}&quot;</span></span></code></pre></div><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span></span></span>
-<span class="line"><span>### Rest controls + Level Up</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>```markdown</span></span>
-<span class="line"><span>```rest</span></span>
-<span class="line"><span>styleClass: dh-rest--sheet</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>rest_label: &quot;Rest&quot;</span></span>
-<span class="line"><span>levelup_label: &quot;Level Up&quot;</span></span>
-<span class="line"><span>full_heal_label: &quot;Full Heal&quot;</span></span>
-<span class="line"><span>reset_all_label: &quot;Reset All&quot;</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>show_short: true</span></span>
-<span class="line"><span>show_long: true</span></span>
-<span class="line"><span>show_levelup: true</span></span>
-<span class="line"><span>show_full_heal: true</span></span>
-<span class="line"><span>show_reset_all: true</span></span></code></pre></div><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span></span></span>
-<span class="line"><span>- **Rest**: opens the rest-actions modal.</span></span>
-<span class="line"><span>- **Level Up**: opens the level‑up chooser modal tied to this note.</span></span>
-<span class="line"><span>- **Full Heal / Reset All**: update all matching trackers in the current note.</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>### Damage</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>```markdown</span></span>
-<span class="line"><span>```damage</span></span>
-<span class="line"><span>styleClass: dh-damage--inline</span></span>
-<span class="line"><span>title: &quot;Damage&quot;</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>hp_key: din_health</span></span>
-<span class="line"><span>armor_key: din_armor::{{ file.path }}</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>major_threshold: &quot;{{ frontmatter.major_threshold }}&quot;</span></span>
-<span class="line"><span>severe_threshold: &quot;{{ frontmatter.severe_threshold }}&quot;</span></span>
-<span class="line"><span>base_major: 3</span></span>
-<span class="line"><span>base_severe: 6</span></span>
-<span class="line"><span>level: &quot;{{ frontmatter.level }}&quot;</span></span></code></pre></div><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span></span></span>
-<span class="line"><span>### Consumables</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>```markdown</span></span>
-<span class="line"><span>```consumables</span></span>
-<span class="line"><span>styleClass: dh-consumables--sheet</span></span>
-<span class="line"><span>items:</span></span>
-<span class="line"><span>  - label: &quot;Health Potion&quot;</span></span>
-<span class="line"><span>    state_key: hero_hp_pots</span></span>
-<span class="line"><span>    uses: 3</span></span>
-<span class="line"><span>  - label: &quot;Rage&quot;</span></span>
-<span class="line"><span>    state_key: hero_rage</span></span>
-<span class="line"><span>    uses: &quot;{{ frontmatter.rage_uses }}&quot;</span></span></code></pre></div><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span></span></span>
-<span class="line"><span>### Badges</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>```markdown</span></span>
-<span class="line"><span>```badges</span></span>
-<span class="line"><span>styleClass: dh-badges--sheet</span></span>
-<span class="line"><span>items:</span></span>
-<span class="line"><span>  - label: &quot;Level&quot;</span></span>
-<span class="line"><span>    value: &quot;{{ frontmatter.level }}&quot;</span></span>
-<span class="line"><span>  - label: &quot;Ancestry&quot;</span></span>
-<span class="line"><span>    value: &quot;{{ frontmatter.ancestry }}&quot;</span></span>
-<span class="line"><span>  - label: &quot;Class&quot;</span></span>
-<span class="line"><span>    value: &quot;{{ frontmatter.class }}&quot;</span></span></code></pre></div><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span></span></span>
-<span class="line"><span>### Features (ancestry / class / subclass / community)</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>```markdown</span></span>
-<span class="line"><span>```features</span></span>
-<span class="line"><span>styleClass: dh-features--sheet</span></span>
-<span class="line"><span>ancestry:</span></span>
-<span class="line"><span>  - label: &quot;Emberborn&quot;</span></span>
-<span class="line"><span>    value: &quot;Fire‑aligned ancestry from the Ashen Realms.&quot;</span></span>
-<span class="line"><span>class:</span></span>
-<span class="line"><span>  - label: &quot;Warrior&quot;</span></span>
-<span class="line"><span>    value: &quot;Front‑line defender focused on armor and control.&quot;</span></span>
-<span class="line"><span>subclass:</span></span>
-<span class="line"><span>  - label: &quot;Sentinel&quot;</span></span>
-<span class="line"><span>    value: &quot;Specializes in protecting allies with reactions.&quot;</span></span>
-<span class="line"><span>community:</span></span>
-<span class="line"><span>  - label: &quot;Free City Guard&quot;</span></span>
-<span class="line"><span>    value: &quot;Sworn to protect the city of Vyr.&quot;</span></span></code></pre></div><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span></span></span>
-<span class="line"><span>To use a grid layout instead of a simple list:</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>```markdown</span></span>
-<span class="line"><span>```features</span></span>
-<span class="line"><span>styleClass: dh-features--grid</span></span>
-<span class="line"><span>layout: grid</span></span>
-<span class="line"><span>ancestry:</span></span>
-<span class="line"><span>  - label: &quot;Emberborn&quot;</span></span>
-<span class="line"><span>    value: &quot;Fire‑aligned ancestry from the Ashen Realms.&quot;</span></span>
-<span class="line"><span># ...</span></span></code></pre></div><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span></span></span>
-<span class="line"><span>---</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>## Domain Picker</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>The `domainpicker` block helps manage which domain cards are in a character&#39;s **Vault** vs **Loadout**.</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>Basic usage in a character note:</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>```markdown</span></span>
-<span class="line"><span>```domainpicker</span></span></code></pre></div><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span></span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"># usually no YAML needed – reads from frontmatter + your traits config</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```</span></span></code></pre></div><h3 id="vitals-grid" tabindex="-1">Vitals grid <a class="header-anchor" href="#vitals-grid" aria-label="Permalink to &quot;Vitals grid&quot;">​</a></h3><div class="language-markdown vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">markdown</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```vitals</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">styleClass: dh-vitals--sheet</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">hp: &quot;{{ frontmatter.hp }}&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">stress: &quot;{{ frontmatter.stress }}&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">armor: &quot;{{ frontmatter.armor }}&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">hope: 6</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">hp_key: din_health</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">stress_key: din_stress::{{ file.path }}</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">armor_key: din_armor::{{ file.path }}</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">hope_key: din_hope::{{ file.path }}</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```</span></span></code></pre></div><h3 id="individual-trackers" tabindex="-1">Individual trackers <a class="header-anchor" href="#individual-trackers" aria-label="Permalink to &quot;Individual trackers&quot;">​</a></h3><div class="language-markdown vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">markdown</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```hp</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">styleClass: dh-tracker--hp</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">label: HP</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">state_key: din_health</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">uses: &quot;{{ frontmatter.hp }}&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```stress</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">styleClass: dh-tracker--stress</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">label: Stress</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">state_key: din_stress::{{ file.path }}</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">uses: &quot;{{ frontmatter.stress }}&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```</span></span></code></pre></div><h3 id="rest-controls-level-up" tabindex="-1">Rest controls + Level Up <a class="header-anchor" href="#rest-controls-level-up" aria-label="Permalink to &quot;Rest controls + Level Up&quot;">​</a></h3><div class="language-markdown vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">markdown</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```rest</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">styleClass: dh-rest--sheet</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">rest_label: &quot;Rest&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">levelup_label: &quot;Level Up&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">full_heal_label: &quot;Full Heal&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">reset_all_label: &quot;Reset All&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">show_short: true</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">show_long: true</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">show_levelup: true</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">show_full_heal: true</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">show_reset_all: true</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```</span></span></code></pre></div><ul><li><strong>Rest</strong>: opens the rest-actions modal.</li><li><strong>Level Up</strong>: opens the level‑up chooser modal tied to this note.</li><li><strong>Full Heal / Reset All</strong>: update all matching trackers in the current note.</li></ul><h3 id="damage" tabindex="-1">Damage <a class="header-anchor" href="#damage" aria-label="Permalink to &quot;Damage&quot;">​</a></h3><div class="language-markdown vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">markdown</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```damage</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">styleClass: dh-damage--inline</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">title: &quot;Damage&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">hp_key: din_health</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">armor_key: din_armor::{{ file.path }}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">major_threshold: &quot;{{ frontmatter.major_threshold }}&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">severe_threshold: &quot;{{ frontmatter.severe_threshold }}&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">base_major: 3</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">base_severe: 6</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">level: &quot;{{ frontmatter.level }}&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```</span></span></code></pre></div><h3 id="consumables" tabindex="-1">Consumables <a class="header-anchor" href="#consumables" aria-label="Permalink to &quot;Consumables&quot;">​</a></h3><div class="language-markdown vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">markdown</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```consumables</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">styleClass: dh-consumables--sheet</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">items:</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  - label: &quot;Health Potion&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    state_key: hero_hp_pots</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    uses: 3</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  - label: &quot;Rage&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    state_key: hero_rage</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    uses: &quot;{{ frontmatter.rage_uses }}&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```</span></span></code></pre></div><h3 id="badges" tabindex="-1">Badges <a class="header-anchor" href="#badges" aria-label="Permalink to &quot;Badges&quot;">​</a></h3><div class="language-markdown vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">markdown</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```badges</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">styleClass: dh-badges--sheet</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">items:</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  - label: &quot;Level&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    value: &quot;{{ frontmatter.level }}&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  - label: &quot;Ancestry&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    value: &quot;{{ frontmatter.ancestry }}&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  - label: &quot;Class&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    value: &quot;{{ frontmatter.class }}&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```</span></span></code></pre></div><h3 id="features-ancestry-class-subclass-community" tabindex="-1">Features (ancestry / class / subclass / community) <a class="header-anchor" href="#features-ancestry-class-subclass-community" aria-label="Permalink to &quot;Features (ancestry / class / subclass / community)&quot;">​</a></h3><div class="language-markdown vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">markdown</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```features</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">styleClass: dh-features--sheet</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">ancestry:</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  - label: &quot;Emberborn&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    value: &quot;Fire‑aligned ancestry from the Ashen Realms.&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">class:</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  - label: &quot;Warrior&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    value: &quot;Front‑line defender focused on armor and control.&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">subclass:</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  - label: &quot;Sentinel&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    value: &quot;Specializes in protecting allies with reactions.&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">community:</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  - label: &quot;Free City Guard&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    value: &quot;Sworn to protect the city of Vyr.&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```</span></span></code></pre></div><p>To use a grid layout instead of a simple list:</p><div class="language-markdown vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">markdown</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```features</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">styleClass: dh-features--grid</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">layout: grid</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">ancestry:</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  - label: &quot;Emberborn&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    value: &quot;Fire‑aligned ancestry from the Ashen Realms.&quot;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"># ...</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```</span></span></code></pre></div><hr><h2 id="domain-picker" tabindex="-1">Domain Picker <a class="header-anchor" href="#domain-picker" aria-label="Permalink to &quot;Domain Picker&quot;">​</a></h2><p>The <code>domainpicker</code> block helps manage which domain cards are in a character&#39;s <strong>Vault</strong> vs <strong>Loadout</strong>.</p><p>Basic usage in a character note:</p><div class="language-markdown vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">markdown</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">```domainpicker</span></span></code></pre></div><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span></span></span>
 <span class="line"><span>How it works:</span></span>
 <span class="line"><span></span></span>
 <span class="line"><span>- Reads your character note&#39;s frontmatter, including `level` and `domains`.</span></span>
@@ -319,7 +287,7 @@
 <span class="line"><span>- The plugin does **not** enforce Daggerheart rules (including multiclass rules, card limits, or build legality).</span></span>
 <span class="line"><span>- It focuses on **rendering UI** and **persisting state** for things like trackers, cards, and level‑up choices.</span></span>
 <span class="line"><span>- Your frontmatter, YAML, and in‑world decisions remain the source of truth for what is actually allowed at the table.</span></span></code></pre></div></div></div></main><footer class="VPDocFooter" data-v-39a288b8 data-v-e257564d><!--[--><!--]--><!----><nav class="prev-next" aria-labelledby="doc-footer-aria-label" data-v-e257564d><span class="visually-hidden" id="doc-footer-aria-label" data-v-e257564d>Pager</span><div class="pager" data-v-e257564d><!----></div><div class="pager" data-v-e257564d><a class="VPLink link pager-link next" href="/DH-UI/blocks.html" data-v-e257564d><!--[--><span class="desc" data-v-e257564d>Next page</span><span class="title" data-v-e257564d>Code Blocks Overview</span><!--]--></a></div></nav></footer><!--[--><!--]--></div></div></div><!--[--><!--]--></div></div><!----><!--[--><!--]--></div></div>
-    <script>window.__VP_HASH_MAP__=JSON.parse("{\"blocks.md\":\"C_wBGpXy\",\"blocks_badges.md\":\"CwZ4Jngj\",\"blocks_consumables.md\":\"AkdWXxYH\",\"blocks_experiences.md\":\"Q4k5MiDH\",\"blocks_features.md\":\"Ytmmqe8Q\",\"blocks_traits-abilities.md\":\"oFuGEGg-\",\"events_heal-reset.md\":\"DPfFij66\",\"events_levelup.md\":\"D8wIyb6D\",\"events_rest.md\":\"DLq4Gr5L\",\"events_templates-events.md\":\"DIaHEA1H\",\"index.md\":\"DZcEQvtL\",\"pickers_domain-picker.md\":\"CK9m6wPX\",\"pickers_equipment-picker.md\":\"P2HrkabW\",\"usage.md\":\"BRhoqBpW\",\"vitals and damage_damage.md\":\"6JXIYzlC\",\"vitals and damage_vitals-trackers.md\":\"DbdXzMrR\"}");window.__VP_SITE_DATA__=JSON.parse("{\"lang\":\"en-US\",\"dir\":\"ltr\",\"title\":\"Daggerheart Tooltips (DH-UI)\",\"description\":\"Build rich Daggerheart character sheets in Obsidian using live UI blocks.\",\"base\":\"/DH-UI/\",\"head\":[],\"router\":{\"prefetchLinks\":true},\"appearance\":true,\"themeConfig\":{\"search\":{\"provider\":\"local\"},\"nav\":[{\"text\":\"Home\",\"link\":\"/\"},{\"text\":\"Docs\",\"link\":\"/USAGE\"}],\"sidebar\":[{\"text\":\"Getting Started\",\"items\":[{\"text\":\"Usage Guide\",\"link\":\"/USAGE\"}]},{\"text\":\"Character Sheet\",\"items\":[{\"text\":\"Code Blocks Overview\",\"link\":\"/blocks\"},{\"text\":\"Traits & Abilities\",\"link\":\"/blocks/traits-abilities\"},{\"text\":\"Vitals & Trackers\",\"link\":\"/vitals%20and%20damage/vitals-trackers\"},{\"text\":\"Rest & Level Up\",\"link\":\"/events/rest\"},{\"text\":\"Damage\",\"link\":\"/vitals%20and%20damage/damage\"}]},{\"text\":\"Resources & Inventory\",\"items\":[{\"text\":\"Consumables\",\"link\":\"/blocks/consumables\"},{\"text\":\"Domain Picker\",\"link\":\"/Pickers/domain-picker\"},{\"text\":\"Equipment Picker\",\"link\":\"/Pickers/equipment-picker\"}]},{\"text\":\"Display & Story\",\"items\":[{\"text\":\"Badges\",\"link\":\"/blocks/badges\"},{\"text\":\"Features\",\"link\":\"/blocks/features\"},{\"text\":\"Experiences\",\"link\":\"/blocks/experiences\"}]},{\"text\":\"Concepts\",\"items\":[{\"text\":\"Templates & Events\",\"link\":\"/events/templates-events\"}]}],\"socialLinks\":[{\"icon\":\"github\",\"link\":\"https://github.com/NoMansbacon/DH-UI\"}]},\"locales\":{},\"scrollOffset\":134,\"cleanUrls\":false}");</script>
+    <script>window.__VP_HASH_MAP__=JSON.parse("{\"blocks.md\":\"BAPjgLC_\",\"blocks_badges.md\":\"DVRoZLr9\",\"blocks_consumables.md\":\"BkHPbU4Y\",\"blocks_experiences.md\":\"DUizhAY1\",\"blocks_features.md\":\"bYwpNWpw\",\"blocks_traits-abilities.md\":\"oFuGEGg-\",\"events_heal-reset.md\":\"0uOss8Qs\",\"events_levelup.md\":\"BG4Qh71i\",\"events_rest.md\":\"DLq4Gr5L\",\"events_templates-events.md\":\"DIaHEA1H\",\"index.md\":\"DZcEQvtL\",\"pickers_domain-picker.md\":\"CK9m6wPX\",\"pickers_equipment-picker.md\":\"P2HrkabW\",\"usage.md\":\"CynPpok3\",\"vitals and damage_damage.md\":\"6JXIYzlC\",\"vitals and damage_vitals-trackers.md\":\"DbdXzMrR\"}");window.__VP_SITE_DATA__=JSON.parse("{\"lang\":\"en-US\",\"dir\":\"ltr\",\"title\":\"Daggerheart Tooltips (DH-UI)\",\"description\":\"Build rich Daggerheart character sheets in Obsidian using live UI blocks.\",\"base\":\"/DH-UI/\",\"head\":[],\"router\":{\"prefetchLinks\":true},\"appearance\":true,\"themeConfig\":{\"search\":{\"provider\":\"local\"},\"nav\":[{\"text\":\"Home\",\"link\":\"/\"},{\"text\":\"Docs\",\"link\":\"/USAGE\"}],\"sidebar\":[{\"text\":\"Getting Started\",\"items\":[{\"text\":\"Usage Guide\",\"link\":\"/USAGE\"}]},{\"text\":\"Character Sheet\",\"items\":[{\"text\":\"Code Blocks Overview\",\"link\":\"/blocks\"},{\"text\":\"Traits & Abilities\",\"link\":\"/blocks/traits-abilities\"},{\"text\":\"Vitals & Trackers\",\"link\":\"/vitals%20and%20damage/vitals-trackers\"},{\"text\":\"Rest & Level Up\",\"link\":\"/events/rest\"},{\"text\":\"Damage\",\"link\":\"/vitals%20and%20damage/damage\"}]},{\"text\":\"Resources & Inventory\",\"items\":[{\"text\":\"Consumables\",\"link\":\"/blocks/consumables\"},{\"text\":\"Domain Picker\",\"link\":\"/Pickers/domain-picker\"},{\"text\":\"Equipment Picker\",\"link\":\"/Pickers/equipment-picker\"}]},{\"text\":\"Display & Story\",\"items\":[{\"text\":\"Badges\",\"link\":\"/blocks/badges\"},{\"text\":\"Features\",\"link\":\"/blocks/features\"},{\"text\":\"Experiences\",\"link\":\"/blocks/experiences\"}]},{\"text\":\"Concepts\",\"items\":[{\"text\":\"Templates & Events\",\"link\":\"/events/templates-events\"}]}],\"socialLinks\":[{\"icon\":\"github\",\"link\":\"https://github.com/NoMansbacon/DH-UI\"}]},\"locales\":{},\"scrollOffset\":134,\"cleanUrls\":false}");</script>
     
   </body>
 </html>
