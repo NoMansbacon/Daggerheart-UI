@@ -1,49 +1,115 @@
-# Consumables (`consumables`)
+# Consumables
 
-Renders rows of consumable boxes with per‑item persistent state.
+The consumables component is used to track limited‑use resources as clickable pips (boxes). Each row represents a resource (like a potion, spell slot, or rage point pool) with a label and a row of uses you can spend and restore.
 
-```markdown
+You can use it for:
+
+•  Potions and elixirs  
+•  Charges on magic items  
+•  Rage / focus / inspiration pools  
+•  Session‑based or day‑based limited abilities  
+
+Each consumable row:
+
+•  Shows a label.  
+•  Displays a row of uses as boxes.  
+•  Stores current filled boxes in persistent state, so it survives Obsidian restarts.
+
+## Dynamic Content
+
+uses supports dynamic content using template variables with <span v-pre>{{ }}</span> style templates. This lets you compute the maximum number of uses from frontmatter or other values, for example:
+
+•  Tie a potion’s uses to a frontmatter field like frontmatter.hp_potions.  
+•  Compute uses from a formula like {{ add 1 frontmatter.slots }}.  
+
+The uses field is processed with the same template engine as other blocks (badges, vitals, damage, features, etc.).
+
+See the Templates & Events page for more information on using templates.
+
+## Example – Multiple consumables
+
+```yaml
 ```consumables
+styleClass: 
 items:
-  - label: "Health Potion"
-    state_key: hero_hp_pots
+  - label: "Health Potions"
+    state_key: "din_hp_pots"
     uses: 3
+
   - label: "Rage"
-    state_key: hero_rage
+    state_key: "din_rage"
     uses: "{{ frontmatter.rage_uses }}"
-class: my-consumables
+
+  - label: "Channel Divinity"
+    state_key: "din_channel_divinity"
+    uses: "{{ add 1 frontmatter.tier }}"
 ```
 ```
 
-Alternative shapes:
+- **Click** a box to toggle it on/off.  
+- The current filled count is saved using `state_key`, so it stays in sync across note reloads.
 
-```markdown
+## Example – Single consumable at root
+
+For a quick one‑off consumable, you can omit `items` and define a single item at the root:
+
+```yaml
 ```consumables
+styleClass:
 label: "Health Potion"
-state_key: hero_hp_pots
+state_key: "din_hp_pot_single"
 uses: 3
 ```
 ```
 
-```markdown
+## Example – Map style `items`
+
+You can also define items as a map instead of a list:
+
+```yaml
 ```consumables
+styleClass: 
 items:
-  health_potion:
-    label: "Health Potion"
-    state_key: hero_hp_pots
+  hp:
+    label: "Health Potions"
+    state_key: "din_hp_pots"
     uses: 3
-  rage:
-    label: "Rage"
-    state_key: hero_rage
-    uses: "{{ frontmatter.rage_uses }}"
-```
+
+  sp:
+    label: "Spell Slots"
+    state_key: "din_spell_slots"
+    uses: "{{ frontmatter.spell_slots }}"
+ ```
 ```
 
-## Options
+Functionally this is the same as the list version; the keys (`hp`, `sp`) are just for organization in YAML.
 
-- `items` – list or map of items.
-- `items[].label` – item label.
-- `items[].state_key` – unique state key (stored as `dh:consumable:<state_key>` in local storage).
-- `items[].uses` – number of boxes (can be a template).
-- `label` / `state_key` / `uses` at root – shorthand for a single item.
-- `class` – CSS class.
+## Configuration
+
+Top‑level `consumables` block options:
+
+| Property     | Type                       | Default | Description                                                                 |
+| ------------ | -------------------------- | ------- | --------------------------------------------------------------------------- |
+| `styleClass` | String                     | _none_  | Optional CSS class name applied to the whole consumables block container.   |
+| `items`      | Array or Object (map)     | `[]`    | List or map of consumable items.                                            |
+| `label`      | String (root single item) | `"Consumable"` | Label for a single consumable when not using `items`.                       |
+| `state_key`  | String (root single item) | `""`    | Storage key for a single consumable when not using `items`.                |
+| `uses`       | Number / String (root)    | `0`     | Maximum uses for a single consumable when not using `items`. Templates allowed. |
+
+### Consumable Item
+
+Each entry under `items` (in either array or map form) is an object:
+
+| Property    | Type                 | Description                                                                 |
+| ----------- | -------------------- | --------------------------------------------------------------------------- |
+| `label`     | String               | Display name for the consumable (e.g. `"Health Potions"`).                 |
+| `state_key` | String               | Key used to store filled uses. Must be stable and unique per resource.     |
+| `uses`      | Number / String      | Maximum number of uses (boxes). Strings are processed as templates.        |
+
+Behavior details:
+
+- `uses` is clamped to a non‑negative integer.  
+- `state_key` is required for persistence; without it, the consumable will render but won’t save its state between reloads.  
+- State is stored per key, so you can reuse a `state_key` across different notes to show the same consumable multiple places.  
+
+This makes the `consumables` block ideal for tracking any limited‑use resource that should feel like a small pool of checkboxes on your character sheet.

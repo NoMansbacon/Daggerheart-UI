@@ -18,14 +18,10 @@
   font-size:12px; 
   letter-spacing:0; 
   text-transform:none; 
-  color:var(--dh-text-muted);
-}
-.dh-badge .dh-badge-label::after{
-  content: ":";
-  margin: 0 4px 0 2px;
+  color:var(--text-accent);
 }
 .dh-badge .dh-badge-value{ 
   font-size:15px; 
   font-weight:500; 
-  color: var(--text-accent); 
+  color: var(--text-normal); 
 }

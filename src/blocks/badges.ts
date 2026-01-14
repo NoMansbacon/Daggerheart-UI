@@ -25,23 +25,24 @@ import { getOrCreateRoot } from "../utils/reactRoot";
 const roots = new WeakMap<HTMLElement, Root>();
 
 type BadgeItem = { label?: string; value?: string | number | boolean | null };
-type Doc = { items?: BadgeItem[]; class?: string };
+type Doc = { items?: BadgeItem[]; class?: string; reverse?: boolean };
 
-function parseDoc(src: string): { items: BadgeItem[]; klass?: string } {
+function parseDoc(src: string): { items: BadgeItem[]; klass?: string; reverse?: boolean } {
   try {
     const d = (parseYamlSafe<Doc>(src)) ?? {};
     const items = Array.isArray(d.items) ? d.items : [];
     const klass = (d.class || '').trim().split(/\s+/).filter(Boolean)[0];
-    return { items, klass };
+    const reverse = d.reverse === true;
+    return { items, klass, reverse };
   } catch (e) {
     console.error("[DH-UI] badges YAML error:", e);
-    return { items: [], klass: undefined };
+    return { items: [], klass: undefined, reverse: undefined };
   }
 }
 
 export function registerBadgesBlock(plugin: DaggerheartPlugin) {
   registerLiveCodeBlock(plugin, "badges", (el: HTMLElement, src: string, ctx: MarkdownPostProcessorContext) => {
-    const { items, klass } = parseDoc(src);
+    const { items, klass, reverse } = parseDoc(src);
     if (!items.length) {
       el.createEl("pre", {
         text: "No 'items:' found in ```badges block.\\nExample:\\nitems:\\n  - label: Level\\n    value: '{{ frontmatter.level }}'",
@@ -72,7 +73,7 @@ export function registerBadgesBlock(plugin: DaggerheartPlugin) {
       root.render(
         React.createElement(ErrorBoundary, { name: 'Badges' },
           React.createElement(KVProvider, null,
-            React.createElement(BadgesView, { items: rows })
+            React.createElement(BadgesView, { items: rows, reverse })
           )
         )
       );
