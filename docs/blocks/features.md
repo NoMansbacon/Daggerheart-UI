@@ -25,7 +25,6 @@ See the Templates & Events page for more information on using templates.
 
 ![Render Example](../images/example-features.webp)
 
-```yaml
 ```features
 styleClass: dh-features--character-sheet
 layout: grid
@@ -45,11 +44,9 @@ community:
   - label: "Free City Guard"
     value: "Sworn to protect the city of Vyr."
 ```
-```
 
 ## Example - Multiclass with tiers
 
-```yaml
 ```features
 styleClass: dh-features--multiclass
 layout: grid
@@ -84,7 +81,6 @@ community:
   - from: "Order of the Lantern"
     label: "Oath of Vigilance"
     value: "You watch for signs of planar breach and take responsibility for closing them."
-```
 ```
 
 The block will:

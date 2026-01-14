@@ -67,7 +67,6 @@ Under the hood:
 
 ## Example – Standard vitals grid
 
-```yaml
 ```vitals
 styleClass: 
 
@@ -95,7 +94,6 @@ hope_feature:
     value: "Recover all Hope when you complete a major quest."
   - label: "Despair"
     value: "If you ever run out of Hope, mark a Scar."
-```
 ```
 
 ## This renders:
@@ -135,7 +133,6 @@ armor: "frontmatter.armor_slots"
 
 hope_label: "Hope"
 hope: "{{ frontmatter.hope_max }}"
-```
 ```
 
 ## The block will:

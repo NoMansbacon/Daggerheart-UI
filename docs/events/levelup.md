@@ -30,7 +30,6 @@ You can add a Level Up button into your rest controls row. When clicked, it:
 
 ## Example – Rest bar with Level Up
 
-```yaml
 ```rest
 styleClass: 
 
@@ -68,7 +67,5 @@ If you want a dedicated Level Up area, you can also use the `levelup` code block
 
 ### Example – Inline Level Up button
 
-```yaml
-```levelup
-```
+```level```levelup
 ```

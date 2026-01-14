@@ -51,14 +51,12 @@ These are shown in the Inventory/Equipped tables and in the Add Equipment modal.
 
 ## Basic usage
 
-```yaml
 ```equipmentpicker
 # optional per-block overrides
 # folders:
 #   - "Cards/Equipment"
 # enforce_tier: true   # default: use character tier to hide too-high-tier items
 # view: table          # or "card" for card-style tiles
-```
 ```
 
 ## UI overview

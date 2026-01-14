@@ -18,7 +18,6 @@ See the [Templates & Events](../events/templates-events.md) page for more inform
 
 ## Example
 
-```yaml
 ```badges
 items:
   - label: Character

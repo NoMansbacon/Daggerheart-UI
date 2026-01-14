@@ -42,7 +42,6 @@ major_threshold and severe_threshold support template values with <span v-pre>{{
 
 ## Example – Simple damage panel
 
-```yaml
 ```damage
 styleClass: 
 
@@ -58,7 +57,6 @@ base_severe: 8
 
 # Level can come from frontmatter instead; this is optional.
 level: 3
-```
 ```
 This will:
 

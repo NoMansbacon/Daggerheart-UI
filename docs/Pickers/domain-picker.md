@@ -54,7 +54,6 @@ The block will:
 
 You can point the picker at specific folders, and change the Add‑cards modal to table view:
 
-```yaml
 ```domainpicker
 # Only look for Domain cards under these folders:
 folders:
@@ -69,7 +68,6 @@ max_loadout: 5
 
 # Use the character's level and domains frontmatter for default filters
 use_character_filters: true
-```
 ```
 ## UI overview
 

@@ -52,7 +52,6 @@ When both Short and Long are shown, a combined Rest button appears that opens th
 ◦  Enter – activate Rest (or Short Rest).
 
 # Example – Standard Short/Long Rest controls
-```yaml
 ```rest
 styleClass: 
 
@@ -76,7 +75,6 @@ hope_key: "din_hope::Character/Dree"
 
 # How many rest moves can be chosen in the rest modal
 max_picks: 2
-```
 ```
 ## Configuration – Short/Long Rest
 

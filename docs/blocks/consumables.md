@@ -28,7 +28,6 @@ See the [Templates & Events](../events/templates-events.md) page for more inform
 
 ## Example – Multiple consumables
 
-```yaml
 ```consumables
 styleClass: 
 items:
@@ -53,7 +52,6 @@ items:
 
 For a quick one‑off consumable, you can omit `items` and define a single item at the root:
 
-```yaml
 ```consumables
 styleClass:
 label: "Health Potion"
@@ -66,7 +64,6 @@ uses: 3
 
 You can also define items as a map instead of a list:
 
-```yaml
 ```consumables
 styleClass: 
 items:
@@ -77,9 +74,8 @@ items:
 
   sp:
     label: "Spell Slots"
-    state_key: "din_spell_slots"
-    uses: "{{ frontmatter.spell_slots }}"
- ```
+state_key: "din_spell_slots"
+uses: "{{ frontmatter.spell_slots }}"
 ```
 
 Functionally this is the same as the list version; the keys (`hp`, `sp`) are just for organization in YAML.

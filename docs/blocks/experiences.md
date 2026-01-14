@@ -19,7 +19,6 @@ Each experience row shows:
 
 ## Example – Experiences list
 
-```yaml
 ```experiences
 styleClass: 
 items:
@@ -46,7 +45,6 @@ items:
 
 For a quick one‑off experience, you can omit `items` and define a single item at the root:
 
-```yaml
 ```experiences
 styleClass:
 
@@ -54,13 +52,11 @@ name: "Marked by the Storm"
 note: "The storm left a crackling mark along your arm; you sometimes hear distant thunder when danger approaches."
 bonus: +2
 ```
-```
 
 ## Example – Map style `items`
 
 You can also define experiences as a map instead of a list:
 
-```yaml
 ```experiences
 styleClass: dh-experiences--sidebar
 items:

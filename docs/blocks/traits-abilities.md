@@ -32,7 +32,6 @@ The traits block expects a small YAML document with:
 All three accept maps keyed by ability name, and bonuses can also be arrays of maps that get summed.
 
 ## Example – Base abilities + one bonuses map
-```yaml
 ```traits
 abilities:
   Agility: 1
@@ -44,8 +43,7 @@ abilities:
 
 bonuses:
   Agility: 1       # from a trait
-  Presence: 2      # from ancestry or class
-```
+Presence: 2      # from ancestry or class
 ```
 
 ### Rendered cards will show:
@@ -58,7 +56,6 @@ bonuses:
 
 You can provide bonuses as a **list** if you want to keep sources separate in YAML:
 
-```yaml
 ```traits
 abilities:
   Agility: 1
@@ -72,8 +69,7 @@ bonuses:
   - Agility: 1         # from ancestry
     Finesse: 1
   - Presence: 1        # from class
-  - Presence: 1        # from background
-```
+Presence: 1        # from background
 ```
 
 ### Internally, all bonus maps are summed:
@@ -109,7 +105,6 @@ Names are matched **case‑insensitively**, so `abilities.Agility` and `abilitie
 
 You can then use these in other blocks, e.g.:
 
-```yaml
 ```badges
 items:
   - label: "Agility"
@@ -121,7 +116,6 @@ items:
 
 or combined with helpers:
 
-```yaml 
 ```badges
 items:
   - label: "Defense"
