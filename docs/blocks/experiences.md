@@ -23,18 +23,14 @@ Each experience row shows:
 
 ````yaml
 ```experiences
-styleClass: 
+styleClass:
 items:
-  - name: "Saved by the Stranger"
-    note: "You owe a favor to the mysterious stranger who pulled you from the river."
+  - name: "Storm-Born"
+    note: "You survived a violent storm as a child; since then, thunder and wind answer your emotions."
     bonus: +2
 
-  - name: "Haunted by the Flames"
-    note: "You survived a village fire that still stalks your dreams."
-    bonus: +2
-
-  - name: "Sworn to the Lantern"
-    note: "You have sworn to hunt down planar breaches in the name of the Order."
+  - name: "Whispers of the Wild"
+    note: "Spirits of stone, root, and river sometimes speak in the edge of your hearing, guiding your steps."
     bonus: +2
 ```
 ````
@@ -51,8 +47,8 @@ For a quick one‑off experience, you can omit `items` and define a single item 
 ````yaml
 ```experiences
 styleClass:
-name: "Marked by the Storm"
-note: "The storm left a crackling mark along your arm; you sometimes hear distant thunder when danger approaches."
+name: "Storm-Born"
+note: "You survived a violent storm as a child; since then, thunder and wind answer your emotions."
 bonus: +2
 ```
 ````
@@ -63,16 +59,14 @@ You can also define experiences as a map instead of a list:
 
 ````yaml
 ```experiences
-styleClass: 
+styleClass:
 items:
-  river:
-    name: "Friend of the Riverfolk"
-    note: "You grew up among the Riverfolk and know their customs and secrets."
-    bonus: +1
+  - name: "Storm-Born"
+    note: "You survived a violent storm as a child; since then, thunder and wind answer your emotions."
+    bonus: +2
 
-  void:
-    name: "Glimpse of the Void"
-    note: "You once looked beyond the veil. The memory is terrifying but useful."
+  - name: "Whispers of the Wild"
+    note: "Spirits of stone, root, and river sometimes speak in the edge of your hearing, guiding your steps."
     bonus: +2
 ```
 ````

@@ -37,16 +37,12 @@ All three accept maps keyed by trait name, and `bonuses`/`trait` can also be arr
 ````yaml
 ```traits
 abilities:
-  Agility: 1
-  Strength: 0
-  Finesse: 0
-  Instinct: 0
-  Presence: 0
+  Agility: 0
+  Strength: -1
+  Finesse: 1
+  Instinct: 2
+  Presence: 1
   Knowledge: 0
-
-bonuses:
-  Agility: 1       # from a trait
-  Presence: 2      # from ancestry or class
 ```
 ````
 

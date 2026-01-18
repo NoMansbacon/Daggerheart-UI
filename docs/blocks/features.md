@@ -27,48 +27,124 @@ See the [Events (API)](/events/templates-events) page for more information on us
 
 ````yaml
 ```features
-styleClass: 
+styleClass:
 layout: grid
 ancestry:
-  - label: "Infernis"
-    value: "An ancestry touched by planar fire; your magic often burns bright and hot."
-class:
-  - from: "Warrior"
-    label: "Second Wind"
-    value: "Once per rest, you catch your breath and recover a small amount of HP."
+  - from: "Elf"
+    label: "Quick Reactions"
+    value: "Mark a Stress to gain advantage on a reaction roll."
+  - from: "Elf"
+    label: "Celestial Trance"
+    value: "During a rest, you can drop into a trance to choose an additional downtime move."
+
 community:
-  - label: "Loreborne"
-    value: "Scholars and storytellers who keep your people’s history alive."
+  - from: "Loreborne"
+    label: "Well‑Read"
+    value: "You have advantage on rolls that involve the history, culture, or politics of a prominent person or place."
+
+class:
+  - from: "Sorcerer"
+    label: "Arcane Sence"
+    value: "You can sense the presence of magical people and objects within Close range."
+  - from: "Sorcerer"
+    label: "Minor Illusion"
+    value: "Make a Spellcast Roll (10). On a success, you create a minor visual illusion no larger than yourself within Close range. This illusion is convincing to anyone at Close range or farther."
+  - from: "Sorcerer"
+    label: "Channel Raw Power"
+    value: |
+      Once per long rest, you can place a domain card from your loadout into your vault and choose to either:
+      - Gain Hope equal to the level of the card.
+      - Enhance a spell that deals damage, gaining a bonus to your damage roll equal to twice the level of the card.
+
+subclass:
+  - from: "Primal Origin"
+    tier: "Foundation"
+    label: "Manipulate Magic"
+    value: |
+     Your primal origin allows you to modify the essence of magic itself. After you cast a spell or make an attack using a weapon that deals magic damage, you can mark a Stress to do one of the following:
+      - Extend the spell or attack’s reach by one range
+      - Gain a +2 bonus to the action roll’s result 
+      - Double a damage die of your choice
+      - Hit an additional target within range
+
+  - from: "Primal Origin"
+    tier: "Specialization"
+    label: "Enchanted Aid"
+    value: "You can enhance the magic of others with your essence. When you Help an Ally with a Spellcast Roll, you can roll a d8 as your advantage die. Once per long rest, after an ally has made a Spellcast Roll with your help, you can swap the results of their Duality Dice."
+    
+  - from: "Primal Origin"
+    tier: "Mastery"
+    label: "Arcane Charge"
+    value: "You can gather magical energy to enhance your capabilities. When you take magic damage, you become Charged. Alternatively, you can spend 2 Hope to become Charged. When you successfully make an attack that deals magic damage while Charged, you can clear your Charge to either gain a +10 bonus to the damage roll or gain a +3 bonus to the Difficulty of a reaction roll the spell causes the target to make. You stop being Charged at your next long rest."
 ```
 ````
 
-## Example - Multiclass with tiers
+## Example Multiclass Sorcerer (Primal Origin) & Druid at Level 10
+
+This example shows a level 10 character who started as a **Sorcerer (Primal Origin)** and took **Druid (Warden Of The Elements)** as a multiclass at level 5, gaining the Druid class feature, access to one of the Druid’s domains, and the Foundation card of a Druid subclass and grapped the upgrade to the Sorcerer Subclass to get Specilization.
 
 ````yaml
 ```features
-styleClass: dh-features--multiclass
+styleClass:
 layout: grid
+
 ancestry:
-  - from: "Human"
-    label: "Versatile Origins"
-    value: "Your ancestry is known for adapting quickly to new challenges."
-  - from: "Ribbet"
-    label: "Marsh‑born"
-    value: "Growing up among the wetlands left you sure‑footed in difficult terrain."
-class:
-  - from: "Warrior"
-    label: "Battle Training"
-    value: "You are comfortable in armor and with a wide range of weapons."
-  - from: "Wizard"
-    label: "Arcane Study"
-    value: "Years of study have taught you the fundamentals of spellcasting."
+  - from: "Elf"
+    label: "Quick Reactions"
+    value: "Mark a Stress to gain advantage on a reaction roll."
+  - from: "Elf"
+    label: "Celestial Trance"
+    value: "During a rest, you can drop into a trance to choose an additional downtime move."
+
 community:
-  - from: "Highborne"
-    label: "Noble Upbringing"
-    value: "You were raised among Highborne traditions and expectations."
-  - from: "Wanderborne"
-    label: "Road‑Tested"
-    value: "Life on the road has made you resilient and quick to read a crowd."
+  - from: "Loreborne"
+    label: "Well‑Read"
+    value: "You have advantage on rolls that involve the history, culture, or politics of a prominent person or place."
+
+class:
+  - from: "Sorcerer"
+    label: "Arcane Sence"
+    value: "You can sense the presence of magical people and objects within Close range."
+  - from: "Sorcerer"
+    label: "Minor Illusion"
+    value: "Make a Spellcast Roll (10). On a success, you create a minor visual illusion no larger than yourself within Close range. This illusion is convincing to anyone at Close range or farther."
+  - from: "Sorcerer"
+    label: "Channel Raw Power"
+    value: |
+      Once per long rest, you can place a domain card from your loadout into your vault and choose to either:
+      - Gain Hope equal to the level of the card.
+      - Enhance a spell that deals damage, gaining a bonus to your damage roll equal to twice the level of the card.
+  - from: "Druid"
+    label: "Beastform"
+    value: |
+      Mark a Stress to magically transform into a creature of your tier or lower from the Beastform list. You can drop out of this form at any time. While transformed, you can’t use weapons or cast spells from domain cards, but you can still use other features or abilities you have access to. Spells you cast before you transform stay active and last for their normal duration, and you can talk and communicate as normal. Additionally, you gain the Beastform’s features, add their Evasion bonus to your Evasion, and use the trait specified in their statistics for your attack. While you’re in a Beastform, your armor becomes part of your body and you mark Armor Slots as usual; when you drop out of a Beastform, those marked Armor Slots remain marked. If you mark your last Hit Point, you automatically drop out of this form.
+  - from: "Druid"
+    label: "Wildtouch"
+    value: "You can perform harmless, subtle effects that involve nature—such as causing a flower to rapidly grow, summoning a slight gust of wind, or starting a campfire—at will."
+
+subclass:
+  - from: "Primal Origin"
+    tier: "Foundation"
+    label: "Manipulate Magic"
+    value: |
+      Your primal origin allows you to modify the essence of magic itself. After you cast a spell or make an attack using a weapon that deals magic damage, you can mark a Stress to do one of the following:
+      - Extend the spell or attack’s reach by one range
+      - Gain a +2 bonus to the action roll’s result
+      - Double a damage die of your choice
+      - Hit an additional target within range
+  - from: "Primal Origin"
+    tier: "Specialization"
+    label: "Enchanted Aid"
+    value: "You can enhance the magic of others with your essence. When you Help an Ally with a Spellcast Roll, you can roll a d8 as your advantage die. Once per long rest, after an ally has made a Spellcast Roll with your help, you can swap the results of their Duality Dice."
+  - from: "Warden Of The Elements"
+    tier: "Foundation"
+    label: "Elemental Incarnation"
+    value: |
+      Mark a Stress to Channel one of the following elements until you take Severe damage or until your next rest:
+        - Fire: When an adversary within Melee range deals damage to you, they take 1d10 magic damage.
+        - Earth: Gain a bonus to your damage thresholds equal to your Proficiency.
+        - Water: When you deal damage to an adversary within Melee range, all other adversaries within Very Close range must mark a Stress.
+        - Air: You can hover, gaining advantage on Agility Rolls.
 ```
 ````
 

@@ -25,22 +25,18 @@ See the [Events (API)](/events/templates-events) page for more information on us
 items:
   - label: Character
     value: "{{ frontmatter.name }}"
-  - label: Level
-    value: 1
-  - label: Evasion
-    value: "{{ frontmatter.evasion }}"
-  - label: Armor
-    value: "{{ frontmatter.armor }}"
-  - label: Ancestry
-    value: "{{ frontmatter.ancestry }}"
   - label: Class
     value: "{{ frontmatter.class }}"
   - label: Subclass
     value: "{{ frontmatter.subclass }}"
+  - label: Heritage
+    value: "{{ frontmatter.ancestry }} ({{ frontmatter.heritage }})"
+  - label: Level
+    value: "{{ frontmatter.level }}"
+  - label: Evasion
+    value: "{{ frontmatter.evasion }}"
   - label: Spellcast Trait
     value: "{{ frontmatter.spellcast_trait }}"
-  - label: Heritage
-    value: "Highborne"
 ```
 ````
 
