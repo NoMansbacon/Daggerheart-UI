@@ -48,7 +48,7 @@ export default defineConfig({
       {
         text: "Examples",
         items: [
-          { text: "Wizard (School of Knowledge)", link: "/examples/wizard" },
+          { text: "Wizard (School of Knowledge)", link: "/examples/sorcerer" },
         ],
       },
       {

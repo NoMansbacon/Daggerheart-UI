@@ -1,42 +1,36 @@
 # Wizard Example Character Sheet (School of Knowledge)
 
-This example shows a complete level 1 Wizard (School of Knowledge) character sheet written as a single Obsidian note using DH-UI blocks.
+This example shows a complete level 1 Sorcerer (Primal Origin) character sheet written as a single Obsidian note using DH-UI blocks.
 All rules choices (class, ancestry, community, and domain cards) are drawn from the Daggerheart SRD.
 
 ````markdown
 ---
-name: Elira Highstar
-class: Wizard
-subclass: School of Knowledge
-ancestry: Human
-community: Highborne
-heritage: "Human (Highborne)"
+name: Marlowe Fairwind
+class: Sorcerer
+subclass: Primal Origin
+ancestry: Elf
+heritage: Loreborne
 level: 1
 tier: 1
-
-# Core stats
-hp_max: 5          # Wizard starting HP
+hp_max: 6
 stress_max: 6
-armor_slots: 0
+armor_slots: 3
 hope_max: 6
-
-# Domains and domain cards (level 1 Wizard, Codex & Splendor)
 domains:
-  - Codex
-  - Splendor
-
+  - arcana
+  - midnight
 vault:
-  - "[[BOOK OF TYFAR]]"       # Codex, Level 1 Grimoire
-  - "[[MENDING TOUCH]]"       # Splendor, Level 1 Spell
 loadout:
-  - "[[BOOK OF TYFAR]]"
-  - "[[MENDING TOUCH]]"
-
-evasion: 11        # Wizard starting Evasion
-spellcast_trait: Knowledge
+  - "[[DH_Compendium/abilities/Arcana/Unleash Chaos.md]]"
+  - "[[DH_Compendium/abilities/Midnight/Rain of Blades.md]]"
+evasion: 10
+spellcast_trait: Instinct
+equipped:
+  - "[[DH_Compendium/equipment/weapons/Tier 1/Dualstaff.md]]"
+  - "[[DH_Compendium/equipment/armor/Tier 1/Leather Armor.md]]"
 ---
 
-# {{ frontmatter.name }}
+# Marlowe Fairwind
 
 ```badges
 items:
@@ -47,7 +41,7 @@ items:
   - label: Subclass
     value: "{{ frontmatter.subclass }}"
   - label: Heritage
-    value: "{{ frontmatter.ancestry }} ({{ frontmatter.community }})"
+    value: "{{ frontmatter.ancestry }} ({{ frontmatter.heritage }})"
   - label: Level
     value: "{{ frontmatter.level }}"
   - label: Evasion
@@ -65,13 +59,12 @@ abilities:
   Agility: 0
   Strength: -1
   Finesse: 1
-  Instinct: 0
+  Instinct: 2
   Presence: 1
-  Knowledge: 2
+  Knowledge: 0
 
 bonuses:
-  Knowledge: 1    # from School of Knowledge training
-  Presence: 1     # from Highborne upbringing
+
 ```
 
 These values are just an example; assign trait points per the SRD and adjust the YAML above to match your build.
@@ -97,8 +90,8 @@ armor_key: "din_armor::Characters/Elira"
 hope_key: "din_hope::Characters/Elira"
 
 hope_feature:
-  - label: "Not This Time (Wizard Hope Feature)"
-    value: "Spend 3 Hope to force an adversary within Far range to reroll an attack or damage roll."
+  - label: "Volatile Magic:"
+    value: "Spend 3 Hope to reroll any number of your damage dice on an attack that deals magic damage."
 ```
 
 This block renders HP, Stress, Armor, and Hope trackers that other blocks (rest, damage, etc.) will interact with using the same keys.
@@ -138,35 +131,42 @@ styleClass: dh-features--character-sheet
 layout: grid
 
 ancestry:
-  - from: "Human"
-    label: "High Stamina"
-    value: "Your human endurance grants you an extra Stress slot at character creation."
-  - from: "Human"
-    label: "Adaptability"
-    value: "When an Experience roll goes badly, you can mark Stress to try again."
+  - from: "Elf"
+    label: "Quick Reactions"
+    value: "Mark a Stress to gain advantage on a reaction roll."
+  - from: "Elf"
+    label: "Celestial Trance"
+    value: "During a rest, you can drop into a trance to choose an additional downtime move."
 
 community:
-  - from: "Highborne"
-    label: "Privilege"
-    value: "You have an easier time dealing with nobles and merchants thanks to your highborn reputation."
+  - from: "Loreborne"
+    label: "Well‑Read"
+    value: "You have advantage on rolls that involve the history, culture, or politics of a prominent person or place."
 
 class:
-  - from: "Wizard"
-    label: "Prestidigitation"
-    value: "You can create small, harmless magical effects at will: light, sounds, minor illusions, and similar tricks."
-  - from: "Wizard"
-    label: "Strange Patterns"
-    value: "You choose a number on your Duality Dice; when you roll it, you may gain Hope or clear Stress."
+  - from: "Sorcerer"
+    label: "Arcane Sence"
+    value: "You can sense the presence of magical people and objects within Close range."
+  - from: "Sorcerer"
+    label: "Minor Illusion"
+    value: "Make a Spellcast Roll (10). On a success, you create a minor visual illusion no larger than yourself within Close range. This illusion is convincing to anyone at Close range or farther."
+  - from: "Sorcerer"
+    label: "Channel Raw Power"
+    value: |
+      Once per long rest, you can place a domain card from your loadout into your vault and choose to either:
+      - Gain Hope equal to the level of the card.
+      - Enhance a spell that deals damage, gaining a bonus to your damage roll equal to twice the level of the card.
 
 subclass:
-  - from: "School of Knowledge"
+  - from: "Primal Origin"
     tier: "Foundation"
-    label: "Prepared"
-    value: "You begin play with one extra domain card of your level or lower from Codex or Splendor."
-  - from: "School of Knowledge"
-    tier: "Foundation"
-    label: "Adept"
-    value: "When you Utilize an Experience, you can mark Stress instead of spending Hope to greatly increase its effect."
+    label: "Manipulate Magic"
+    value: |
+     Your primal origin allows you to modify the essence of magic itself. After you cast a spell or make an attack using a weapon that deals magic damage, you can mark a Stress to do one of the following:
+      - Extend the spell or attack’s reach by one range
+      - Gain a +2 bonus to the action roll’s result 
+      - Double a damage die of your choice
+      - Hit an additional target within range
 ```
 
 This block summarizes the ancestry, community, class, and subclass features that Elira has at level 1, matching the SRD Wizard (School of Knowledge).
@@ -192,12 +192,7 @@ These are homebrew experiences, but they work with the SRD rule that Wizards can
 
 ## Domain cards summary
 
-```badges
-items:
-  - label: "Codex Card"
-    value: "BOOK OF TYFAR (Level 1 Codex Grimoire)"
-  - label: "Splendor Card"
-    value: "MENDING TOUCH (Level 1 Splendor Spell)"
+```domainpicker
 ```
 
 This badge block just summarizes the two domain cards Elira has chosen at level 1.
@@ -211,20 +206,12 @@ You can add consumables or equipment blocks if you want to track items from the 
 
 ```consumables
 items:
-  - label: "Minor Health Potion"
-    state_key: "elira_minor_health_potions"
-    uses: 2
-  - label: "Stride Potion"
-    state_key: "elira_stride_potions"
+  - label: "Minor Stamina Potion (Clear 1d4 Stress)"
+    state_key: "marlowe_minor_stamina_potions"
     uses: 1
 ```
 
 ```equipmentpicker
-# folders:
-#   - "Cards/Equipment"
-# enforce_tier: true
-# view: table
 ```
 
 These are optional; they demonstrate how DH-UI can also track consumables and let you manage weapons/armor for a Wizard whose core mechanics still follow the SRD.
-````
