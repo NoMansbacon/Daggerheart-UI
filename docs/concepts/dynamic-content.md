@@ -4,13 +4,13 @@
 Dynamic content lets you calculate values from your Daggerheart character data using `{{ }}` templates inside block YAML.
 :::
 
-Anywhere you can provide a string in a DH-UI block, you can usually use templates like `{{ frontmatter.hp }}` or `{{ add 2 traits.agility }}`.
+Anywhere you can provide a string in a DH-UI block, you can usually use templates like <span v-pre>`{{ frontmatter.hp }}`</span> or <span v-pre>`{{ add 2 traits.agility }}`</span>.
 
 This page focuses on how to read values; see **State Storage** for how those values are persisted.
 
 ## Template paths
 
-These are the main paths available inside `{{ ... }}`:
+These are the main paths available inside <span v-pre>`{{ ... }}`</span>:
 
 ### `frontmatter.*`
 
@@ -36,7 +36,7 @@ value: "{{ frontmatter.name }}"      # → "Thalia"
 
 ### `traits.*`
 
-DH-UI exposes the six core Daggerheart traits from the nearest ```traits block in the same section.
+DH-UI exposes the six core Daggerheart traits from the nearest `traits` block in the same section.
 
 After parsing your `traits` YAML, the plugin computes final totals (`base + bonuses`) for:
 
