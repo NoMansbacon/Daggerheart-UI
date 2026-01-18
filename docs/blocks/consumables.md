@@ -1,6 +1,6 @@
 # Consumables
 
-The consumables component is used to track limited‑use resources as clickable pips (boxes). Each row represents a resource (like a potion, spell slot, or rage point pool) with a label and a row of uses you can spend and restore.
+The consumables component is used to track limited‑use resources as clickable pips (boxes). Each row represents a resource (like a potion, domain card token, or once‑per‑scene move) with a label and a row of uses you can spend and restore.
 
 You can use it for:
 
@@ -31,12 +31,12 @@ See the [Templates & Events](../events/templates-events.md) page for more inform
 ```consumables
 styleClass:
 items:
-  - label: "Health Potion"
-    state_key: "din_health_potion"
+  - label: "Minor Health Potion"
+    state_key: "din_minor_health_potion"
     uses: 2  
 
-  - label: "Stamina Potion"
-    state_key: "din_stamina_potion"
+  - label: "Stride Potion"
+    state_key: "din_stride_potion"
     uses: 1 
 
 ```
@@ -51,8 +51,8 @@ For a quick one‑off consumable, you can omit `items` and define a single item 
 
 ```consumables
 styleClass:
-label: "Health Potion"
-state_key: "din_hp_pot_single"
+label: "Minor Health Potion"
+state_key: "din_minor_health_single"
 uses: 3
 ```
 
@@ -64,14 +64,14 @@ You can also define items as a map instead of a list:
 styleClass: 
 items:
   hp:
-    label: "Health Potions"
-    state_key: "din_hp_pots"
+    label: "Minor Health Potions"
+    state_key: "din_minor_health_pots"
     uses: 3
 
-  sp:
-    label: "Spell Slots"
-    state_key: "din_spell_slots"
-    uses: "{{ frontmatter.spell_slots }}"
+  stride:
+    label: "Stride Potions"
+    state_key: "din_stride_potions"
+    uses: "{{ frontmatter.stride_potions }}"
 ```
 
 Functionally this is the same as the list version; the keys (`hp`, `sp`) are just for organization in YAML.

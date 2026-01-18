@@ -38,7 +38,7 @@ items:
   - label: Spellcast Trait
     value: "{{ frontmatter.spellcast_trait }}"
   - label: Heritage
-    value: "Slyborne"
+    value: "Highborne"
 ```
 ````
 
@@ -56,3 +56,9 @@ items:
 | -------- | ----------------------- | -------------------------------- |
 | label  | String                  | Label text (optional)           |
 | value  | String / Number / Bool | Value to display (optional)     |
+
+## See also
+
+- [Traits](/blocks/traits-abilities) – source of `traits.*` values you can show in badges.
+- [Dynamic Content](/concepts/dynamic-content) – full reference for template usage.
+- [State Storage](/concepts/state-storage) – background on how other blocks persist values that badges often display.

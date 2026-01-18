@@ -80,7 +80,15 @@ function renderFeaturesList(
 
   if (!hasAnyItems) {
     el.createEl("pre", {
-      text: "No items found in ```features block.\nExample:\nancestry:\n  - label: Dread Visage\n    value: You have advantage on rolls to intimidate hostile creatures\nclass:\n  - label: Action Surge\n    value: Take an additional action on your turn",
+      text:
+        "No items found in ```features block.\n" +
+        "Example:\n" +
+        "ancestry:\n" +
+        "  - label: Human Ingenuity\n" +
+        "    value: Your human ancestry helps you adapt quickly to new situations.\n" +
+        "class:\n" +
+        "  - label: Warrior Training\n" +
+        "    value: Years of practice with weapons and armor have prepared you for battle.",
     });
     return;
   }

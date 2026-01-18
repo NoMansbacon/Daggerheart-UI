@@ -50,7 +50,7 @@ export default defineConfig({
         items: [
           { text: "Dynamic Content", link: "/concepts/dynamic-content" },
           { text: "State Storage", link: "/concepts/state-storage" },
-          { text: "Events", link: "/events/templates-events" },
+{ text: "Events", link: "/concepts/events" },
         ],
       },
     ],

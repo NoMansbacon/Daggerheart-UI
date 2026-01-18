@@ -42,3 +42,11 @@ The docs include:
 4. Enable **Daggerheart Tooltips** in *Settings → Community plugins*.
 
 The plugin requires Obsidian `minAppVersion` as specified in `manifest.json`.
+
+---
+
+## Licensing & attribution
+
+- This plugin is an unofficial fan work built for the Daggerheart roleplaying game.
+- It is informed by and references the Daggerheart System Reference Document (SRD) published by Darrington Press.
+- This project is not affiliated with, endorsed, or sponsored by Critical Role, Darrington Press, or their partners.

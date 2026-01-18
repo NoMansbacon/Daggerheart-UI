@@ -29,20 +29,15 @@ See the Templates & Events page for more information on using templates.
 styleClass: dh-features--character-sheet
 layout: grid
 ancestry:
-  - label: "Emberborn"
-    value: "Fire‑aligned ancestry from the Ashen Realms."
+  - label: "Infernis"
+    value: "An ancestry touched by planar fire; your magic often burns bright and hot."
 class:
   - from: "Warrior"
     label: "Second Wind"
-    value: "Once per rest, you may recover a burst of HP."
-subclass:
-  - from: "Sentinel"
-    tier: "Foundation"
-    label: "Hold the Line"
-    value: "Enemies have trouble pushing past you when you defend a space."
+    value: "Once per rest, you catch your breath and recover a small amount of HP."
 community:
-  - label: "Free City Guard"
-    value: "Sworn to protect the city of Vyr."
+  - label: "Loreborne"
+    value: "Scholars and storytellers who keep your people’s history alive."
 ```
 
 ## Example - Multiclass with tiers
@@ -51,36 +46,26 @@ community:
 styleClass: dh-features--multiclass
 layout: grid
 ancestry:
-  - from: "Emberborn"
-    label: "Flameborn"
-    value: "You survived the Ashen Realms; fire and smoke no longer faze you."
-  - from: "Void‑touched"
-    label: "Starlit Eyes"
-    value: "Your eyes glow faintly in the dark; you can see into the edges of the Void."
+  - from: "Human"
+    label: "Versatile Origins"
+    value: "Your ancestry is known for adapting quickly to new challenges."
+  - from: "Ribbet"
+    label: "Marsh‑born"
+    value: "Growing up among the wetlands left you sure‑footed in difficult terrain."
 class:
   - from: "Warrior"
     label: "Battle Training"
-    value: "Comfortable in heavy armor and with martial weapons."
-  - from: "Invoker"
-    label: "Channel Starlight"
-    value: "Call down distant starlight to guide or harm."
-subclass:
-  - from: "Sentinel"
-    tier: "Foundation"
-    label: "Hold the Line"
-    value: "When you defend a space, enemies struggle to move past you."
-  - from: "Sentinel"
-    tier: "Specialization"
-    label: "Shield Wall"
-    value: "You can extend your protection to adjacent allies."
-  - from: "Starcaller"
-    tier: "Foundation"
-    label: "Guiding Star"
-    value: "Once per scene, add +2 to an ally’s roll by invoking a guiding star."
+    value: "You are comfortable in armor and with a wide range of weapons."
+  - from: "Wizard"
+    label: "Arcane Study"
+    value: "Years of study have taught you the fundamentals of spellcasting."
 community:
-  - from: "Order of the Lantern"
-    label: "Oath of Vigilance"
-    value: "You watch for signs of planar breach and take responsibility for closing them."
+  - from: "Highborne"
+    label: "Noble Upbringing"
+    value: "You were raised among Highborne traditions and expectations."
+  - from: "Wanderborne"
+    label: "Road‑Tested"
+    value: "Life on the road has made you resilient and quick to read a crowd."
 ```
 
 The block will:

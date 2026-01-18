@@ -44,6 +44,24 @@ From each card it looks at:
 
 These fields are shown in the Vault/Loadout tables and the Add‑cards modal.
 
+### Example – Domain card note (Blade domain)
+
+A single Domain card can be stored as a note like this:
+
+```yaml
+---
+title: "Glancing Blow"
+domains: [Blade]
+level: 7
+type: "Ability"
+stress: "When an attack goes wide, you still mark a lesser wound."
+feature: "A near miss becomes a smaller strike, turning failure into a glancing blow."
+tokens: 0
+---
+```
+
+The picker will read this note as a Blade Domain card named **Glancing Blow** at level 7, with its type, stress note, feature text, and any token tracking available for filters and displays.
+
 The block will:
 
 - Show a toolbar with **Loadout / Vault** toggle and an **“Add cards”** button.  
@@ -57,8 +75,8 @@ You can point the picker at specific folders, and change the Add‑cards modal t
 ```domainpicker
 # Only look for Domain cards under these folders:
 folders:
-  - Daggerheart/Domains/Justice
-  - Daggerheart/Domains/Chaos
+  - Daggerheart/Domains/Blade
+  - Daggerheart/Domains/Arcana
 
 # Modal view for picking cards: 'card' or 'table'
 view: table
@@ -136,6 +154,46 @@ The domain picker can also respond to a custom event (used by your Level Up tool
   - Tracks how many cards you’ve added and automatically closes the modal once you’ve added the required number.
 
 This lets your leveling flow guide players through adding the correct number of new Domain cards.
+
+## Sample domain deck notes
+
+Here is an example of a small deck of Domain card notes based on SRD domains and card names:
+
+```yaml
+---
+title: "ARCANA-TOUCHED"
+domains: [Arcana]
+level: 5
+type: "Ability"
+feature: "You carry a lingering mark of strange magic wherever you go."
+---
+
+---
+title: "BONE-TOUCHED"
+domains: [Bone]
+level: 7
+type: "Ability"
+feature: "Your dealings with mortality have left a visible mark on you."
+---
+
+---
+title: "FANE OF THE WILDS"
+domains: [Sage]
+level: 9
+type: "Ability"
+feature: "A hidden wild sanctuary answers when you call upon it for aid."
+---
+
+---
+title: "FULL SURGE"
+domains: [Valor]
+level: 8
+type: "Ability"
+feature: "In a crucial moment, you unleash a surge of courageous effort."
+---
+```
+
+Each of these notes represents a single Domain card drawn from the SRD’s Domain Card Reference. The picker will treat them like any other card when building Vault and Loadout lists.
 
 ## Configuration
 

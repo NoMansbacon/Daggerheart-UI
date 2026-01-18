@@ -88,7 +88,7 @@ function renderCard(
   const stateKeyFromYaml = resolveText("state_key", raw, fm, el, app, ctx);
   const tokenStateKey = String(stateKeyFromYaml || `${ctx.sourcePath}:${title || kind}:card`).trim();
 
-  // D&D-like extras (optional, for convenience)
+  // Optional spell metadata for card layout (casting time, range, components, duration)
   const casting_time = resolveText("casting_time", raw, fm, el, app, ctx);
   const range = resolveText("range", raw, fm, el, app, ctx);
   const components = resolveText("components", raw, fm, el, app, ctx);

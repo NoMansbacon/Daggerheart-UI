@@ -50,8 +50,8 @@ Good patterns:
 
 Examples:
 
-- ❌ `spell_slots`
-- ✅ `din_spell_slots::Character/Dree`
+- ❌ `domain_tokens`
+- ✅ `din_domain_tokens::Character/Dree`
 
 ## Defaults for trackers
 

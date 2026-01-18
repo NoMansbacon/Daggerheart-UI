@@ -131,3 +131,9 @@ Top‑level options:
 || `abilities` | Map `TraitName -> Number`    | Base values for the six Daggerheart traits. Missing ones default to 0.     |
 || `bonuses`   | Map or Array of Maps         | Trait bonuses; all maps are summed by trait.                               |
 || `trait`     | Map or Array of Maps         | Legacy alias for `bonuses` (still supported but not recommended for new notes). |
+
+## See also
+
+- [Dynamic Content](/concepts/dynamic-content) – how `traits.*` are exposed to templates.
+- [State Storage](/concepts/state-storage) – how trait toggles and other values are remembered.
+- [Vitals & Trackers](/vitals%20and%20damage/vitals-trackers) – HP/Stress/Armor/Hope trackers that often sit under your traits.

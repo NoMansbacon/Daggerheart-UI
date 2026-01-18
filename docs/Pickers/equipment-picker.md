@@ -59,6 +59,39 @@ These are shown in the Inventory/Equipped tables and in the Add Equipment modal.
 # view: table          # or "card" for card-style tiles
 ```
 
+### Example – Weapon and armor notes
+
+Each equipment item can be a simple note that matches the SRD’s weapon and armor lists. For example:
+
+```yaml
+---
+title: "Shortsword"
+category: "Weapon"
+type: "Melee"
+damage: "d8+1"
+tier: 1
+trait: "Light, Finesse"
+range: "Close"
+burden: "Light"
+feature: "A trusted blade for close combat."
+---
+```
+
+```yaml
+---
+title: "Round Shield"
+category: "Armor"
+type: "Shield"
+thresholds: "Minor 2 / Major 4 / Severe 6"
+base_score: 2
+tier: 1
+burden: "Moderate"
+feature: "A sturdy shield that helps turn aside blows."
+---
+```
+
+The equipment picker will discover notes like these and show their fields in the Weapons and Armor sections, letting you move them between **Inventory** and **Equipped**.
+
 ## UI overview
 
 ### Main toolbar

@@ -176,3 +176,11 @@ Top‑level options:
 || `hope_key`     | String            | `"din_hope::&lt;note-path&gt;"`      | State key for Hope tracker.                                                |
 | `hope_feature` | String / Object / Array | _none_                 | Optional text or list of `{label, value}` rows under the Hope tracker.     |
 | `footer`       | (alias)           | _none_                         | Alias for `hope_feature` (for backwards compatibility).                     |
+
+## See also
+
+- [Rest – Short & Long](/events/rest) – uses these trackers to apply rest moves.
+- [Full Heal & Reset All](/events/heal-reset) – utilities to clear HP or all trackers in a note.
+- [Damage](/vitals%20and%20damage/damage) – tiered damage application that updates HP/Armor.
+- [State Storage](/concepts/state-storage) – how `hp_key`, `stress_key`, etc. are stored.
+- [Dynamic Content](/concepts/dynamic-content) – using templates to compute tracker sizes.
