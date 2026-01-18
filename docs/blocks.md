@@ -16,7 +16,7 @@ For full details on each block, use the sidebar links or jump directly:
 - [Experiences](/blocks/experiences)
 - [Domain Picker](/Pickers/domain-picker)
 - [Equipment Picker](/Pickers/equipment-picker)
-- [Templates & Events](/events/templates-events)
+- [Events](/events/templates-events)
 
 You use these blocks in Markdown like:
 
@@ -54,5 +54,5 @@ This page is just an index. For detailed options and examples, use the links abo
   - [Domain Picker](/Pickers/domain-picker)
   - [Equipment Picker](/Pickers/equipment-picker)
 
-- **Templates & events**
-  - [Templates & Events](/events/templates-events)
+- **Events (API)**
+  - [Events (API)](/events/templates-events)
