@@ -25,8 +25,9 @@ See the [Events (API)](/events/templates-events) page for more information on us
 
 ![Features block rendering example](../images/example_features.webp)
 
+````yaml
 ```features
-styleClass: dh-features--character-sheet
+styleClass: 
 layout: grid
 ancestry:
   - label: "Infernis"
@@ -39,9 +40,11 @@ community:
   - label: "Loreborne"
     value: "Scholars and storytellers who keep your people’s history alive."
 ```
+````
 
 ## Example - Multiclass with tiers
 
+````yaml
 ```features
 styleClass: dh-features--multiclass
 layout: grid
@@ -67,6 +70,7 @@ community:
     label: "Road‑Tested"
     value: "Life on the road has made you resilient and quick to read a crowd."
 ```
+````
 
 The block will:
 

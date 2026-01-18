@@ -60,14 +60,15 @@ When a tracked resource changes (HP, Stress, Armor, Hope, or any other key), DH�
 Handlers receive a `CustomEvent` whose `detail` typically includes:
 
 - `key` – the storage key (for example `tracker:din_health::Character/Dree`).
-- `value` – the new value after the change.
+- For `dh:tracker:changed`: `filled` – the new filled count for that tracker.
+- For `dh:kv:changed`: `val` – the new value stored for that key.
 
 #### Example – listen for tracker changes
 
 ```js
-document.addEventListener("dh:tracker:changed", (event) => {
-  const { key, value } = event.detail ?? {};
-  console.log("Tracker updated", key, value);
+window.addEventListener("dh:tracker:changed", (event) => {
+  const { key, filled } = (event as CustomEvent).detail ?? {};
+  console.log("Tracker updated", key, filled);
 });
 ```
 
@@ -79,16 +80,14 @@ When you use the `rest` block, DH‑UI fires events so other components know whi
 
 - `dh:rest:short`
 - `dh:rest:long`
-- `dh:rest:full` (Full Heal)
-- `dh:rest:reset-all` (Reset All)
 
-Each event’s `detail` may include information about which keys were updated.
+Each event’s `detail` includes the file path and the HP / Stress / Armor / Hope keys that were updated.
 
 #### Example – react to a Long Rest
 
 ```js
-document.addEventListener("dh:rest:long", (event) => {
-  console.log("Long Rest applied", event.detail);
+window.addEventListener("dh:rest:long", (event) => {
+  console.log("Long Rest applied", (event as CustomEvent).detail);
 });
 ```
 
@@ -102,10 +101,10 @@ If you are extending DH‑UI with custom UI, you can dispatch compatible events 
 const event = new CustomEvent("dh:kv:changed", {
   detail: {
     key: "tracker:din_custom_resource::Character/Dree",
-    value: 3,
+    val: 3,
   },
 });
-document.dispatchEvent(event);
+window.dispatchEvent(event);
 ```
 
 Use unique, stable keys (see [State Storage](/concepts/state-storage)) so your custom events play nicely with the built‑in state store.

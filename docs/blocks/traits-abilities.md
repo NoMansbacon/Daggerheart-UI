@@ -34,6 +34,7 @@ The `traits` block expects a small YAML document that describes your Daggerheart
 All three accept maps keyed by trait name, and `bonuses`/`trait` can also be arrays of maps that get summed.
 
 ## Example – Base abilities + one bonuses map
+````yaml
 ```traits
 abilities:
   Agility: 1
@@ -47,6 +48,7 @@ bonuses:
   Agility: 1       # from a trait
   Presence: 2      # from ancestry or class
 ```
+````
 
 ### Rendered cards will show:
 
@@ -58,6 +60,7 @@ bonuses:
 
 You can provide bonuses as a **list** if you want to keep sources separate in YAML:
 
+````yaml
 ```traits
 abilities:
   Agility: 1
@@ -73,6 +76,7 @@ bonuses:
   - Presence: 1        # from class
     Presence: 1        # from background
 ```
+````
 
 ### Internally, all bonus maps are summed:
 
@@ -108,6 +112,7 @@ Names are matched **case‑insensitively**, so `traits.Agility` and `traits.agil
 
 You can then use these in other blocks, e.g.:
 
+````yaml
 ```badges
 items:
   - label: "Agility"
@@ -115,14 +120,17 @@ items:
   - label: "Presence"
     value: "{{ traits.presence }}"
 ```
+````
 
 or combined with helpers:
 
+````yaml
 ```badges
 items:
   - label: "Defense"
     value: "{{ add traits.agility traits.instinct }}"
 ```
+````
 
 ## Configuration summary – `traits` block
 

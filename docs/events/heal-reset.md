@@ -42,9 +42,9 @@ Use this when a character (or the whole party) is meant to be fully healed, with
 
 ## Example – Adding a Full Heal button
 
+````yaml
 ```rest
-styleClass: dh-rest--tools
-
+styleClass: 
 show_short: false
 show_long: false
 show_levelup: false
@@ -57,6 +57,7 @@ full_heal_label: "Full Heal HP"
 # hp_key is optional; normally auto-detected.
 hp_key: "din_health::Character/Dree"
 ```
+````
 
 ## Reset All
 
@@ -73,6 +74,7 @@ Use this sparingly—it completely clears all damage/stress/armor/hope marks for
 
 ### Example – Adding a Reset All button
 
+````yaml
 ```rest
 styleClass: 
 
@@ -85,11 +87,13 @@ show_full_heal: false
 show_reset_all: true
 reset_all_label: "Reset All Tracks"
 ```
+````
 
 ## Example – Rest bar with all utilities
 
 You can mix these with Short/Long Rest and Level Up as needed:
 
+````yaml
 ```rest
 styleClass: dh-rest--full
 
@@ -114,6 +118,7 @@ hope_key: "din_hope::Character/Dree"
 
 max_picks: 2
 ```
+````
 
 ## Configuration – Heal/Reset options
 

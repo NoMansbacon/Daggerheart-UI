@@ -44,6 +44,7 @@ major_threshold and severe_threshold support template values with <span v-pre>{{
 
 ![Damage example](../images/example_damage.webp)
 
+````yaml
 ```damage
 styleClass: 
 
@@ -60,6 +61,8 @@ base_severe: 8
 # Level can come from frontmatter instead; this is optional.
 level: 3
 ```
+````
+
 This will:
 
 - Compute **Major** threshold as `4 + level` (here, 7).  
@@ -67,7 +70,6 @@ This will:
 - Let you enter a damage amount and how many Armor slots were used.  
 - Highlight the final tier (Minor / Major / Severe) after Armor reduction.  
 - When you click **Apply**, it updates HP and Armor via the given keys and shows a notice with the result.
-
 
 The plugin will:
 

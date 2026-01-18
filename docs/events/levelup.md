@@ -32,6 +32,7 @@ You can add a Level Up button into your rest controls row. When clicked, it:
 
 ![Level Up options example](../images/example_levelup_options.webp)
 
+````yaml
 ```rest
 styleClass: 
 
@@ -47,6 +48,7 @@ levelup_label: "Level Up"
 show_full_heal: false
 show_reset_all: false
 ```
+````
 
 This adds a **“Level Up”** button alongside your Short / Long Rest buttons.
 
@@ -68,5 +70,7 @@ If you want a dedicated Level Up area, you can also use the `levelup` code block
 
 ### Example – Inline Level Up button
 
+````yaml
 ```levelup
 ```
+````

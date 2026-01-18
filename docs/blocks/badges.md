@@ -20,7 +20,7 @@ See the [Events (API)](/events/templates-events) page for more information on us
 
 ## Example
 
-````markdown
+````yaml
 ```badges
 items:
   - label: Character

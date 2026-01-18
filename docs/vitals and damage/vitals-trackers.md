@@ -69,6 +69,7 @@ Under the hood:
 
 ![Vitals trackers example](../images/example_vitals.webp)
 
+````yaml
 ```vitals
 styleClass: 
 
@@ -97,6 +98,7 @@ hope_feature:
   - label: "Despair"
     value: "If you ever run out of Hope, mark a Scar."
 ```
+````
 
 ## This renders:
 

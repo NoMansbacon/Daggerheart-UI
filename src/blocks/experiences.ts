@@ -89,7 +89,7 @@ function toRows(src: string): ExperienceRow[] {
 export function registerExperiencesBlock(plugin: DaggerheartPlugin) {
   registerLiveCodeBlock(plugin, "experiences", (el: HTMLElement, src: string, _ctx: MarkdownPostProcessorContext) => {
     const raw = (parseYamlSafe<any>(src)) ?? {};
-    const klass = String(raw?.class ?? '').trim().split(/\s+/).filter(Boolean)[0];
+    const klass = String((raw as any)?.class ?? (raw as any)?.styleClass ?? '').trim().split(/\s+/).filter(Boolean)[0];
     if (klass) el.addClass(klass);
 
     // Block-level default bonus; individual items can override via `bonus:`

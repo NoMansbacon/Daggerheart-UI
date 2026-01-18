@@ -21,6 +21,7 @@ Each experience row shows:
 
 ![Experiences block rendering example](../images/example_experiences.webp)
 
+````yaml
 ```experiences
 styleClass: 
 items:
@@ -36,6 +37,7 @@ items:
     note: "You have sworn to hunt down planar breaches in the name of the Order."
     bonus: +2
 ```
+````
 
 ## When rendered:
 
@@ -46,20 +48,22 @@ items:
 
 For a quick one‑off experience, you can omit `items` and define a single item at the root:
 
+````yaml
 ```experiences
 styleClass:
-
 name: "Marked by the Storm"
 note: "The storm left a crackling mark along your arm; you sometimes hear distant thunder when danger approaches."
 bonus: +2
 ```
+````
 
 ## Example – Map style `items`
 
 You can also define experiences as a map instead of a list:
 
+````yaml
 ```experiences
-styleClass: dh-experiences--sidebar
+styleClass: 
 items:
   river:
     name: "Friend of the Riverfolk"
@@ -71,6 +75,7 @@ items:
     note: "You once looked beyond the veil. The memory is terrifying but useful."
     bonus: +2
 ```
+````
 
 Functionally this is the same as the list version; the keys (`river`, `void`) are just for organizing your YAML.
 

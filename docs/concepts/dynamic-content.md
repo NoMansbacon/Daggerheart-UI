@@ -113,8 +113,8 @@ You can use simple helpers for arithmetic:
 value: "{{ add 2 frontmatter.level }}"          # 2 + level
 value: "{{ subtract frontmatter.hp 2 }}"       # hp - 2
 value: "{{ multiply 2 traits.agility }}"       # 2 × agility
-value: "{{ divide frontmatter.hp_max 2 }}"     # hp_max / 2
-value: "{{ floor divide frontmatter.hp 2 }}"   # floor(hp / 2)
+value: "{{ divide frontmatter.hp_max 2 }}"     # hp_max / 2 (integer division)
+value: "{{ floor frontmatter.hp_max }}"        # floor(hp_max)
 ```
 
 Supported helpers:

@@ -3,7 +3,7 @@
 This example shows a complete level 1 Sorcerer (Primal Origin) character sheet written as a single Obsidian note using DH-UI blocks.
 All rules choices (class, ancestry, community, and domain cards) are drawn from the Daggerheart SRD.
 
-````markdown
+````yaml
 ---
 name: Marlowe Fairwind
 class: Sorcerer
@@ -213,5 +213,6 @@ items:
 
 ```equipmentpicker
 ```
+````
 
 These are optional; they demonstrate how DH-UI can also track consumables and let you manage weapons/armor for a Wizard whose core mechanics still follow the SRD.

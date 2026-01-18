@@ -51,6 +51,7 @@ These are shown in the Inventory/Equipped tables and in the Add Equipment modal.
 
 ## Basic usage
 
+````yaml
 ```equipmentpicker
 # optional per-block overrides
 # folders:
@@ -58,6 +59,7 @@ These are shown in the Inventory/Equipped tables and in the Add Equipment modal.
 # enforce_tier: true   # default: use character tier to hide too-high-tier items
 # view: table          # or "card" for card-style tiles
 ```
+````
 
 ### Example – Weapon and armor notes
 

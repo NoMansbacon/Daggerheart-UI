@@ -55,6 +55,7 @@ When both Short and Long are shown, a combined Rest button appears that opens th
 
 ![Rest buttons example](../images/example_rest_buttons.webp)
 
+````yaml
 ```rest
 styleClass: 
 
@@ -79,6 +80,7 @@ hope_key: "din_hope::Character/Dree"
 # How many rest moves can be chosen in the rest modal
 max_picks: 2
 ```
+````
 ## Configuration – Short/Long Rest
 
 Relevant `rest` options for Short/Long rest:

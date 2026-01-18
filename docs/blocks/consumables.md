@@ -27,7 +27,7 @@ See the [Events (API)](/events/templates-events) page for more information on us
 
 ## Example – Consumables
 
-````markdown
+````yaml
 ```consumables
 styleClass:
 items:
@@ -49,17 +49,20 @@ items:
 
 For a quick one‑off consumable, you can omit `items` and define a single item at the root:
 
+````yaml
 ```consumables
 styleClass:
 label: "Minor Health Potion"
 state_key: "din_minor_health_single"
 uses: 3
 ```
+````
 
 ## Example – Map style `items`
 
 You can also define items as a map instead of a list:
 
+````yaml
 ```consumables
 styleClass: 
 items:
@@ -73,6 +76,7 @@ items:
     state_key: "din_stride_potions"
     uses: "{{ frontmatter.stride_potions }}"
 ```
+````
 
 Functionally this is the same as the list version; the keys (`hp`, `sp`) are just for organization in YAML.
 

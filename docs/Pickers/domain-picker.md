@@ -39,7 +39,6 @@ From each card it looks at:
 •  type / Type – flavor/category (e.g. “Strife”, “Boon”).  
 •  stress / Stress – short stress note if relevant.  
 •  feature / Feature – short description text.  
-•  tokens / Tokens – optional max tokens, used for token tracking.  
 •  art / Art – optional art path/filename for card view images.  
 
 These fields are shown in the Vault/Loadout tables and the Add‑cards modal.
@@ -56,11 +55,10 @@ level: 7
 type: "Ability"
 stress: "When an attack goes wide, you still mark a lesser wound."
 feature: "A near miss becomes a smaller strike, turning failure into a glancing blow."
-tokens: 0
 ---
 ```
 
-The picker will read this note as a Blade Domain card named **Glancing Blow** at level 7, with its type, stress note, feature text, and any token tracking available for filters and displays.
+The picker will read this note as a Blade Domain card named **Glancing Blow** at level 7, with its type, stress note, feature text, and any tracking available for filters and displays.
 
 The block will:
 
@@ -111,7 +109,7 @@ For the active list (Loadout or Vault), the picker shows:
   - **Level** – card level.  
   - **Stress** – stress text if present.  
   - **Feature** – a short description.  
-  - **Tokens** – visual dots for the current token count (if any).  
+  - **Tokens** – visual dots for the current token count.  
 - **Actions** per row:  
   - `→ Loadout` / `→ Vault` – move between lists.  
   - **Remove** – remove the card from that list.  
@@ -156,46 +154,6 @@ The domain picker can also respond to a custom event (used by your Level Up tool
   - Tracks how many cards you’ve added and automatically closes the modal once you’ve added the required number.
 
 This lets your leveling flow guide players through adding the correct number of new Domain cards.
-
-## Sample domain deck notes
-
-Here is an example of a small deck of Domain card notes based on SRD domains and card names:
-
-```yaml
----
-title: "ARCANA-TOUCHED"
-domains: [Arcana]
-level: 5
-type: "Ability"
-feature: "You carry a lingering mark of strange magic wherever you go."
----
-
----
-title: "BONE-TOUCHED"
-domains: [Bone]
-level: 7
-type: "Ability"
-feature: "Your dealings with mortality have left a visible mark on you."
----
-
----
-title: "FANE OF THE WILDS"
-domains: [Sage]
-level: 9
-type: "Ability"
-feature: "A hidden wild sanctuary answers when you call upon it for aid."
----
-
----
-title: "FULL SURGE"
-domains: [Valor]
-level: 8
-type: "Ability"
-feature: "In a crucial moment, you unleash a surge of courageous effort."
----
-```
-
-Each of these notes represents a single Domain card drawn from the SRD’s Domain Card Reference. The picker will treat them like any other card when building Vault and Loadout lists.
 
 ## Configuration
 
