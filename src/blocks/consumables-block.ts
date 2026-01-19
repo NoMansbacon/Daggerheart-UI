@@ -122,7 +122,7 @@ export function registerConsumablesBlock(plugin: DaggerheartPlugin) {
 
     const app = plugin.app;
     const raw = (parseYamlSafe<any>(src)) ?? {};
-    const klass = String(raw?.class ?? '').trim().split(/\s+/).filter(Boolean)[0];
+    const klass = String((raw as any)?.styleClass ?? raw?.class ?? '').trim().split(/\s+/).filter(Boolean)[0];
     if (klass) el.addClass(klass);
     const items = parseRootToItems(src);
     if (!items.length) {

@@ -25,7 +25,8 @@ import { registerLiveCodeBlock } from "../utils/liveBlock";
 import { emitTrackerChanged } from "../utils/events";
 
 type VitalsYaml = {
-  class?: string;
+  class?: string; // legacy alias for CSS class
+  styleClass?: string; // preferred CSS class hook
   // labels
   hp_label?: string; stress_label?: string; armor_label?: string; hope_label?: string;
   // counts (supports templates)
@@ -91,7 +92,7 @@ export function registerVitals(plugin: DaggerheartPlugin) {
       const app = plugin.app;
       const y = parseYaml(src);
 
-      const klass = String(y.class ?? '').trim().split(/\s+/).filter(Boolean)[0];
+      const klass = String((y as any).styleClass ?? y.class ?? '').trim().split(/\s+/).filter(Boolean)[0];
       el.addClass('dh-vitals-block');
       if (klass) el.addClass(klass);
 

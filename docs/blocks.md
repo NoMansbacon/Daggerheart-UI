@@ -6,6 +6,7 @@ For full details on each block, use the sidebar links or jump directly:
 
 - [Traits](/blocks/traits-abilities)
 - [Vitals & Trackers](/vitals%20and%20damage/vitals-trackers)
+- [Single Trackers: `hp` / `stress` / `armor` / `hope`](/vitals%20and%20damage/vitals-trackers#single-trackers-hp-stress-armor-hope)
 - [Damage](/vitals%20and%20damage/damage)
 - [Rest – Short & Long](/events/rest)
 - [Level Up](/events/levelup)

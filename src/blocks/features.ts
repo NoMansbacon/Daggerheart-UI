@@ -35,9 +35,10 @@ type FeatureDoc = {
   community?: FeatureItem[];
   layout?: "grid" | "masonry";
   cols?: number;
-  // Optional CSS class alias – in addition to accepting a string `class:`
-  // we also honor `className:` for clarity.
+  // Optional CSS class aliases for styling the container.
+  // Use `styleClass:` in YAML for CSS classes; `class:` is reserved for feature sections.
   className?: string;
+  styleClass?: string;
 };
 
 function getFM(app: App, ctx: MarkdownPostProcessorContext): Record<string, any> {
@@ -98,10 +99,10 @@ function renderFeaturesList(
   root.addClass("dh-features-list");
   // Default: standalone is a list. Opt-in to grid via layout: grid or class: grid
   const layoutStr = String(((doc as any).layout ?? '')).toLowerCase();
-  // Accept CSS class overrides: `class: "grid"` or `className: "grid"`
-  const rawCls = typeof (doc as any).class === 'string' ? (doc as any).class
+  // Accept CSS class overrides: prefer `styleClass:`, then `className:`; `class:` is for feature sections
+  const rawCls = typeof (doc as any).styleClass === 'string' ? (doc as any).styleClass
                : typeof (doc as any).className === 'string' ? (doc as any).className
-               : '';
+               : (typeof (doc as any).class === 'string' ? (doc as any).class : '');
   if (rawCls) {
     for (const c of rawCls.split(/\s+/).filter(Boolean)) root.addClass(c);
   }

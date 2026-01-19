@@ -1,6 +1,6 @@
-# Daggerheart Tooltips (DH-UI)
+# DH-UI Character Sheets
 
-An Obsidian plugin for **Daggerheart** that turns fenced code blocks into rich, live-updating character sheet UI.
+A **Daggerheart™ Compatible** Obsidian plugin that turns fenced code blocks into rich, live-updating character sheet UI.
 
 Use simple Markdown + YAML to render traits, vitals, trackers, rest controls, damage calculators, badges, domain/equipment pickers, and more – all driven by your note frontmatter.
 
@@ -32,14 +32,14 @@ The docs include:
 2. In BRAT settings, add this repo as a beta plugin:
    `https://github.com/NoMansbacon/DH-UI`
 3. Let BRAT install/update the plugin.
-4. Enable **Daggerheart Tooltips (DH-UI)** in *Settings → Community plugins*.
+4. Enable **DH-UI Character Sheets** in *Settings → Community plugins*.
 
 ### Manual (for developers)
 
 1. Copy this folder into your vault under `.obsidian/plugins/daggerheart-tooltips`.
 2. Run `npm install` in the plugin folder.
 3. Run `npm run dev` to build `main.js`.
-4. Enable **Daggerheart Tooltips** in *Settings → Community plugins*.
+4. Enable **DH-UI Character Sheets** in *Settings → Community plugins*.
 
 The plugin requires Obsidian `minAppVersion` as specified in `manifest.json`.
 
@@ -86,5 +86,15 @@ The docs in `docs/` mirror the block APIs closely, so you can usually read the c
 ## Licensing & attribution
 
 - This plugin is an unofficial fan work built for the Daggerheart roleplaying game.
-- It is informed by and references the Daggerheart System Reference Document (SRD) published by Darrington Press.
+- It is informed by and references the **Daggerheart System Reference Document 1.0**, which is offered as Public Game Content by Darrington Press.
 - This project is not affiliated with, endorsed, or sponsored by Critical Role, Darrington Press, or their partners.
+
+### Darrington Press Community Gaming License (DPCGL)
+
+This project uses Public Game Content under the **Darrington Press Community Gaming License (DPCGL)**:
+
+> This product includes materials from the Daggerheart System Reference Document 1.0, © Critical Role, LLC, used under the terms of the Darrington Press Community Gaming (DPCGL) License. More information can be found at https://www.daggerheart.com. There are no previous modifications by others.
+
+- The full text of the DPCGL can be found at https://darringtonpress.com/license/.
+- All Daggerheart game mechanics and related Public Game Content remain the property of Darrington Press / Critical Role.
+- DH-UI Character Sheets only provides tooling and UI; it does not include Prohibited Content such as official rulebook text, art, logos, or Campaign Frames.

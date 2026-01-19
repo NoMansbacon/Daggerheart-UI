@@ -63,10 +63,10 @@ Switch to **Reading / Preview** mode in Obsidian to see the interactive UI.
 
 ### State keys
 
-Many blocks (vitals, hp/stress/armor/hope trackers, consumables, damage, etc.) store their state using a stable `state_key`.
+Many blocks (vitals, hp/stress/armor/hope trackers, consumables, damage, etc.) store their state using a stable key.
 
-- HP typically uses `din_health` so all sheets share the same HP pool for that character.
-- Stress / Armor / Hope default to keys that include the note path (e.g. `din_stress::<note-path>`), so they are scoped per character sheet.
+By default, vitals and trackers use keys that include the note path (for example `din_health::<note-path>`), so each note’s pools are independent.
+You can override these keys (for example setting `hp_key: "din_health"` or `state_key: "din_rage"`) when you want multiple blocks or notes to share the same resource.
 
 Use stable, unique keys per resource. Reusing the same key in two blocks makes them share the same pool.
 
@@ -99,3 +99,9 @@ State-based blocks (like `vitals`, `consumables`, and pickers) stay in sync as l
 - Read the **[Code Block Reference](/blocks)** for links to every block.
 - Dive into specific block pages under **Character Sheet**, **Resources & Inventory**, and **Display & Story** in the sidebar.
 - Check **[Dynamic Content](/concepts/dynamic-content)** and **[Events](/concepts/events)** for advanced template usage and how internal events tie blocks together.
+
+---
+
+### Legal
+
+This plugin is an unofficial fan work built for the Daggerheart roleplaying game. It uses Public Game Content from the Daggerheart System Reference Document 1.0 under the Darrington Press Community Gaming (DPCGL) License. Daggerheart and all related properties are © Critical Role, LLC. This project is not affiliated with, endorsed, or sponsored by Critical Role, Darrington Press, or their partners.

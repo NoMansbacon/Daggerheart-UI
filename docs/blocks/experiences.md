@@ -61,11 +61,13 @@ You can also define experiences as a map instead of a list:
 ```experiences
 styleClass:
 items:
-  - name: "Storm-Born"
+  river:
+    name: "Storm-Born"
     note: "You survived a violent storm as a child; since then, thunder and wind answer your emotions."
     bonus: +2
 
-  - name: "Whispers of the Wild"
+  void:
+    name: "Whispers of the Wild"
     note: "Spirits of stone, root, and river sometimes speak in the edge of your hearing, guiding your steps."
     bonus: +2
 ```
@@ -77,13 +79,13 @@ Functionally this is the same as the list version; the keys (`river`, `void`) ar
 
 Top‑level `experiences` block options:
 
-| Property     | Type                    | Default | Description                                                                 |
-| ------------ | ----------------------- | ------- | --------------------------------------------------------------------------- |
-| `styleClass` | String                  | _none_  | Optional CSS class applied to the entire experiences block container.       |
-| `items`      | Array or Object (map)  | `[]`    | List or map of experience items.                                            |
-| `name`       | String (root single)   | `"Experience"` | Name/title when defining a single experience at the root.            |
-| `note`       | String (root single)   | `""`    | Description text for a single root experience.                              |
-| `bonus`      | Number / String        | `+2`    | Default block‑level bonus when defined at the top; per‑item `bonus` overrides this. |
+|| Property     | Type                    | Default | Description                                                                 |
+|| ------------ | ----------------------- | ------- | --------------------------------------------------------------------------- |
+|| `styleClass` | String                  | _none_  | Optional CSS class applied to the entire experiences block container (alias: `class`). |
+|| `items`      | Array or Object (map)  | `[]`    | List or map of experience items.                                            |
+|| `name`       | String (root single)   | `"Experience"` | Name/title when defining a single experience at the root.            |
+|| `note`       | String (root single)   | `""`    | Description text for a single root experience.                              |
+|| `bonus`      | Number / String        | `+2`    | Default block‑level bonus when defined at the top; per‑item `bonus` overrides this. |
 
 
 ### Experience Item

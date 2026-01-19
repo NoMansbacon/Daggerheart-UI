@@ -42,7 +42,8 @@ type TrackerYaml = {
   stress?: number | string;
   armor?: number | string;
   hope?: number | string;
-  class?: string;
+  class?: string; // legacy alias
+  styleClass?: string; // preferred CSS class hook
 };
 
 function parseYaml(src: string): TrackerYaml {
@@ -103,7 +104,7 @@ function registerOneTracker(
     let root: Root | null = null;
 
     const y = parseYaml(src);
-    const klass = String(y.class ?? '').trim().split(/\s+/).filter(Boolean)[0];
+    const klass = String((y as any).styleClass ?? y.class ?? '').trim().split(/\s+/).filter(Boolean)[0];
     el.addClass('dh-tracker-block');
     if (klass) el.addClass(klass);
     const labelText = (y.label || blockName.toUpperCase()).toString();

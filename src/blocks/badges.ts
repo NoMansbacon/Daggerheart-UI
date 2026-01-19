@@ -25,13 +25,13 @@ import { getOrCreateRoot } from "../utils/reactRoot";
 const roots = new WeakMap<HTMLElement, Root>();
 
 type BadgeItem = { label?: string; value?: string | number | boolean | null };
-type Doc = { items?: BadgeItem[]; class?: string; reverse?: boolean };
+type Doc = { items?: BadgeItem[]; class?: string; styleClass?: string; reverse?: boolean };
 
 function parseDoc(src: string): { items: BadgeItem[]; klass?: string; reverse?: boolean } {
   try {
     const d = (parseYamlSafe<Doc>(src)) ?? {};
     const items = Array.isArray(d.items) ? d.items : [];
-    const klass = (d.class || '').trim().split(/\s+/).filter(Boolean)[0];
+    const klass = (((d as any).styleClass ?? d.class) || '').trim().split(/\s+/).filter(Boolean)[0];
     const reverse = d.reverse === true;
     return { items, klass, reverse };
   } catch (e) {

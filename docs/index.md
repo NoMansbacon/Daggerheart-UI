@@ -27,4 +27,7 @@ features:
     details: Manage domain cards and equipment between vault/loadout and inventory/equipped.
   - title: Template-powered YAML
     details: Use `{{ frontmatter.* }}` and helpers to compute values from character data.
+
+footer: |
+  This plugin is an unofficial fan work built for the Daggerheart roleplaying game. It uses Public Game Content from the Daggerheart System Reference Document 1.0 under the Darrington Press Community Gaming (DPCGL) License. Daggerheart and all related properties are © Critical Role, LLC. This project is not affiliated with, endorsed, or sponsored by Critical Role, Darrington Press, or their partners.
 ---
