@@ -45,6 +45,44 @@ The plugin requires Obsidian `minAppVersion` as specified in `manifest.json`.
 
 ---
 
+## 🧩 Development overview
+
+This section is for developers who want to understand or extend the plugin.
+
+### Code layout
+
+- `src/main.ts` – plugin entry point; registers all blocks and settings.
+- `src/blocks/` – one file per code block used in Markdown (e.g. `vitals.ts`, `rest.ts`, `damage-vault.ts`, `features.ts`, `consumables-block.ts`, `domain-picker.ts`, `equipment-picker.ts`, `experiences.ts`). Each file:
+  - Parses the fenced code block YAML with `parseYamlSafe`.
+  - Builds a template context with `createTemplateContext` when needed.
+  - Renders either a React component (via `registerLiveCodeBlock`) or plain DOM.
+- `src/components/` – React views used by the blocks (trackers, badges, consumables, rest controls, etc.).
+- `src/utils/` – shared helpers (template engine, YAML parsing, events, React root management, live code block registration).
+- `src/lib/services/` – state store and persistence helpers used across blocks.
+
+### Key concepts
+
+- **Template engine** (`src/utils/template.ts`)
+  - Exposes `frontmatter.*`, `traits.*`, `skills.*`, and `character.*` into `{{ ... }}` templates.
+  - Supports simple helpers like `add`, `subtract`, `multiply`, `divide`, `floor`, `ceil`, `round`, `modifier`.
+- **State & events**
+  - `src/lib/services/stateStore.ts` stores tracker values under keys like `tracker:<key>`.
+  - `src/utils/events.ts` defines custom events such as `dh:tracker:changed`, `dh:kv:changed`, `dh:rest:short`, and `dh:rest:long`.
+  - React components listen for these events (e.g. `TrackerRowView`, `KVProvider`) to stay in sync across blocks.
+- **Dataview integrations**
+  - `src/blocks/domain-picker.ts` and `src/blocks/equipment-picker.ts` query Dataview to discover cards/equipment based on folders, tags, and frontmatter.
+  - They update character frontmatter lists (`vault` / `loadout`, `inventory` / `equipped`) via `app.fileManager.processFrontMatter`.
+
+### Where to start reading
+
+- For a simple example: start with `src/blocks/experiences.ts` (small, DOM‑only) or `src/blocks/consumables-block.ts` (YAML → React view).
+- For vitals / rest / damage flow: read `src/blocks/vitals.ts`, then `src/blocks/rest.ts`, then `src/blocks/damage-vault.ts`.
+- For advanced UI: inspect `src/blocks/domain-picker.ts` and `src/blocks/equipment-picker.ts`.
+
+The docs in `docs/` mirror the block APIs closely, so you can usually read the corresponding Markdown page under `docs/blocks` or `docs/vitals and damage` and then jump into the matching file in `src/blocks`.
+
+---
+
 ## Licensing & attribution
 
 - This plugin is an unofficial fan work built for the Daggerheart roleplaying game.
