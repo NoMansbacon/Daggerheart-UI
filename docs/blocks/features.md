@@ -161,7 +161,7 @@ For example, you might keep ancestry and community on the left, and class / subc
 
 ````yaml
 ```features
-styleClass: dh-features--left
+styleClass: 
 layout: grid
 ancestry:
   # Elf / Ribbet ancestry cards from the SRD
@@ -170,7 +170,7 @@ community:
 ```
 
 ```features
-styleClass: dh-features--right
+styleClass: 
 layout: grid
 class:
   # Sorcerer and Druid class features

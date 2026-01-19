@@ -42,18 +42,18 @@ items:
 
 ### configuration
 
-|| Property   | Type     | Default      | Description                                                      |
-|| ---------- | -------- | ------------ | ---------------------------------------------------------------- |
-|| items      | Array    | Required     | List of badge items to display                                   |
-|| styleClass | String   | none         | Optional CSS class name applied to the outer badges container   |
-|| reverse    | Boolean  | false        | When true, render value before label instead of label → value   |
+| Property    | Type    | Default  | Description                                                      |
+| ----------- | ------- | -------- | ---------------------------------------------------------------- |
+| `items`     | Array   | Required | List of badge items to display                                   |
+| `styleClass`| String  | none     | Optional CSS class name applied to the outer badges container   |
+| `reverse`   | Boolean | false    | When true, render value before label instead of label → value   |
 
 ### Item
 
-| Property | Type                    | Description                      |
-| -------- | ----------------------- | -------------------------------- |
-| label  | String                  | Label text (optional)           |
-| value  | String / Number / Bool | Value to display (optional)     |
+| Property | Type                  | Description                  |
+| -------- | --------------------- | ---------------------------- |
+| `label`  | String                | Label text (optional)       |
+| `value`  | String / Number / Bool| Value to display (optional) |
 
 ## See also
 

@@ -84,23 +84,23 @@ Functionally this is the same as the list version; the keys (`hp`, `sp`) are jus
 
 Top‑level `consumables` block options:
 
-|| Property     | Type                       | Default        | Description                                                                 |
-|| ------------ | -------------------------- | -------------- | --------------------------------------------------------------------------- |
-|| `styleClass` | String                     | _none_         | Optional CSS class name applied to the whole consumables block container.   |
-|| `items`      | Array or Object (map)     | `[]`           | List or map of consumable items.                                            |
-|| `label`      | String (root single item) | `"Consumable"` | Label for a single consumable when not using `items`.                       |
-|| `state_key`  | String (root single item) | `""`          | Storage key for a single consumable when not using `items`.                |
-|| `uses`       | Number / String (root)    | `0`            | Maximum uses for a single consumable when not using `items`. Templates allowed. |
+| Property     | Type                       | Default        | Description                                                                 |
+| ------------ | -------------------------- | -------------- | --------------------------------------------------------------------------- |
+| `styleClass` | String                     | _none_         | Optional CSS class name applied to the whole consumables block container.   |
+| `items`      | Array or Object (map)     | `[]`           | List or map of consumable items.                                            |
+| `label`      | String (root single item) | `"Consumable"` | Label for a single consumable when not using `items`.                       |
+| `state_key`  | String (root single item) | `""`          | Storage key for a single consumable when not using `items`.                |
+| `uses`       | Number / String (root)    | `0`            | Maximum uses for a single consumable when not using `items`. Templates allowed. |
 
 ### Consumable Item
 
 Each entry under `items` (in either array or map form) is an object:
 
-| Property    | Type                 | Description                                                                 |
-| ----------- | -------------------- | --------------------------------------------------------------------------- |
-| `label`     | String               | Display name for the consumable (e.g. `"Health Potions"`).                 |
-| `state_key` | String               | Key used to store filled uses. Must be stable and unique per resource.     |
-| `uses`      | Number / String      | Maximum number of uses (boxes). Strings are processed as templates.        |
+| Property    | Type            | Description                                                                 |
+| ----------- | --------------- | --------------------------------------------------------------------------- |
+| `label`     | String          | Display name for the consumable (e.g. `"Health Potions"`).                 |
+| `state_key` | String          | Key used to store filled uses. Must be stable and unique per resource.     |
+| `uses`      | Number / String | Maximum number of uses (boxes). Strings are processed as templates.        |
 
 Behavior details:
 

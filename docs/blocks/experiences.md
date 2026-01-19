@@ -79,27 +79,27 @@ Functionally this is the same as the list version; the keys (`river`, `void`) ar
 
 Top‑level `experiences` block options:
 
-|| Property     | Type                    | Default | Description                                                                 |
-|| ------------ | ----------------------- | ------- | --------------------------------------------------------------------------- |
-|| `styleClass` | String                  | _none_  | Optional CSS class applied to the entire experiences block container (alias: `class`). |
-|| `items`      | Array or Object (map)  | `[]`    | List or map of experience items.                                            |
-|| `name`       | String (root single)   | `"Experience"` | Name/title when defining a single experience at the root.            |
-|| `note`       | String (root single)   | `""`    | Description text for a single root experience.                              |
-|| `bonus`      | Number / String        | `+2`    | Default block‑level bonus when defined at the top; per‑item `bonus` overrides this. |
+| Property     | Type                   | Default        | Description                                                                 |
+| ------------ | ---------------------- | -------------- | --------------------------------------------------------------------------- |
+| `styleClass` | String                 | _none_         | Optional CSS class applied to the entire experiences block container (alias: `class`). |
+| `items`      | Array or Object (map) | `[]`           | List or map of experience items.                                            |
+| `name`       | String (root single)  | `"Experience"` | Name/title when defining a single experience at the root.            |
+| `note`       | String (root single)  | `""`          | Description text for a single root experience.                              |
+| `bonus`      | Number / String       | `+2`           | Default block‑level bonus when defined at the top; per‑item `bonus` overrides this. |
 
 
 ### Experience Item
 
 Each entry under `items` (in either array or map form) is an object:
 
-| Property | Type             | Description                                                                 |
-| -------- | ---------------- | --------------------------------------------------------------------------- |
-| `name`   | String           | Main title for the experience (e.g. `"Saved by the Stranger"`).           |
-| `title`  | String           | Alias for `name`; used if `name` is not provided.                          |
-| `label`  | String           | Another alias for `name`; useful when migrating older notes.              |
-| `note`   | String           | Description text of what happened or how this experience matters.         |
-| `description` / `summary` | String | Aliases for `note`; first non‑empty value is used.                      |
-| `bonus`  | Number / String  | Modifier value for this specific experience (e.g. `+2` or `-1`). Overrides the block default. |
+| Property              | Type             | Description                                                                 |
+| --------------------- | ---------------- | --------------------------------------------------------------------------- |
+| `name`                | String           | Main title for the experience (e.g. `"Saved by the Stranger"`).           |
+| `title`               | String           | Alias for `name`; used if `name` is not provided.                          |
+| `label`               | String           | Another alias for `name`; useful when migrating older notes.              |
+| `note`                | String           | Description text of what happened or how this experience matters.         |
+| `description` / `summary` | String      | Aliases for `note`; first non‑empty value is used.                        |
+| `bonus`               | Number / String  | Modifier value for this specific experience (e.g. `+2` or `-1`). Overrides the block default. |
 
 Behavior details:
 

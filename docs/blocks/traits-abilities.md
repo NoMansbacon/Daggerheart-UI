@@ -132,11 +132,11 @@ items:
 
 Top‑level options:
 
-|| Property    | Type                         | Description                                                                 |
-|| ----------- | ---------------------------- | --------------------------------------------------------------------------- |
-|| `abilities` | Map `TraitName -> Number`    | Base values for the six Daggerheart traits. Missing ones default to 0.     |
-|| `bonuses`   | Map or Array of Maps         | Trait bonuses; all maps are summed by trait.                               |
-|| `trait`     | Map or Array of Maps         | Legacy alias for `bonuses` (still supported but not recommended for new notes). |
+| Property    | Type                      | Description                                                                 |
+| ----------- | ------------------------- | --------------------------------------------------------------------------- |
+| `abilities` | Map `TraitName -> Number` | Base values for the six Daggerheart traits. Missing ones default to 0.     |
+| `bonuses`   | Map or Array of Maps      | Trait bonuses; all maps are summed by trait.                               |
+| `trait`     | Map or Array of Maps      | Legacy alias for `bonuses` (still supported but not recommended for new notes). |
 
 ## See also
 

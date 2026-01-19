@@ -59,10 +59,10 @@ The `vitals` block and related single-track blocks use note-scoped defaults base
 
 ```yaml
 # Implicit defaults if you omit keys
-hp_key:    "din_health::<note-path>"
-stress_key:"din_stress::<note-path>"
-armor_key: "din_armor::<note-path>"
-hope_key:  "din_hope::<note-path>"
+hp_key:    "din_health::<current-note-path>"
+stress_key:"din_stress::<current-note-path>"
+armor_key: "din_armor::<current-note-path>"
+hope_key:  "din_hope::<current-note-path>"
 ```
 
 This means:
@@ -76,6 +76,7 @@ This means:
 
 For most character sheets you want **per-note** trackers:
 
+````yaml
 ```vitals
 hp: 10
 stress: 6
@@ -83,6 +84,7 @@ stress: 6
 # Let DH-UI pick defaults (note-scoped keys)
 # hp_key / stress_key omitted
 ```
+````
 
 Each file gets its own HP/stress values, and rest/damage automatically target the correct trackers in that file.
 
@@ -90,10 +92,12 @@ Each file gets its own HP/stress values, and rest/damage automatically target th
 
 If you want a shared HP pool visible in multiple notes, set the same `hp_key` explicitly:
 
+````yaml
 ```vitals
 hp: 10
 hp_key: "din_health::Party"
 ```
+````
 
 Any `vitals`, `hp`, `rest`, or `damage` blocks that use `hp_key: "din_health::Party"` will read and write the same HP value.
 

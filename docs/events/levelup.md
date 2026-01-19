@@ -54,11 +54,11 @@ This adds a **“Level Up”** button alongside your Short / Long Rest buttons.
 
 ### Relevant `rest` options for Level Up
 
-| Property        | Type    | Default     | Description                                      |
-| --------------- | ------- | ----------- | ------------------------------------------------ |
-| `show_levelup`  | Boolean | `false`     | Whether to show the Level Up button.            |
-| `levelup_label` | String  | `"Level Up"`| Label text for the Level Up button.             |
-| `styleClass`    | String  | _none_      | Styling hook for the whole rest control row.    |
+| Property        | Type    | Default      | Description                                      |
+| --------------- | ------- | ------------ | ------------------------------------------------ |
+| `show_levelup`  | Boolean | `false`      | Whether to show the Level Up button.            |
+| `levelup_label` | String  | `"Level Up"` | Label text for the Level Up button.             |
+| `styleClass`    | String  | _none_       | Styling hook for the whole rest control row.    |
 
 > The Level Up handler in `rest` always targets the **current note** (the one containing the block).
 
@@ -72,5 +72,7 @@ If you want a dedicated Level Up area, you can also use the `levelup` code block
 
 ````yaml
 ```levelup
+  levelup_label:
+  styleClass:
 ```
 ````

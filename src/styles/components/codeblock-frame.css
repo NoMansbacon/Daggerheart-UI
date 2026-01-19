@@ -1,6 +1,26 @@
-/* Code block framing with left accent and small icon (applied to all code blocks) */
+/* Code block framing with left accent and small icon (applied only to DH-UI blocks) */
 /* Use theme variables so it works across light/dark and different Obsidian themes */
-.markdown-rendered pre:has(> code[class*="language-"]) {
+.markdown-rendered pre:has(
+  > code.language-badges,
+  > code.language-consumables,
+  > code.language-ability,
+  > code.language-traits,
+  > code.language-vitals,
+  > code.language-vital-trackers,
+  > code.language-hp,
+  > code.language-stress,
+  > code.language-armor,
+  > code.language-hope,
+  > code.language-rest,
+  > code.language-damage,
+  > code.language-experiences,
+  > code.language-features,
+  > code.language-domainpicker,
+  > code.language-equipmentpicker,
+  > code.language-levelup,
+  > code.language-spell,
+  > code.language-action
+) {
   position: relative;
   border: 1px solid var(--background-modifier-border);
   border-left: 3px solid var(--code-accent, var(--text-accent));
@@ -13,7 +33,27 @@
 }
 
 /* Slightly separate the code background if the theme supports it */
-.markdown-rendered pre:has(> code[class*="language-"]) code {
+.markdown-rendered pre:has(
+  > code.language-badges,
+  > code.language-consumables,
+  > code.language-ability,
+  > code.language-traits,
+  > code.language-vitals,
+  > code.language-vital-trackers,
+  > code.language-hp,
+  > code.language-stress,
+  > code.language-armor,
+  > code.language-hope,
+  > code.language-rest,
+  > code.language-damage,
+  > code.language-experiences,
+  > code.language-features,
+  > code.language-domainpicker,
+  > code.language-equipmentpicker,
+  > code.language-levelup,
+  > code.language-spell,
+  > code.language-action
+) code {
   display: block;
   background-color: transparent;
   color: var(--code-normal, var(--text-normal));
@@ -27,7 +67,27 @@
 }
 
 /* Icon chip in the top-left corner of the frame */
-.markdown-rendered pre:has(> code[class*="language-"])::before {
+.markdown-rendered pre:has(
+  > code.language-badges,
+  > code.language-consumables,
+  > code.language-ability,
+  > code.language-traits,
+  > code.language-vitals,
+  > code.language-vital-trackers,
+  > code.language-hp,
+  > code.language-stress,
+  > code.language-armor,
+  > code.language-hope,
+  > code.language-rest,
+  > code.language-damage,
+  > code.language-experiences,
+  > code.language-features,
+  > code.language-domainpicker,
+  > code.language-equipmentpicker,
+  > code.language-levelup,
+  > code.language-spell,
+  > code.language-action
+)::before {
   content: var(--code-icon, "");
   position: absolute;
   left: 6px;

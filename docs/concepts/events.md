@@ -12,7 +12,7 @@ Events in DH-UI are **file-scoped**:
 - Full Heal and Reset All only clear trackers that exist in the current note.  
 - You can have multiple character sheets in different notes without them affecting each other.
 
-This is why most defaults include the note path in their state keys (e.g. `din_health::<note-path>`).
+This is why most defaults include the current note’s path in their state keys (e.g. `din_health::Characters/Elira`).
 
 ## Built-in event flows
 

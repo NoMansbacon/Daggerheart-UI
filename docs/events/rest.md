@@ -23,12 +23,12 @@ The block looks for tracker rows in the current note’s preview:
 
 For each one, it reads the data-dh-key attribute (the state key) and uses that when applying rest effects.
 
-If it can’t find a tracker of a given type, it falls back to:
+If it can’t find a tracker of a given type, it falls back to simple note‑scoped defaults:
 
-•  HP: `din_health::&lt;note-path&gt;`  
-•  Stress: `din_stress::&lt;note-path&gt;`  
-•  Armor: `din_armor::&lt;note-path&gt;`  
-•  Hope: `din_hope::&lt;note-path&gt;`
+•  HP: `din_health::<current-note-path>`  
+•  Stress: `din_stress::<current-note-path>`  
+•  Armor: `din_armor::<current-note-path>`  
+•  Hope: `din_hope::<current-note-path>`
 
 You can override these keys in YAML if you need unusual setups.
 
@@ -85,17 +85,17 @@ max_picks: 2
 
 Relevant `rest` options for Short/Long rest:
 
-| Property      | Type    | Default                      | Description                                                   |
-| ------------- | ------- | ---------------------------- | ------------------------------------------------------------- |
-| `styleClass`  | String  | _none_                       | CSS class for styling the rest control row.                   |
-| `rest_label`  | String  | `"Rest"`                     | Label for the combined Rest button (when both are visible).   |
-| `short_label` | String  | `"Short Rest"`               | Label for the Short Rest button.                              |
-| `long_label`  | String  | `"Long Rest"`                | Label for the Long Rest button.                               |
-| `show_short`  | Boolean | `true`                       | Whether to show Short Rest.                                   |
-| `show_long`   | Boolean | `true`                       | Whether to show Long Rest.                                    |
-|| `hp_key`      | String  | auto / note‑scoped default   | HP tracker key.                                               |
-| `stress_key`  | String  | auto / note‑scoped default   | Stress tracker key.                                           |
-| `armor_key`   | String  | auto / note‑scoped default   | Armor tracker key.                                            |
-| `hope_key`    | String  | auto / note‑scoped default   | Hope tracker key.                                             |
-| `max_picks`   | Number  | `2`                          | Max rest moves a player can select per rest.                  |
+| Property      | Type    | Default                    | Description                                                   |
+| ------------- | ------- | -------------------------- | ------------------------------------------------------------- |
+| `styleClass`  | String  | _none_                     | CSS class for styling the rest control row.                   |
+| `rest_label`  | String  | `"Rest"`                   | Label for the combined Rest button (when both are visible).   |
+| `short_label` | String  | `"Short Rest"`             | Label for the Short Rest button.                              |
+| `long_label`  | String  | `"Long Rest"`              | Label for the Long Rest button.                               |
+| `show_short`  | Boolean | `true`                     | Whether to show Short Rest.                                   |
+| `show_long`   | Boolean | `true`                     | Whether to show Long Rest.                                    |
+| `hp_key`      | String  | auto / note‑scoped default | HP tracker key.                                               |
+| `stress_key`  | String  | auto / note‑scoped default | Stress tracker key.                                           |
+| `armor_key`   | String  | auto / note‑scoped default | Armor tracker key.                                            |
+| `hope_key`    | String  | auto / note‑scoped default | Hope tracker key.                                             |
+| `max_picks`   | Number  | `2`                        | Max rest moves a player can select per rest.                  |
 

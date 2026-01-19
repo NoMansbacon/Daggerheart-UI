@@ -57,35 +57,6 @@ value: "{{ traits.knowledge }}"
 
 Names are matched case-insensitively, so `traits.Agility` and `traits.agility` both work.
 
-### `skills.*`
-
-If your frontmatter defines a `skills` map or list, you can access it through `skills.*`.
-
-Map form:
-
-```yaml
-skills:
-  attack: 2
-  sneak: 3
-```
-
-List form:
-
-```yaml
-skills:
-  - name: attack
-    value: 2
-  - name: sneak
-    value: 3
-```
-
-In both cases you can write:
-
-```yaml
-value: "{{ skills.attack }}"   # → 2
-value: "{{ skills.sneak }}"    # → 3
-```
-
 ### `character.*`
 
 DH-UI builds a small summary object from frontmatter for convenience:
@@ -139,6 +110,7 @@ If a token cannot be parsed as a number, it is treated as 0 for numeric helpers.
 
 ### Trait-based badges
 
+````yaml
 ```badges
 items:
   - label: "Agility"
@@ -146,10 +118,11 @@ items:
   - label: "Defense"
     value: "{{ add traits.agility traits.instinct }}"
 ```
+````
 
 ### Frontmatter-driven vitals
 
-```yaml
+````yaml
 ---
 hp_max: 12
 stress_max: 6
@@ -163,3 +136,4 @@ stress: "{{ frontmatter.stress_max }}"
 armor: "{{ frontmatter.armor_slots }}"
 hope: "{{ frontmatter.hope_max }}"
 ```
+````
