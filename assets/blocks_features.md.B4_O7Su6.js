@@ -113,9 +113,9 @@ import{_ as a,c as i,o as n,ag as t}from"./chunks/framework.BpVvFBTM.js";const e
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">styleClass</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">layout</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">grid</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">ancestry</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">  # Elf / Ribbet ancestry cards from the SRD</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">  # Elf ancestry card</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">community</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">  # Community cards from the SRD</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">  # Community card</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">\`\`\`</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">\`\`\`</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">features</span></span>
