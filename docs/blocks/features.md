@@ -164,9 +164,9 @@ For example, you might keep ancestry and community on the left, and class / subc
 styleClass: 
 layout: grid
 ancestry:
-  # Elf / Ribbet ancestry cards from the SRD
+  # Elf ancestry card
 community:
-  # Community cards from the SRD
+  # Community card
 ```
 
 ```features

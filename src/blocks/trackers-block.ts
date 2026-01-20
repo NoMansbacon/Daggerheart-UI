@@ -107,7 +107,8 @@ function registerOneTracker(
     const klass = String((y as any).styleClass ?? y.class ?? '').trim().split(/\s+/).filter(Boolean)[0];
     el.addClass('dh-tracker-block');
     if (klass) el.addClass(klass);
-    const labelText = (y.label || blockName.toUpperCase()).toString();
+    const defaultLabel = blockName.charAt(0).toUpperCase() + blockName.slice(1);
+    const labelText = (y.label || defaultLabel).toString();
     const stateKey = (y.state_key || "").toString().trim();
 
     let rawCount: number | string | undefined =

@@ -172,10 +172,16 @@ Top‑level options:
 
 In addition to the 4‑slot `vitals` grid, DH‑UI provides standalone tracker blocks:
 
-- ```hp
-- ```stress
-- ```armor
-- ```hope
+````yaml
+```hp
+```
+```stress
+```
+```armor
+```
+```hope
+```
+````
 
 These are useful when you want to place individual trackers in different parts of the layout (for example, Hope near Experiences, or Armor next to your equipment).
 
