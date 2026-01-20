@@ -1,4 +1,4 @@
-import{_ as s,c as n,o as e,ag as p}from"./chunks/framework.BpVvFBTM.js";const d=JSON.parse('{"title":"Marlowe Fairwind","description":"","frontmatter":{"name":"Marlowe Fairwind","class":"Sorcerer","subclass":"Primal Origin","ancestry":"Elf","heritage":"Loreborne","level":1,"tier":1,"hp_max":6,"stress_max":6,"armor_slots":3,"hope_max":6,"domains":["arcana","midnight"],"vault":null,"loadout":["[[DH_Compendium/abilities/Arcana/Unleash Chaos.md]]","[[DH_Compendium/abilities/Midnight/Rain of Blades.md]]"],"evasion":10,"spellcast_trait":"Instinct","equipped":["[[DH_Compendium/equipment/weapons/Tier 1/Dualstaff.md]]","[[DH_Compendium/equipment/armor/Tier 1/Leather Armor.md]]"]},"headers":[],"relativePath":"examples/sorcerer.md","filePath":"examples/sorcerer.md"}'),l={name:"examples/sorcerer.md"};function t(i,a,o,r,c,h){return e(),n("div",null,[...a[0]||(a[0]=[p(`<h1 id="marlowe-fairwind" tabindex="-1">Marlowe Fairwind <a class="header-anchor" href="#marlowe-fairwind" aria-label="Permalink to &quot;Marlowe Fairwind&quot;">​</a></h1><div class="language-badges vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">badges</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>styleClass:</span></span>
+import{_ as s,c as n,o as e,ag as p}from"./chunks/framework.BpVvFBTM.js";const d=JSON.parse('{"title":"Marlowe Fairwind","description":"","frontmatter":{"name":"Marlowe Fairwind","class":"Sorcerer","subclass":"Primal Origin","ancestry":"Elf","heritage":"Loreborne","level":1,"tier":1,"hp":6,"stress":6,"armor":3,"hope":6,"major_threshold":"6","severe_threshold":"13","domains":["arcana","midnight"],"vault":null,"loadout":["[[DH_Compendium/abilities/Arcana/Unleash Chaos.md]]","[[DH_Compendium/abilities/Midnight/Rain of Blades.md]]"],"evasion":10,"spellcast_trait":"Instinct","equipped":["[[DH_Compendium/equipment/weapons/Tier 1/Dualstaff.md]]","[[DH_Compendium/equipment/armor/Tier 1/Leather Armor.md]]"]},"headers":[],"relativePath":"examples/sorcerer.md","filePath":"examples/sorcerer.md"}'),l={name:"examples/sorcerer.md"};function t(i,a,o,r,c,h){return e(),n("div",null,[...a[0]||(a[0]=[p(`<h1 id="marlowe-fairwind" tabindex="-1">Marlowe Fairwind <a class="header-anchor" href="#marlowe-fairwind" aria-label="Permalink to &quot;Marlowe Fairwind&quot;">​</a></h1><div class="language-badges vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">badges</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>styleClass:</span></span>
 <span class="line"><span>items:</span></span>
 <span class="line"><span>  - label: Character</span></span>
 <span class="line"><span>    value: &quot;{{ frontmatter.name }}&quot;</span></span>
@@ -28,10 +28,10 @@ import{_ as s,c as n,o as e,ag as p}from"./chunks/framework.BpVvFBTM.js";const d
 <span class="line"><span>armor_label: &quot;Armor&quot;</span></span>
 <span class="line"><span>hope_label: &quot;Hope&quot;</span></span>
 <span class="line"><span></span></span>
-<span class="line"><span>hp: &quot;{{ frontmatter.hp_max }}&quot;</span></span>
-<span class="line"><span>stress: &quot;{{ frontmatter.stress_max }}&quot;</span></span>
-<span class="line"><span>armor: &quot;{{ frontmatter.armor_slots }}&quot;</span></span>
-<span class="line"><span>hope: &quot;{{ frontmatter.hope_max }}&quot;</span></span>
+<span class="line"><span>hp: &quot;{{ frontmatter.hp }}&quot;</span></span>
+<span class="line"><span>stress: &quot;{{ frontmatter.stress }}&quot;</span></span>
+<span class="line"><span>armor: &quot;{{ frontmatter.armor }}&quot;</span></span>
+<span class="line"><span>hope: &quot;{{ frontmatter.hope }}&quot;</span></span>
 <span class="line"><span></span></span>
 <span class="line"><span>hp_key: &quot;din_health::Characters/Marlowe&quot;</span></span>
 <span class="line"><span>stress_key: &quot;din_stress::Characters/Marlowe&quot;</span></span>
@@ -43,8 +43,9 @@ import{_ as s,c as n,o as e,ag as p}from"./chunks/framework.BpVvFBTM.js";const d
 <span class="line"><span>    value: &quot;Spend 3 Hope to reroll any number of your damage dice on an attack that deals magic damage.&quot;</span></span></code></pre></div><p>This block renders HP, Stress, Armor, and Hope trackers that other blocks (rest, damage, etc.) will interact with using the same keys.</p><hr><h2 id="damage" tabindex="-1">Damage <a class="header-anchor" href="#damage" aria-label="Permalink to &quot;Damage&quot;">​</a></h2><div class="language-damage vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">damage</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>styleClass:</span></span>
 <span class="line"><span>title: &quot;Damage&quot;</span></span>
 <span class="line"><span></span></span>
-<span class="line"><span>hp_key: din_health</span></span>
-<span class="line"><span>armor_key: din_armor::{{ file.path }}</span></span>
+<span class="line"><span># Use the same keys as the vitals block so damage updates Marlowe&#39;s trackers</span></span>
+<span class="line"><span>hp_key: &quot;din_health::Characters/Marlowe&quot;</span></span>
+<span class="line"><span>armor_key: &quot;din_armor::Characters/Marlowe&quot;</span></span>
 <span class="line"><span></span></span>
 <span class="line"><span># thresholds – these override base_major/base_severe when present</span></span>
 <span class="line"><span>major_threshold: &quot;{{ frontmatter.major_threshold }}&quot;</span></span>
@@ -52,12 +53,7 @@ import{_ as s,c as n,o as e,ag as p}from"./chunks/framework.BpVvFBTM.js";const d
 <span class="line"><span></span></span>
 <span class="line"><span># fallback base thresholds if frontmatter is missing</span></span>
 <span class="line"><span>base_major: 3</span></span>
-<span class="line"><span>base_severe: 6</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span># add level on top of thresholds</span></span>
-<span class="line"><span>level: &quot;{{ frontmatter.level }}&quot;</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>class: test-damage</span></span></code></pre></div><p>This block lets you enter a damage amount (and Armor used) and then applies the resulting tiered damage directly to your existing HP and Armor trackers, using the same state keys as your vitals block.</p><hr><h2 id="rest-level-up-controls" tabindex="-1">Rest &amp; Level Up controls <a class="header-anchor" href="#rest-level-up-controls" aria-label="Permalink to &quot;Rest &amp; Level Up controls&quot;">​</a></h2><div class="language-rest vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">rest</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>styleClass:</span></span>
+<span class="line"><span>base_severe: 6</span></span></code></pre></div><p>This block lets you enter a damage amount (and Armor used) and then applies the resulting tiered damage directly to your existing HP and Armor trackers, using the same state keys as your vitals block.</p><hr><h2 id="rest-level-up-controls" tabindex="-1">Rest &amp; Level Up controls <a class="header-anchor" href="#rest-level-up-controls" aria-label="Permalink to &quot;Rest &amp; Level Up controls&quot;">​</a></h2><div class="language-rest vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">rest</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>styleClass:</span></span>
 <span class="line"><span>rest_label: &quot;Rest&quot;</span></span>
 <span class="line"><span>short_label: &quot;Short Rest&quot;</span></span>
 <span class="line"><span>long_label: &quot;Long Rest&quot;</span></span>
@@ -142,9 +138,10 @@ import{_ as s,c as n,o as e,ag as p}from"./chunks/framework.BpVvFBTM.js";const d
 <span class="line"><span># Use the character&#39;s level and domains frontmatter for default filters</span></span>
 <span class="line"><span>use_character_filters: true</span></span></code></pre></div><p>This badge block just summarizes the two domain cards Marlowe has chosen at level 1. The actual card notes would live elsewhere in your vault and be managed with the Domain Picker.</p><hr><h2 id="consumables" tabindex="-1">Consumables <a class="header-anchor" href="#consumables" aria-label="Permalink to &quot;Consumables&quot;">​</a></h2><p>You can add a <code>consumables</code> block if you want to track anything and the number of uses it has (like having 3 Minor Health Potions in your inventory) on the same sheet:</p><div class="language-yaml vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">\`\`\`</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">consumables</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">styleClass</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span></span>
-<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">label</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Minor Health Potion (1d4)&quot;</span></span>
-<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">state_key</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;din_minor_health_single&quot;</span></span>
-<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">uses</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">3</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">items</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  - </span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">label</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Minor Health Potion (1d4)&quot;</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">    state_key</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;din_minor_health_single&quot;</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">    uses</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">3</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">\`\`\`</span></span></code></pre></div><hr><div class="language-yaml vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">\`\`\`</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">equipmentpicker</span></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># optional per-block overrides</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">folders</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span></span>
