@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "DaggerHeart-UI Character Sheets"
-  text: "An Obsidian plugin for Daggerheart"
+  name: "DaggerHeart-UI"
+  text: "An Obsidian UI toolkit for Daggerheart character sheets"
   tagline: Build rich markdown-driven character sheets with live UI blocks in Obsidian
   actions:
     - theme: brand

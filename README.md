@@ -1,4 +1,4 @@
-# DaggerHeart-UI Character Sheets
+# DaggerHeart-UI
 
 A **Daggerheart™ Compatible** Obsidian plugin that turns fenced code blocks into rich, live-updating character sheet UI.
 
@@ -13,7 +13,7 @@ Use simple Markdown + YAML to render traits, vitals, trackers, rest controls, da
 
 For complete documentation, examples, and guides, visit the docs site:
 
-- 📚 **https://NoMansbacon.github.io/DaggerHeart-UI/**
+- 📚 **https://NoMansbacon.github.io/Daggerheart-UI/**
 
 The docs include:
 
@@ -32,14 +32,14 @@ The docs include:
 2. In BRAT settings, add this repo as a beta plugin:
    `https://github.com/NoMansbacon/Daggerheart-UI`
 3. Let BRAT install/update the plugin.
-4. Enable **DaggerHeart-UI Character Sheets** in *Settings → Community plugins*.
+4. Enable **DaggerHeart-UI** in *Settings → Community plugins*.
 
 ### Manual (for developers)
 
 1. Copy this folder into your vault under `.obsidian/plugins/daggerheart-tooltips`.
 2. Run `npm install` in the plugin folder.
 3. Run `npm run dev` to build `main.js`.
-4. Enable **DaggerHeart-UI Character Sheets** in *Settings → Community plugins*.
+4. Enable **DaggerHeart-UI** in *Settings → Community plugins*.
 
 The plugin requires Obsidian `minAppVersion` as specified in `manifest.json`.
 
@@ -97,4 +97,4 @@ This project uses Public Game Content under the **Darrington Press Community Gam
 
 - The full text of the DPCGL can be found at https://darringtonpress.com/license/.
 - All Daggerheart game mechanics and related Public Game Content remain the property of Darrington Press / Critical Role.
-- DaggerHeart-UI Character Sheets only provides tooling and UI; it does not include Prohibited Content such as official rulebook text, art, logos, or Campaign Frames.
+- DaggerHeart-UI only provides tooling and UI; it does not include Prohibited Content such as official rulebook text, art, logos, or Campaign Frames.

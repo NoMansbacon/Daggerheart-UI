@@ -14,7 +14,7 @@ DaggerHeart-UI is not published to the Obsidian Community Plugin store yet. Inst
 2. In BRAT settings, add this repository as a beta plugin:
    `https://github.com/NoMansbacon/Daggerheart-UI`
 3. Let BRAT install/update the plugin.
-4. Enable **DaggerHeart-UI Character Sheets** in *Settings → Community plugins*.
+4. Enable **DaggerHeart-UI** in *Settings → Community plugins*.
 
 ## Your first character sheet
 
